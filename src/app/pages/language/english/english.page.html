@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>English</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content fullscreen>
+      <!-- <ion-searchbar [(ngModel)]="searchQuery"  [debounce]="250" (change)="onInput()"  showCancelButton="focus" value="India" animated></ion-searchbar> -->
+      <ion-grid>
+          <ion-row>
+              <ion-col  size="6" size-sm="4" size-md="3" *ngFor="let News of Books">
+                  <ion-card>
+                      <ion-img src="{{News.volumeInfo.imageLinks.thumbnail}}"></ion-img>
+                      <ion-card-header>
+                        <ion-card-title >{{News.volumeInfo.title}}</ion-card-title>
+                      </ion-card-header>
+                  </ion-card>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+  </ion-content>

@@ -1,0 +1,194 @@
+<ion-header>
+  <ion-toolbar color="warning" expand="block" >
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+ <!-- <ion-content fullscreen align-self-center>
+        <ion-grid>
+          <ion-row>
+            <ion-col size-sm="12" size-md="6"  offset-md="3" align-self-center>
+              <div>
+                    <ion-card>
+                            <ion-slides #signupSlider pager>
+                            <ion-slide>
+                              <p  style="color: #ea6153;">Please fill out all details accurately.</p>
+                              <ion-list lines="none">
+                                  <form >
+                                      <ion-item>
+                                          <ion-label position="floating">First Name</ion-label>
+                                          <ion-input  type="text" ></ion-input>
+                                      </ion-item>
+                                      <ion-item >
+                                          <p>Please enter a valid name.</p>
+                                      </ion-item>
+                                      <ion-item>
+                                          <ion-label position="floating">Last Name</ion-label>
+                                          <ion-input type="text"></ion-input>
+                                      </ion-item>
+                                      <ion-item >
+                                          <p>Please enter a valid name.</p>
+                                      </ion-item>
+                                      <ion-item>
+                                          <ion-label position="floating">Age</ion-label>
+                                          <ion-input type="number" ></ion-input>
+                                      </ion-item>
+                                      <ion-item >
+                                          <p>Please enter a valid age.</p>
+                                      </ion-item>
+                                  </form>
+                              </ion-list>
+                            </ion-slide>
+                            <ion-slide>
+                              <ion-list lines="none">
+                                  <form>
+                                      <ion-item>
+                                          <ion-label position="floating">Username</ion-label>
+                                          <ion-input type="text"></ion-input>
+                                      </ion-item>
+                                      <ion-item>
+                                          <p>Checking username...</p>
+                                      </ion-item>
+                                      <ion-item>
+                                          <p>Sorry, that username can not be used!</p>
+                                      </ion-item>
+                                      <ion-item>
+                                          <ion-label position="floating">Privacy</ion-label>
+                                          <ion-select>
+                                              <ion-select-option value="public" checked="true">Public</ion-select-option>
+                                              <ion-select-option value="friends">Friends Only</ion-select-option>
+                                              <ion-select-option value="private">Private</ion-select-option>
+                                          </ion-select>
+                                      </ion-item>
+                                      <ion-item>
+                                          <ion-label position="floating">Bio</ion-label>
+                                          <ion-textarea></ion-textarea>
+                                      </ion-item>
+                                  </form>
+                              </ion-list>
+                              <ion-button expand="block" color="primary">Create Account!</ion-button>
+                            </ion-slide>
+                      
+                          </ion-slides>
+                          <ion-button expand="block" routerLink="/menu/first">Login</ion-button>
+                         </ion-card>
+                     
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+ </ion-content> -->
+ <ion-content fullscreen align-self-center class="background">
+        <ion-grid>
+            <ion-row>
+                <ion-col size-sm="12" size-md="8"  offset-md="2" align-self-center>
+                 <div>
+                 <ion-card >
+                <!-- <ion-button expand="block" (click)="isLinear = !isLinear" id="toggle-linear"> {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}</ion-button> -->
+
+                    <mat-vertical-stepper [linear]="isLinear" #stepper>
+                      <mat-step [stepControl]="firstFormGroup">
+                        <form [formGroup]="firstFormGroup">
+                          <ng-template matStepLabel>Fill out your name</ng-template>
+                          <mat-form-field>
+                            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                          </mat-form-field>
+                          <div class="button login">
+                            <button mat-button  matStepperNext  mat-raised-button color="primary">Next</button>
+                          </div>
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="secondFormGroup">
+                        <form [formGroup]="secondFormGroup">
+                          <ng-template matStepLabel>Fill out your address</ng-template>
+                          <mat-form-field>
+                            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+                          </mat-form-field>
+                          <div class="button back">
+                            <button mat-button matStepperPrevious  mat-raised-button color="primary">Back</button>
+                            <button mat-button matStepperNext  mat-raised-button color="primary">Next</button>
+                          </div>
+                        </form>
+                      </mat-step>
+                      <mat-step>
+                        <ng-template matStepLabel>Done</ng-template>
+                        <div>
+                        
+                          <!-- <button mat-button matStepperPrevious  mat-raised-button color="primary" class="ion-padding">Back</button>
+                          <button mat-button (click)="stepper.reset()"  mat-raised-button color="primary" class="ion-padding">Reset</button> -->
+                          <ion-button expand="block" routerLink="/master/home">Login</ion-button>
+                        </div>
+                      </mat-step>
+                    </mat-vertical-stepper>
+                    <ion-label class="register">If you dont have any account Register Now</ion-label>
+                 </ion-card>
+            </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ </ion-content>
+        
+<!-- <ion-content>
+    <ion-card>
+        <ion-slides #signupSlider pager>
+        <ion-slide>
+          <p  style="color: #ea6153;">Please fill out all details accurately.</p>
+          <ion-list lines="none">
+              <form >
+                  <ion-item>
+                      <ion-label position="floating">First Name</ion-label>
+                      <ion-input  type="text" ></ion-input>
+                  </ion-item>
+                  <ion-item >
+                      <p>Please enter a valid name.</p>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="floating">Last Name</ion-label>
+                      <ion-input type="text"></ion-input>
+                  </ion-item>
+                  <ion-item >
+                      <p>Please enter a valid name.</p>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="floating">Age</ion-label>
+                      <ion-input type="number" ></ion-input>
+                  </ion-item>
+                  <ion-item >
+                      <p>Please enter a valid age.</p>
+                  </ion-item>
+              </form>
+          </ion-list>
+        </ion-slide>
+        <ion-slide>
+          <ion-list lines="none">
+              <form>
+                  <ion-item>
+                      <ion-label position="floating">Username</ion-label>
+                      <ion-input type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <p>Checking username...</p>
+                  </ion-item>
+                  <ion-item>
+                      <p>Sorry, that username can not be used!</p>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="floating">Privacy</ion-label>
+                      <ion-select>
+                          <ion-select-option value="public" checked="true">Public</ion-select-option>
+                          <ion-select-option value="friends">Friends Only</ion-select-option>
+                          <ion-select-option value="private">Private</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="floating">Bio</ion-label>
+                      <ion-textarea></ion-textarea>
+                  </ion-item>
+              </form>
+          </ion-list>
+          <ion-button expand="block" color="primary">Create Account!</ion-button>
+        </ion-slide>
+  
+      </ion-slides>
+     </ion-card>
+  <ion-button expand="block" routerLink="/menu/first">Login</ion-button>
+</ion-content> -->

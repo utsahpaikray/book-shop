@@ -1,0 +1,8 @@
+{
+  "name": "library",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

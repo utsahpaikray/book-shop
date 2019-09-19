@@ -1,0 +1,27 @@
+
+// ion-split-pane {
+//     contain: none;
+// }
+.active {
+    --ion-text-color: var(--ion-color-primary);
+ 
+    ion-icon {
+        --ion-text-color-rgb: var(--ion-color-primary);
+    }
+}
+ 
+.parent-active {
+    font-weight: 500;
+}
+ 
+.sub-item {
+    padding-left: 20px;
+    font-size: small;
+}
+.active-item {
+    border-left: 8px solid var(--ion-color-primary);
+    ion-icon {
+        color: var(--ion-color-primary);
+    }
+
+}

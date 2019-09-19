@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar color="warning" text-center>
+        <ion-buttons slot="start" (click)="closeModal()">
+            <ion-icon name="arrow-round-back"></ion-icon>
+        </ion-buttons>
+      <ion-title>Product Detail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" text-center align-self-center>
+            <ion-img src="https://itbook.store/img/books/9780764579080.png"></ion-img>
+        </ion-col>
+        <ion-col size="6" align-self-center>
+            <ion-list>
+                <ion-item>
+                    <ion-label>Name : {{modelId}}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Price: $50.00</ion-label>  
+                </ion-item>
+              </ion-list>
+             
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-button (click)="closeModal()" tappable>Add To Cart</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row>
+          <ion-col size="12" text-center align-self-center>
+              <ion-title class="title">You Can Also Like</ion-title>
+              <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts">
+                <ion-slide *ngFor= "let book of books">
+                    <img src={{book.image}} alt="">
+                </ion-slide>
+              </ion-slides> 
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-content>

@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Cart</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+          <ion-list>
+            <ng-container *ngFor="let item of cartItems">
+                <ion-item-sliding>
+                    <ion-item-options side="start">
+                      <ion-item-option color="danger" expandable>
+                        Delete
+                      </ion-item-option>
+                    </ion-item-options>
+                <ion-item> 
+                    <ion-thumbnail class="thumb-nail"slot="start">
+                        <ion-img [src]="item.image"></ion-img>
+                      </ion-thumbnail>
+                      <ul class="property">
+                        <li>
+                            <ion-label>Title: {{item.title}}</ion-label>
+                        </li>
+                        <li text-right>
+                            <ion-label>Price: {{item.price}}</ion-label>
+                        </li>
+                        <li  text-right>
+                            <ion-label>Discount: $10</ion-label>
+                        </li>
+                        <li  text-right>
+                            <ion-label>Total: $100</ion-label>
+                        </li>
+                      </ul>  
+                      <ion-button color="danger" class="remove-button">   
+                          <ion-label>Remove</ion-label>
+                          <ion-icon name="trash"></ion-icon>
+                      </ion-button>           
+               </ion-item> 
+            <ion-item-options side="end">
+                <ion-item-option color="tertiary" expandable>
+                  Details
+                </ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+             
+            </ng-container>
+              
+             
+          </ion-list>
+         
+        </ion-row>
+    </ion-grid>
+    <ion-segment value="shared">
+        <ion-segment-button value="bookmarks">
+          <ion-label>Bookmarks</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="reading">
+          <ion-label>Reading List</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="shared">
+          <ion-label>Shared Links</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+</ion-content>
