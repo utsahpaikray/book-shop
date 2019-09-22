@@ -9,15 +9,14 @@ import { Router } from '@angular/router';
 export class MySchoolListPage implements OnInit {
   schoolList: any[];
 
-  constructor(
-    private _router: Router) { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
     
    
     this.schoolList =[
       {
-      name: 'BHALIAPADA School'
+      name: 'Bhalipada School'
      },
       {
       name: 'BHATAPADA School'

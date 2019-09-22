@@ -1,16 +1,17 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>News Room</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content fullscreen>
-  <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (change)="onInput()" showCancelButton="focus" value="India"
+<ion-content>
+  <ion-grid class="padding-top">
+    <ion-row> <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (change)="onInput()" showCancelButton="focus" value="India"
     animated></ion-searchbar>
-  <ion-grid>
+    </ion-row>
     <ion-row>
       <ion-col size="12" size-sm="6" size-md="6" *ngFor="let News of NewsEverything">
         <ion-card>

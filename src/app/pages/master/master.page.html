@@ -1,6 +1,6 @@
     <ion-split-pane>
         <ion-menu contentId="content">
-          <ion-header>
+          <ion-header translucent>
             <ion-toolbar color="primary">
               <ion-title>Menu</ion-title>
             </ion-toolbar>
@@ -9,7 +9,7 @@
             <ion-list>
                 <div *ngFor="let p of pages">
                   <ion-menu-toggle auto-hide="false" >
-                    <ion-item *ngIf="!p.children?.length > 0" [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)"> 
+                    <ion-item *ngIf="!p.children?.length > 0 && p.navigation" [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)"> 
                       <ion-label>{{ p.title }}</ion-label>
                       <ion-icon name="{{p.icon}}" slot="end"></ion-icon>
                     </ion-item>
@@ -43,28 +43,37 @@
         </ion-menu>
       
         <ion-router-outlet id="content" main>
-            <ion-tabs>
+          <ion-header>
+            <ion-toolbar color="primary" expand="block">
+                <ion-buttons slot="start"> 
+                    <ion-menu-button></ion-menu-button>
+                  </ion-buttons>
+              <ion-title>{{Title}}</ion-title> 
+                <app-profile class="ion-float-right" (click)="presentPopover($event)"></app-profile>
+                <app-cart-count class="ion-float-right"></app-cart-count>
+            </ion-toolbar>
+          </ion-header>
+          <ion-tabs>
                 <ion-tab-bar >
                
                   <ion-tab-button tab="books" > 
                     <ion-chip color="primary">     
                       <ion-icon name="logo-buffer" color="warning-shade"></ion-icon>
-                      <ion-label color="warning-shade">Authors</ion-label>
+                      <ion-label color="warning-shade">Books</ion-label>
                     </ion-chip>
                   </ion-tab-button>
                
                   <ion-tab-button tab="authors" >
                     <ion-chip color="primary">
                         <ion-icon name="book" color="warning-shade"></ion-icon>
-                        <ion-label color="warning-shade">Books</ion-label>
+                        <ion-label color="warning-shade">Authors</ion-label>
                     </ion-chip>
                   </ion-tab-button>
                   <ion-tab-button tab="cart">
                     <ion-chip color="primary">
                         <ion-icon name="cart" color="warning-shade"></ion-icon>
                         <ion-label color="warning-shade">Cart </ion-label>
-                    </ion-chip>
-                   
+                    </ion-chip> 
                   </ion-tab-button>
                 </ion-tab-bar>
                

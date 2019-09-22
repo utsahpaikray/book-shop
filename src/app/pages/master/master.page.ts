@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
+import { SettingService} from '../../services/setting.service'
+import { PopoverController } from '@ionic/angular';
+import {ProfileSettingComponent } from '../../shared-component/shared-component/header/profile-setting/profile-setting.component';
 
 @Component({
   selector: 'app-master',
@@ -13,17 +16,32 @@ export class MasterPage implements OnInit {
     {
       title: 'Home',
       url: '/master/home',
-      icon:'home'
+      icon:'home',
+      navigation:true
     },
     {
       title: 'Cart',
       url: '/master/cart',
-      icon:'cart'
+      icon:'cart',
+      navigation:true
     },
     {
       title: 'News',
       url: '/master/news',
-      icon:'globe'
+      icon:'globe',
+      navigation:true
+    },
+    {
+      title: 'Books',
+      url: '/master/books',
+      icon:'globe',
+      navigation:false
+    },
+    {
+      title: 'Authors',
+      url: '/master/authors',
+      icon:'globe',
+      navigation:false
     },
     {
       title: 'Language',
@@ -31,37 +49,80 @@ export class MasterPage implements OnInit {
         {
           title: 'Hindi',
           url: '/master/language/hindi',
-          icon: 'logo-ionic'
+          icon: 'logo-ionic',
+          navigation:true
         },
         {
           title: 'English',
           url: '/master/language/english',
-          icon: 'logo-google'
+          icon: 'logo-google',
+          navigation:true
         },
         {
           title: 'Odia',
           url: '/master/language/odia',
-          icon: 'logo-google'
+          icon: 'logo-google',
+          navigation:true
         },
       ]
     },
     {
+      title: 'Hindi',
+      url: '/master/language/hindi',
+      icon: 'logo-ionic',
+      navigation:false
+    },
+    {
+      title: 'English',
+      url: '/master/language/english',
+      icon: 'logo-google',
+      navigation:false
+    },
+    {
+      title: 'Odia',
+      url: '/master/language/odia',
+      icon: 'logo-google',
+      navigation:false
+    },
+    {
       title: 'My School',
       url: '/master/my-school',
-      icon:'globe'
+      icon:'globe',
+      navigation:true,
+    },
+    {
+      title: 'School Details',
+      url: '/master/my-school/details',
+      icon:'globe',
+      navigation:false
     },
   ];
+  Title: any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController) {
     this.router.events.subscribe((event: RouterEvent) => {
       if (event && event.url) {
+        let path = this.pages.filter(item=>{
+            return item.url== event.url;
+        });
+        this.Title = path[0].title;
         this.selectedPath = event.url;
       }
     });
   }
-
+  public toggleTheme(status) {
+    this.renderer.setElementClass(document.body, 'dark', status?false:true);
+  }
   ngOnInit() {
-
+     this.toggleTheme(true);
+  }
+  async presentPopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: ProfileSettingComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 
 }

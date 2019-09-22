@@ -1,7 +1,4 @@
 
-// ion-split-pane {
-//     contain: none;
-// }
 .active {
     --ion-text-color: var(--ion-color-primary);
  
@@ -24,4 +21,9 @@
         color: var(--ion-color-primary);
     }
 
+}
+ion-toolbar{
+    ion-title{
+        display: inline-block;
+    }
 }

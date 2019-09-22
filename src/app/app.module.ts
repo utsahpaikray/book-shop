@@ -17,6 +17,7 @@ import { IonTabPageModule } from '../app/shared-component/ion-tab/ion-tab.module
 
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

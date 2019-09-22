@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
 import { IonicModule } from '@ionic/angular';
+import { ProfileComponent } from '../../../app/shared-component/shared-component/header/profile/profile.component';
+import { CartCountComponent } from '../../../app/shared-component/shared-component/header/cart-count/cart-count.component';
+import {ProfileSettingComponent } from '../../shared-component/shared-component/header/profile-setting/profile-setting.component';
 
 import { MasterPage } from './master.page';
 
@@ -70,6 +72,12 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MasterPage]
+  declarations: [
+    MasterPage,
+    ProfileComponent,
+    CartCountComponent,
+    ProfileSettingComponent
+  ],
+  entryComponents: [ProfileSettingComponent]
 })
 export class MasterPageModule {}
