@@ -38,6 +38,14 @@ const routes: Routes = [
         loadChildren: '../language/language/language.module#LanguagePageModule'
       },
       {
+        path: 'my-school',
+        loadChildren: '../school/my-school-list/my-school-list.module#MySchoolListPageModule'
+      },
+      {
+        path: 'my-school/details',
+        loadChildren: '../school/my-school-details/my-school-details.module#MySchoolDetailsPageModule'
+      },
+      {
         path: 'tab1/details',
         loadChildren: '../details/details.module#DetailsPageModule'
       },

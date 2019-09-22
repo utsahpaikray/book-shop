@@ -44,7 +44,12 @@ export class MasterPage implements OnInit {
           icon: 'logo-google'
         },
       ]
-    }
+    },
+    {
+      title: 'My School',
+      url: '/master/my-school',
+      icon:'globe'
+    },
   ];
 
   constructor(private router: Router) {

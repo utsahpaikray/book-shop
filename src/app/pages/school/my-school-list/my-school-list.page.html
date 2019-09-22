@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My School</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+      <ion-row class="ion-no-padding">
+        <ion-col size="12" size-sm="6" size-md="6" *ngFor="let school of schoolList">
+            <ion-list class="full-container ion-no-padding" (click)="schoolDetails(school.name)">  
+                    <ion-item> {{school.name}}</ion-item> 
+              </ion-list>
+        </ion-col>  
+      </ion-row>
+  </ion-grid>
+  <!-- <ion-segment value="shared">
+    lines="full"
+      <ion-segment-button value="bookmarks">
+        <ion-label>Bookmarks</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="reading">
+        <ion-label>Reading List</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="shared">
+        <ion-label>Shared Links</ion-label>
+      </ion-segment-button>
+    </ion-segment> -->
+</ion-content>

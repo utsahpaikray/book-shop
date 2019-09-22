@@ -38,4 +38,6 @@ import { IonTabPageModule } from '../app/shared-component/ion-tab/ion-tab.module
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  
+}

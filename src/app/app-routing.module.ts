@@ -17,6 +17,8 @@ const routes: Routes = [
   { path: 'odia', loadChildren: './pages/language/odia/odia.module#OdiaPageModule' },
   { path: 'language', loadChildren: './pages/language/language/language.module#LanguagePageModule' },
   { path: 'ion-tab', loadChildren: './shared-component/ion-tab/ion-tab.module#IonTabPageModule' },
+  { path: 'my-school-list', loadChildren: './pages/school/my-school-list/my-school-list.module#MySchoolListPageModule' },
+  { path: 'my-school-details', loadChildren: './pages/school/my-school-details/my-school-details.module#MySchoolDetailsPageModule' }
   // { path: 'first-with-tabs', loadChildren: './pages/first-with-tabs/first-with-tabs.module#FirstWithTabsPageModule' },
   // { path: 'second', loadChildren: './pages/second/second.module#SecondPageModule' },
  // { path: 'tab1', loadChildren: './pages/tab1/tab1.module#Tab1PageModule' },
