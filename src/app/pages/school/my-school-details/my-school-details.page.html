@@ -48,7 +48,9 @@
       </ion-grid>
       <ion-grid >
           <ion-row>
-              <ion-title class="title">Gallery</ion-title>
+            <ion-item-divider class="ion-margin-bottom">
+                    <ion-title class="title">Gallery</ion-title>
+            </ion-item-divider>
           </ion-row>
           <ion-row>
             <ion-slides  class="slider" pager="true" loop="true" #Gallery>
@@ -69,7 +71,10 @@
       </ion-grid>
       <ion-grid >
         <ion-row>
-            <ion-title class="title">Events Gallery</ion-title>
+            <!-- <ion-title class="title">Events Gallery</ion-title> -->
+            <ion-item-divider class="ion-margin-bottom">
+                    <ion-title class="title">Events Gallery</ion-title>
+            </ion-item-divider>
         </ion-row>
         <ion-row>
             <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts" #eventGallery>

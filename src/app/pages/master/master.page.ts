@@ -15,6 +15,18 @@ export class MasterPage implements OnInit {
   pages = [
     {
       title: 'Home',
+      url: '/',
+      icon:'home',
+      navigation:false
+    },
+    {
+      title: 'Login',
+      url: '/login',
+      icon:'home',
+      navigation:false
+    },
+    {
+      title: 'Home',
       url: '/master/home',
       icon:'home',
       navigation:true
@@ -44,7 +56,7 @@ export class MasterPage implements OnInit {
       navigation:false
     },
     {
-      title: 'Language',
+      title: 'Books',
       children: [
         {
           title: 'Hindi',

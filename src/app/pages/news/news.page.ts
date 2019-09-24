@@ -15,12 +15,12 @@ export class NewsPage implements OnInit {
 
   ngOnInit() {
     this.refs.markForCheck();
-    this.newsService.getEverythingNews('India').subscribe(res => {
+    this.newsService.getEverythingNews({ query: 'India' }).subscribe(res => {
       this.NewsEverything = res.articles;
     });
   }
 public onInput(event){
-  this.newsService.getEverythingNews(this.searchQuery).subscribe(res => {
+  this.newsService.getEverythingNews({ query: this.searchQuery }).subscribe(res => {
     this.NewsEverything = res.articles;
   });
   console.log(this.searchQuery);

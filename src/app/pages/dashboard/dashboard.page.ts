@@ -184,16 +184,23 @@ export class DashboardPage implements OnInit {
   };
   NewsContent: any;
   NewsEverything: any;
+  pagesize=10;
+  page=1;
   constructor(private newsService: DashboardService) { }
 
   ngOnInit() {
-    this.newsService.getNews().subscribe(res => {
-      this.NewsContent = res.articles;
-    });
-    this.newsService.getEverythingNews('Science').subscribe(res => {
+   this.getHeadlines('us',this.pagesize,this.page);
+    this.newsService.getEverythingNews({ query: 'Science' }).subscribe(res => {
+      
       this.NewsEverything = res.articles;
     });
     
+  }
+  public getHeadlines(country,pagesize,page){
+    this.newsService.getNews(country,pagesize,page).subscribe(res => {
+      console.log(res)
+      this.NewsContent = res.articles;
+    });
   }
   ngAfterViewInit() {
     this.slides.startAutoplay();
@@ -205,5 +212,18 @@ export class DashboardPage implements OnInit {
   }
   goToSlide(index) {
     this.slides.slideTo(index+1, 500);
+  }
+  public doRefresh(event) {
+      this.ngOnInit();
+  }
+  public loadData(event) {
+    this.pagesize=this.pagesize+10;
+    this.getHeadlines('us',this.pagesize,this.page);
+    setTimeout(() => {
+      event.target.complete();
+      if (this.NewsContent && this.NewsContent.articles && this.NewsContent.articles.length*this.page >= this.NewsContent.totalResults ) {
+        event.target.disabled = true;
+      }
+    }, 500);
   }
 }
