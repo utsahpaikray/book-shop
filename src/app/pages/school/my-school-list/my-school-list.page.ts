@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-my-school-list',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class MySchoolListPage implements OnInit {
   schoolList: any[];
-
+  @ViewChild(IonSlides) slides: IonSlides;
   constructor(private _router: Router) { }
 
   ngOnInit() {
@@ -118,5 +120,8 @@ export class MySchoolListPage implements OnInit {
   }
 public schoolDetails(name){
   this._router.navigate(['master/my-school/details']);
+}
+ngAfterViewInit() {
+  this.slides.startAutoplay();
 }
 }

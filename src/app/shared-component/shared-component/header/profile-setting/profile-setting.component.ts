@@ -7,9 +7,7 @@ import { Component, OnInit, Renderer } from '@angular/core';
 })
 export class ProfileSettingComponent implements OnInit {
 public theme: boolean;
-  constructor(private renderer: Renderer) {
-    this.theme = false;
-   }
+  constructor(private renderer: Renderer) {}
 
   ngOnInit() {}
   public toggleTheme() {

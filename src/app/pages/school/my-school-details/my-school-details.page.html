@@ -7,19 +7,85 @@
     </ion-toolbar>
   </ion-header> -->
 
-<ion-content>
+<ion-content class="ion-no-padding">
     <ion-grid  class="padding-top">
         <ion-row>
-            <ion-col size-xs="12">
-                  <ion-card>
-                    <ion-img src="http://kalarabankamodelvillage.org/images/home-slide5.jpg"></ion-img>
+            <ion-col size-xs="12" class="ion-no-padding">
+                  <ion-card class="ion-no-padding">
+                    <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201906/rush-1822566_1280-770x433.jpeg?oOgS1vaqfWcUbV87.4Ca6RIhFKJy6BZG" />
                     <ion-card-header>
                       <ion-card-title>Balugaon High School</ion-card-title>
                       <ion-card-subtitle >A class of Excellency</ion-card-subtitle>
                     </ion-card-header>
-                    <ion-card-content >Cities and urban areas always remained the centers of socio-political activities in Pre-Independence India. The villages neither had the scope nor received any attention from the king and feudal lords of yesteryears to grow. Devoid of all the civic amenities and pushed to the brink of poverty, the villages and the villagers never ever had the quality of life enjoyed by the cities and the city folks. Despite all their inputs towards the economy, the villages continued to remain in utter negligence, for there was no identity of hundreds of thousand voiceless people living in the villages. In one such obscure village, Kalarabank, I was born to a mother who grew up in comfort during her youth to raise me in abject poverty. Call it destiny or irony of fate; my mother Nilimarani Samanta, despite being born to wealthy parents was thrown into the darkness of poverty when death struck to my father to shatter the dreams of each one of my seven siblings. Though crest – fallen and dejected, my mother had a Herculean task ahead to raise her young children all by herself.</ion-card-content>
+                    <ion-card-content >Cities and urban areas always remained the centers of socio-political activities in Pre-Independence India. The villages neither had the scope nor received any attention from the king and feudal lords of yesteryears to grow. Devoid of all the civic amenities and pushed to the brink of poverty, the villages and the villagers never ever had the quality of life enjoyed by the cities and the city folks. Despite all their inputs towards the economy, the villages continued to remain in utter negligence, for there was no identity of hundreds of thousand voiceless people living in the villages. In one such obscure village, Kalarabank, I was born to a mother who grew up in comfort during her youth to raise me in abject poverty.</ion-card-content>
                 </ion-card>
            </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid >
+          <ion-row>
+              <ion-title class="title">Faculty Members</ion-title>
+          </ion-row>
+          <ion-row>
+            <ion-list>
+              <ng-container *ngFor="let faculty of facultyList">
+                  <ion-item> 
+                      <ion-thumbnail class="thumb-nail"slot="start">
+                          <ion-img [src]="faculty.profileImage"></ion-img>
+                      </ion-thumbnail>
+                      <ul class="property">
+                          <li>
+                              <ion-label>Position: {{faculty.position}}</ion-label>
+                          </li>
+                       </ul>
+                 </ion-item> 
+              </ng-container>
+                
+               
+            </ion-list>
+           
+          </ion-row>
+      </ion-grid>
+      <ion-grid >
+          <ion-row>
+              <ion-title class="title">Gallery</ion-title>
+          </ion-row>
+          <ion-row>
+            <ion-slides  class="slider" pager="true" loop="true" #Gallery>
+                <ion-slide>
+                    <img src='https://s3-ap-south-1.amazonaws.com/cdn.odishatv.in/wp-content/uploads/2017/12/education.png' alt="">
+                </ion-slide>
+                <ion-slide>
+                    <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201808/private_school_elementary_kids.png?EiwnhC1LqlS8Dalew6r2EAUlj7QZyQhI" alt="">
+                </ion-slide>
+                <ion-slide>
+                    <img src="https://cdn.studyinternational.com/news/wp-content/uploads/2017/03/pelita-schools-malaysia-390x249.jpg" alt="">
+                </ion-slide>
+                <ion-slide>
+                    <img src="https://odishasuntimes.com/wp-content/uploads/2017/04/School-students.gif" alt="">
+                </ion-slide>
+            </ion-slides> 
+        </ion-row>
+      </ion-grid>
+      <ion-grid >
+        <ion-row>
+            <ion-title class="title">Events Gallery</ion-title>
+        </ion-row>
+        <ion-row>
+            <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts" #eventGallery>
+                <ion-slide>
+                    <img src='http://www.apschandimandir.in/uploads/1517298931_132.JPG' alt="">
+                </ion-slide>
+                <ion-slide>
+                    <img src="https://dpgapanvel.ac.in/wp-content/uploads/2017/08/social-science-exhibition-1.jpg" alt="">
+                </ion-slide>
+                <ion-slide>
+                    <img src="https://dpgapanvel.ac.in/wp-content/uploads/2017/08/social-science-exhibition-15.jpg" alt="">
+                </ion-slide>
+                <ion-slide>
+                    <img src="http://gurukulvidyamandir.org/data1/images/7z.jpg" alt="">
+                </ion-slide>
+            </ion-slides> 
         </ion-row>
       </ion-grid>
 </ion-content>
