@@ -7,11 +7,14 @@
       <ion-item>
         <ion-icon color="warning" name="notifications"></ion-icon>
         <ion-label> Notification</ion-label>
+        <ion-chip color="primary" slot="end">
+            <ion-label color="dark">2</ion-label>
+          </ion-chip>
       </ion-item> 
       <ion-item> 
         <ion-icon color="warning" name="brush"></ion-icon>
         <ion-label>Theme</ion-label>
-        <ion-toggle [(ngModel)]="theme" [(ngModel)]="isToggled" (ionChange)="toggleTheme()"></ion-toggle>
+        <ion-toggle [(ngModel)]="theme" (ionChange)="toggleTheme()"></ion-toggle>
       </ion-item> 
       <ion-item tappable routerLink="/login" routerDirection="root">
           <ion-icon color="warning" name="log-in"></ion-icon>

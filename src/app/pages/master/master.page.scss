@@ -27,3 +27,12 @@ ion-toolbar{
         display: inline-block;
     }
 }
+.profile{
+    .thumb-nail{
+        display: block;
+        margin: 15px auto;
+    }
+    ion-title{
+        font-size: 0.8rem;
+    }
+}

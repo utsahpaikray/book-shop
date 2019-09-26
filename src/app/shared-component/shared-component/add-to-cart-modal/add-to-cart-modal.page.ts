@@ -99,7 +99,7 @@ export class AddToCartModalPage implements OnInit {
   @ViewChild(IonSlides) slides: IonSlides;
   slideOpts = {
     loop: true,
-    slidesPerView: 3,
+    slidesPerView: 2,
     coverflowEffect: {
       rotate: 50,
       stretch: 0,

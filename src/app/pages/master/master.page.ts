@@ -26,6 +26,12 @@ export class MasterPage implements OnInit {
       navigation:false
     },
     {
+      title: 'Register',
+      url: '/register',
+      icon:'home',
+      navigation:false
+    },
+    {
       title: 'Home',
       url: '/master/home',
       icon:'home',
@@ -61,19 +67,19 @@ export class MasterPage implements OnInit {
         {
           title: 'Hindi',
           url: '/master/language/hindi',
-          icon: 'logo-ionic',
+          icon: 'journal',
           navigation:true
         },
         {
           title: 'English',
           url: '/master/language/english',
-          icon: 'logo-google',
+          icon: 'journal',
           navigation:true
         },
         {
           title: 'Odia',
           url: '/master/language/odia',
-          icon: 'logo-google',
+          icon: 'journal',
           navigation:true
         },
       ]
@@ -81,25 +87,25 @@ export class MasterPage implements OnInit {
     {
       title: 'Hindi',
       url: '/master/language/hindi',
-      icon: 'logo-ionic',
+      icon: 'journal',
       navigation:false
     },
     {
       title: 'English',
       url: '/master/language/english',
-      icon: 'logo-google',
+      icon: 'journal',
       navigation:false
     },
     {
       title: 'Odia',
       url: '/master/language/odia',
-      icon: 'logo-google',
+      icon: 'journal',
       navigation:false
     },
     {
       title: 'My School',
       url: '/master/my-school',
-      icon:'globe',
+      icon:'business',
       navigation:true,
     },
     {

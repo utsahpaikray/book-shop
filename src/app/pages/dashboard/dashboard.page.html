@@ -10,7 +10,9 @@
 
 
 <ion-content fullscreen class="ion-no-padding"> 
-    
+    <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher> -->
     <ion-title class="title">New Featured Books</ion-title>
     <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts">
       <ion-slide *ngFor= "let book of books">
@@ -54,9 +56,7 @@
                 </ion-col>
               </ion-row>
             </ion-grid>
-            <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-                <ion-refresher-content></ion-refresher-content>
-              </ion-refresher>
+          
               <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
                   <ion-infinite-scroll-content
                     loadingSpinner="bubbles"
