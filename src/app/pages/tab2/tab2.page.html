@@ -82,35 +82,55 @@
       </ion-item>
 </ion-content> -->
 <ion-content fullscreen>
-    <ion-grid>
+    <!-- <ion-grid class="ion-no-padding padding-top">
       <ion-row>
-        <ion-col size="6" align-self-center *ngFor="let book of books">
+        <ion-col size="6" align-self-center *ngFor="let book of books" class="ion-no-padding">
           <div>
             <img src={{book.image}} alt="">
           </div>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
     <!-- <ion-list>
         <ion-item *ngFor="let book of books">
             <ion-img [src]="book.image"></ion-img>
         </ion-item>
       
       </ion-list> -->
-      <ion-grid>
-          <ion-row>
-              <ion-col size-sm="12" size-md="6" align-self-center *ngFor="let book of books">
-                  <ion-card>
+      <!-- <ion-grid class="ion-no-padding">
+          <ion-row class="ion-no-padding">
+              <ion-col size-xs="6" size-sm="12" size-md="6" align-self-center *ngFor="let book of books" class="ion-no-padding align-self-end">
+                  <ion-card class="ion-no-padding align-self-baseline">
                     <img src= {{book.image}} />
                     <ion-card-header>
-                      <ion-card-subtitle>{{book.title}}</ion-card-subtitle>
-                      <ion-card-title>{{book.isbn13}}</ion-card-title>
+                      <ion-label>{{book.title}}</ion-label>
                     </ion-card-header>
-                    <ion-card-content>
                     Price: {{book.price}}
-                    </ion-card-content>
                   </ion-card>
             </ion-col>
            </ion-row>
-        </ion-grid>
+        </ion-grid> -->
+        <ion-grid class="ion-no-padding padding-top">
+            <ion-row class="ion-no-padding row">
+                <ion-col size-xs="6" size-sm="6" size-md="4" align-self-center *ngFor="let book of books" class="ion-no-padding align-self-end ">
+                    <ion-card class=" list card ion-no-padding align-self-baseline">
+                        <div class="item item-body">
+                            <ion-card-header class="card-header-bottom">
+                                <ion-label>{{book.title}}</ion-label>
+                                <ion-label> Price: {{book.price}}</ion-label>
+                              </ion-card-header> 
+                            <img src= {{book.image}} />
+                            <div class="card-header-top">
+                                <ion-button color="danger" class="add-button" (click)="addToCart()">   
+                                    <ion-label>Add To Cart</ion-label>
+                                    <ion-icon name="cart"></ion-icon>
+                                </ion-button>  
+                              </div>      
+                          </div>
+                    </ion-card>
+              </ion-col>
+             </ion-row>
+          </ion-grid>
+
+        
   </ion-content>

@@ -18,104 +18,119 @@ export class MySchoolListPage implements OnInit {
    
     this.schoolList =[
       {
-      name: 'Bhalipada School'
-     },
+        name:'Balugaon',
+        children:[
+          {
+            name: 'Bhalipada School'
+            },
+            {
+            name: 'BHATAPADA School'
+            },
+            {
+            name: 'BHETESWAR School'
+            },
+            {
+            name: 'BINJHALA School'
+            },
+            {
+            name: 'BISNUDIHA School'
+            },
+            {
+            name: 'DINABANDHUPUR School'
+            },
+            {
+            name: 'NACHUNI School'
+            },
+            {
+            name: 'NARENDRAPUR School'
+            },
+            {
+            name: 'GAMBHARIMUNDA School'
+            },
+            {
+            name: 'KUMARANGA School'
+            },
+            {
+            name: 'PADANPUR School'
+            },
+            {
+            name: 'PRATAP School'
+            },
+            {
+            name: 'RAMPUR School'
+            },
+            {
+            name: 'RAGHUNATHPUR School'
+            },
+          {
+            name: 'AUROBINDO PURNANGA S. KENDRA School'
+            },
+            {
+            name: 'HARIJAN SAHI P School'
+            },
+            {
+            name:  'DR. RADHA CHARAN P  School'
+            },
+            {
+            name: 'J.C. GIRLS High School'
+            },
+            {
+            name: 'BALUGAON GIRLS M E School'
+            },
+            {
+            name: 'CHILIKA RANI ENG. MED. School'
+            }
+        ]
+      },
       {
-      name: 'BHATAPADA School'
-     },
+        name:'Banpur',
+        children:[
+          {
+            name:  'DR. RADHA CHARAN P School'
+            },
+            {
+            name: 'GOPABANDHU COLONY PP School'
+            },
+            {
+            name:  'SANTARAPUR  P School'
+            },
+            {
+            name:  'LITTLE WORLD ENG. MED. SCH. School'
+            },
+            {
+            name: 'KANHEITARAI PROJECT P School'
+           },
+            {
+            name: 'PRAJNATEERTHA PUBLIC  School'
+           }
+        ]
+      },
       {
-      name: 'BHETESWAR School'
-     },
-      {
-      name: 'BINJHALA School'
-     },
-      {
-      name: 'BISNUDIHA School'
-     },
-      {
-      name: 'DINABANDHUPUR School'
-     },
-      {
-      name: 'NACHUNI School'
-     },
-      {
-      name: 'NARENDRAPUR School'
-     },
-      {
-      name: 'GAMBHARIMUNDA School'
-     },
-      {
-      name: 'KUMARANGA School'
-     },
-      {
-      name: 'PADANPUR School'
-     },
-      {
-      name: 'PRATAP School'
-     },
-      {
-      name: 'RAMPUR School'
-     },
-      {
-      name: 'RAGHUNATHPUR School'
-     },
-     {
-      name: 'AUROBINDO PURNANGA S. KENDRA School'
-     },
-      {
-      name: 'HARIJAN SAHI P School'
-     },
-      {
-      name:  'DR. RADHA CHARAN P  School'
-     },
-      {
-      name: 'J.C. GIRLS High School'
-     },
-      {
-      name: 'BALUGAON GIRLS M E School'
-     },
-      {
-      name: 'CHILIKA RANI ENG. MED. School'
-     },
-      {
-      name:  'DR. RADHA CHARAN P School'
-     },
-      {
-      name: 'GOPABANDHU COLONY PP School'
-     },
-      {
-      name:  'SANTARAPUR  P School'
-     },
-      {
-      name:  'LITTLE WORLD ENG. MED. SCH. School'
-     },
-      {
-      name: 'KANHEITARAI PROJECT P School'
-     },
-      {
-      name: 'PRAJNATEERTHA PUBLIC  School'
-     },
-      {
-      name: 'SARALAPADAR  P  School'
-     },
-      {
-      name: 'SANTINAGAR PROJECT  PS  School'
-     },
-      {
-      name: 'SRI SATYA SAI VIDYA MANDIR  School'
-     },
-      {
-      name:' SU-DISHA VIDYA VIHAR  PS  School'
-     },
-      {
-      name: 'UMA MAHESWAR PUR   PS  School'
-     },
-      {
-      name: 'VENKATESWAR School'
-     },
-      {
-      name: 'VIVEKANANDA VIDYAMANDIR  School'
-     }     
+        name:'Chilika',
+        children:[
+          {
+            name: 'SARALAPADAR  P  School'
+           },
+            {
+            name: 'SANTINAGAR PROJECT  PS  School'
+           },
+            {
+            name: 'SRI SATYA SAI VIDYA MANDIR  School'
+           },
+            {
+            name:' SU-DISHA VIDYA VIHAR  PS  School'
+           },
+            {
+            name: 'UMA MAHESWAR PUR   PS  School'
+           },
+            {
+            name: 'VENKATESWAR School'
+           },
+            {
+            name: 'VIVEKANANDA VIDYAMANDIR  School'
+           }
+        ]
+      }     
   ]
   }
 public schoolDetails(name){

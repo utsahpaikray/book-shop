@@ -27,13 +27,34 @@
         </ion-slides> 
     </ion-row>
     <ion-row>
-          <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (change)="onInput()" showCancelButton="focus" value="India"
-          animated></ion-searchbar>
+          <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (change)="onInput()" showCancelButton="focus" value="India" animated></ion-searchbar>
+      </ion-row>
+      <ion-row>
+          <ion-title>Area wise school list</ion-title>
       </ion-row>
       <ion-row class="ion-no-padding">
-        <ion-col size="12" size-sm="6" size-md="6" *ngFor="let school of schoolList">
-            <ion-list class="full-container ion-no-padding" (click)="schoolDetails(school.name)">  
+       
+        <ion-col size="12" size-sm="6" size-md="6">
+            <!-- <ion-list class="full-container ion-no-padding" (click)="schoolDetails(school.name)">  
                     <ion-item> {{school.name}}</ion-item> 
+              </ion-list> -->
+              <ion-list color="tertiary">
+                  <ion-card class="ion-no-padding profile" color="tertiary">
+                  <div *ngFor="let school of schoolList" color="transparent">
+                    <ion-item button *ngIf="school.children?.length > 0" (click)="school.open = !school.open" [class.parent-active]="school.open" detail="false" color="transparent">
+                      <ion-icon slot="end" name="arrow-forward" *ngIf="!school.open"></ion-icon>
+                      <ion-icon slot="end" name="arrow-down" *ngIf="school.open"></ion-icon>
+                      <ion-label>{{ school.name }}</ion-label>
+                    </ion-item>
+                    <ion-list *ngIf="school.open">
+                          <ion-item *ngFor="let sub of school.children" class="sub-item">
+                            <ion-label (click)="schoolDetails(school.name)">
+                              {{ sub.name }}
+                            </ion-label>
+                          </ion-item>
+                    </ion-list>
+                </div>
+              </ion-card>
               </ion-list>
         </ion-col>  
       </ion-row>

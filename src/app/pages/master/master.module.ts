@@ -20,11 +20,11 @@ const routes: Routes = [
         loadChildren: '../dashboard/dashboard.module#DashboardPageModule'
       },
       {
-        path: 'books',
+        path: 'authors',
         loadChildren: '../tab1/tab1.module#Tab1PageModule'
       },
       {
-        path: 'authors',
+        path: 'books',
         loadChildren: '../tab2/tab2.module#Tab2PageModule'
       },
       {

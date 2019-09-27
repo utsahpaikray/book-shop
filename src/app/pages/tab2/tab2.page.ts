@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ToasterService } from '../../services/toaster/toaster.service'
 
 @Component({
   selector: 'app-tab2',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab2Page implements OnInit {
 
-  constructor() { }
+  constructor(private toast: ToasterService) { }
 
   ngOnInit() {
   }
@@ -93,5 +94,7 @@ export class Tab2Page implements OnInit {
       "url": "https://itbook.store/books/9781430228264"
     }
   ]
-
+  public addToCart(){
+    this.toast.presentToast('Added to cart successfully','bottom', 'dark');
+  }
 }

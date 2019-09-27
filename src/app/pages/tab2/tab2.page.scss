@@ -1,0 +1,35 @@
+.padding-top{
+    padding-top: 65px;
+ }
+
+  
+//   .col-50, .col-33 {
+//     display: flex;
+//   }
+//   .card {
+//     width:100%;
+//     display: flex;
+//     -webkit-box-orient: vertical;
+//     flex-direction: column;
+//   }
+//   .item-avatar, .item.tabs {
+//             flex: 0 0 auto;
+//   }
+//   .item-body {
+//             flex: 1 1 auto;
+//   }
+.item{
+    border-color: #B2EBF2;
+    border-style: solid;
+    .card-header-top{
+        border-top: 1px solid #e0e0e0;
+        text-align: center;
+        .add-button{
+        bottom: 0;
+        font-size: 0.6rem;
+        }
+    }
+    .card-header-bottom{
+        border-bottom: 1px solid #e0e0e0;
+    }
+}
