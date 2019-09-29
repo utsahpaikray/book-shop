@@ -113,13 +113,13 @@
         <ion-grid class="ion-no-padding padding-top">
             <ion-row class="ion-no-padding row">
                 <ion-col size-xs="6" size-sm="6" size-md="4" align-self-center *ngFor="let book of books" class="ion-no-padding align-self-end ">
-                    <ion-card class=" list card ion-no-padding align-self-baseline">
+                    <ion-card class=" list card ion-no-padding ion-no-margin align-self-baseline" >
                         <div class="item item-body">
                             <ion-card-header class="card-header-bottom">
                                 <ion-label>{{book.title}}</ion-label>
                                 <ion-label> Price: {{book.price}}</ion-label>
                               </ion-card-header> 
-                            <img src= {{book.image}} />
+                            <img src= {{book.image}} class="ion-no-padding"/>
                             <div class="card-header-top">
                                 <ion-button color="danger" class="add-button" (click)="addToCart()">   
                                     <ion-label>Add To Cart</ion-label>
