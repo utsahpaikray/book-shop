@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { DashboardService } from '../../services/dashboard.service'
+import {LoaderService } from '../../services/loader/loader.service';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -186,15 +189,34 @@ export class DashboardPage implements OnInit {
   NewsEverything: any;
   pagesize=10;
   page=1;
-  constructor(private newsService: DashboardService) { }
+  constructor(private newsService: DashboardService, private loader: LoaderService, private camera: Camera) { }
 
   ngOnInit() {
+    this.loader.presentLoading();
    this.getHeadlines('us',this.pagesize,this.page);
-    this.newsService.getEverythingNews({ query: 'Science' }).subscribe(res => {
-      
+    this.newsService.getEverythingNews({ query: 'Science' }).subscribe(res => { 
       this.NewsEverything = res.articles;
+      this.loader.dismissloading();
     });
     
+  }
+  image:any=''
+  openCam(){
+
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+
+     this.image=(<any>window).Ionic.WebView.convertFileSrc(imageData);
+    }, (err) => {
+     alert("error "+JSON.stringify(err))
+    });
+
   }
   public getHeadlines(country,pagesize,page){
     this.newsService.getNews(country,pagesize,page).subscribe(res => {

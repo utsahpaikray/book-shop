@@ -10,15 +10,18 @@
 
 
 <ion-content fullscreen class="ion-no-padding"> 
+    <ion-grid class="padding-top">
+        <!-- <ion-button (click)="openCam()" >Open Camera</ion-button> -->
+        <ion-row>
     <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher> -->
-    <ion-title class="title">New Featured Books</ion-title>
-    <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts">
-      <ion-slide *ngFor= "let book of books">
-          <img src={{book.image}} alt="">
-      </ion-slide>
-      </ion-slides> 
+          <ion-title class="title">New Featured Books</ion-title>
+          <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts">
+            <ion-slide *ngFor= "let book of books">
+                <img src={{book.image}} alt="">
+            </ion-slide>
+          </ion-slides> 
       <!-- <ion-card>
         <ion-item  class="activated">
           <ion-icon name="wifi" slot="start"></ion-icon>
@@ -40,22 +43,47 @@
           <ion-label>Card Button Item 2</ion-label>
         </ion-item>
       </ion-card> -->
-  
-            <ion-grid class="ion-no-padding">
-              <ion-row class="ion-no-padding">
-                  <ion-col size-xs="12" size-sm="12" size-md="6" *ngFor="let News of NewsContent" class="ion-no-padding">
-                        
-                    <ion-card class="ion-no-padding">
-                          <ion-img *ngIf="News.urlToImage" src="{{News.urlToImage}}"></ion-img>
-                          <ion-card-header>
-                            <ion-card-subtitle *ngIf="News.WAGM">Author {{News.WAGM}}</ion-card-subtitle>
-                            <ion-card-title *ngIf="News.title">{{News.title}}</ion-card-title>
-                          </ion-card-header>
-                          <ion-card-content *ngIf="News.content">{{News.content}}</ion-card-content>
-                      </ion-card>
+        </ion-row>
+     </ion-grid>
+        <ion-grid class="ion-no-padding">
+          <ion-row class="ion-no-padding">
+              <ion-col size-xs="12" size-sm="12" size-md="6" *ngFor="let News of NewsContent" class="ion-no-padding">    
+                <ion-card class="ion-no-padding">
+                      <ion-img *ngIf="News.urlToImage" src="{{News.urlToImage}}"></ion-img>
+                      <ion-card-header>
+                        <ion-card-subtitle *ngIf="News.WAGM">Author {{News.WAGM}}</ion-card-subtitle>
+                        <ion-card-title *ngIf="News.title">{{News.title}}</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content *ngIf="News.content">{{News.content}}</ion-card-content>
+                  </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <img src="{{image}}">
+        <div *ngIf="!NewsContent">
+            <ion-row>
+                <ion-col size="12" size-sm="6" size-md="6" *ngFor="let item of [1,2,3,4,5,6]">
+                    <ion-list>
+                        <ion-item>
+                          <ion-thumbnail slot="start">
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                          </ion-thumbnail>
+                          <ion-label>
+                            <h3>
+                              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                            </h3>
+                            <p>
+                              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                            </p>
+                            <p>
+                              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                            </p>
+                          </ion-label>
+                        </ion-item>
+                        </ion-list>
                 </ion-col>
-              </ion-row>
-            </ion-grid>
+            </ion-row>
+        </div>
           
               <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
                   <ion-infinite-scroll-content

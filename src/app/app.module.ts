@@ -14,7 +14,7 @@ import { MaterialModule } from '../app/material.module';
 import { MatStepperModule } from '@angular/material';
 import { AddToCartModalPageModule } from '../app/shared-component/shared-component/add-to-cart-modal/add-to-cart-modal.module'
 import { IonTabPageModule } from '../app/shared-component/ion-tab/ion-tab.module';
-
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
 
@@ -33,6 +33,7 @@ import { IonTabPageModule } from '../app/shared-component/ion-tab/ion-tab.module
     IonTabPageModule
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

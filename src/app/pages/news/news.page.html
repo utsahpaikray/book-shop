@@ -25,4 +25,28 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <div *ngIf="!NewsEverything">
+      <ion-row>
+          <ion-col size="12" size-sm="6" size-md="6" *ngFor="let item of [1,2,3,4,5,6]">
+              <ion-list>
+                  <ion-item>
+                    <ion-thumbnail slot="start">
+                      <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                      <h3>
+                        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                      </h3>
+                      <p>
+                        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                      </p>
+                      <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                      </p>
+                    </ion-label>
+                  </ion-item>
+                  </ion-list>
+          </ion-col>
+      </ion-row>
+  </div>
 </ion-content>
