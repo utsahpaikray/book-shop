@@ -12,10 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/material.module';
 import { MatStepperModule } from '@angular/material';
-import { AddToCartModalPageModule } from '../app/shared-component/shared-component/add-to-cart-modal/add-to-cart-modal.module'
+import { AddToCartModalPageModule } from '../app/shared-component/shared-component/add-to-cart-modal/add-to-cart-modal.module';
 import { IonTabPageModule } from '../app/shared-component/ion-tab/ion-tab.module';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-
+import { HeaderColor } from '@ionic-native/header-color/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 
 @NgModule({
@@ -26,7 +27,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
     HttpClientModule,
     MaterialModule,
     MatStepperModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot(
+      {swipeBackEnabled: false}
+    ),
     AppRoutingModule,
     BrowserAnimationsModule,
     AddToCartModalPageModule,
@@ -34,6 +37,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
   ],
   providers: [
     Camera,
+    HeaderColor,
+    Vibration,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
@@ -41,5 +46,4 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
 }

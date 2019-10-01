@@ -11,10 +11,19 @@
                   <ion-thumbnail class="thumb-nail" >
                       <ion-img src="assets/pic1.png"></ion-img>
                   </ion-thumbnail>
+                  
                   <ion-card-header color="secondary">
                       <ion-title>Name: Niranjan</ion-title>
                       <ion-title>Designation: Science Teacher</ion-title>
                   </ion-card-header>
+                  <!-- <ion-card-content>
+                      <ion-fab slot="end">
+                          <ion-fab-button (click)="takePicture()">
+                            <ion-icon name="camera"></ion-icon>
+                          </ion-fab-button>
+                        </ion-fab>
+                  </ion-card-content> -->
+                 
               </ion-card>
             <ion-list color="secondary">
                 <ion-card class="ion-no-padding profile" color="secondary">
@@ -59,7 +68,7 @@
                 <ion-buttons slot="start"> 
                     <ion-menu-button></ion-menu-button>
                   </ion-buttons>
-              <ion-title>{{Title}}</ion-title> 
+                <ion-title>{{Title}}</ion-title> 
                 <app-profile class="ion-float-right" (click)="presentPopover($event)"></app-profile>
                 <app-cart-count class="ion-float-right"></app-cart-count>
             </ion-toolbar>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ToasterService } from '../../services/toaster/toaster.service'
+import {ToasterService } from '../../services/toaster/toaster.service';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +9,7 @@ import {ToasterService } from '../../services/toaster/toaster.service'
 })
 export class Tab2Page implements OnInit {
 
-  constructor(private toast: ToasterService) { }
+  constructor(private toast: ToasterService, private vibration: Vibration) { }
 
   ngOnInit() {
   }
@@ -96,5 +97,7 @@ export class Tab2Page implements OnInit {
   ]
   public addToCart(){
     this.toast.presentToast('Added to cart successfully','bottom', 'dark');
+    this.vibration.vibrate([2000,1000,2000]);
+    this.vibration.vibrate(0);
   }
 }

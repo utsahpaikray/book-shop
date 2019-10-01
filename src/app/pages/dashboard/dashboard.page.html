@@ -17,8 +17,8 @@
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher> -->
           <ion-title class="title">New Featured Books</ion-title>
-          <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts">
-            <ion-slide *ngFor= "let book of books">
+          <ion-slides  class="slider  ion-no-margin ion-no-padding" pager="true" loop="true" [options]="slideOpts" >
+            <ion-slide *ngFor= "let book of books" class="ion-no-margin ion-no-padding">
                 <img src={{book.image}} alt="">
             </ion-slide>
           </ion-slides> 

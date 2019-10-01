@@ -5,6 +5,7 @@ import {LoaderService } from '../../services/loader/loader.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
@@ -95,13 +96,15 @@ export class DashboardPage implements OnInit {
     }
   ]
   @ViewChild(IonSlides) slides: IonSlides;
+  bars: any;
+  colorArray: any;
   slideOpts = {
     loop: true,
-    slidesPerView: 2,
+    slidesPerView: 1,
     coverflowEffect: {
-      rotate: 50,
+      rotate: 100,
       stretch: 0,
-      depth: 100,
+      depth: 50,
       modifier: 1,
       slideShadows: true,
     },
@@ -226,7 +229,7 @@ export class DashboardPage implements OnInit {
   }
   ngAfterViewInit() {
     this.slides.startAutoplay();
-   //this.goToSlide(1);
+   //this.goToSlide(1);\
   }
   slideChanged() {
     let currentIndex = this.slides.getActiveIndex();

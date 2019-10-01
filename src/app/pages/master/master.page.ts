@@ -1,8 +1,9 @@
-import { Component, OnInit, Renderer } from '@angular/core';
+import { Component, OnInit, Renderer, AfterViewInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { SettingService} from '../../services/setting.service'
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, IonRouterOutlet } from '@ionic/angular';
 import {ProfileSettingComponent } from '../../shared-component/shared-component/header/profile-setting/profile-setting.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-master',
@@ -115,24 +116,37 @@ export class MasterPage implements OnInit {
       navigation:false
     },
   ];
-  Title: any;
-
-  constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController) {
-    this.router.events.subscribe((event: RouterEvent) => {
-      if (event && event.url) {
-        let path = this.pages.filter(item=>{
-            return item.url== event.url;
-        });
-        this.Title = path[0].title;
-        this.selectedPath = event.url;
-      }
-    });
+ public Title="";
+  constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet) {
   }
+
+ionViewWillEnter() {
+   this.routerOutlet.swipeGesture = false;
+}
+
+ionViewWillLeave() {
+    this.routerOutlet.swipeGesture = true;
+}
   public toggleTheme(status) {
     this.renderer.setElementClass(document.body, 'dark', status?false:true);
   }
   ngOnInit() {
      this.toggleTheme(true);
+     this.setTitle();
+  }
+  ngAfterViewInit() {
+   this.setTitle();
+  }
+  public setTitle(){
+    this.router.events.subscribe((event: RouterEvent) => {
+      if (event && event.url) {
+        let path = this.pages.filter(item=>{
+            return item.url== event.url;
+        });
+        this.selectedPath = event.url;
+        this.Title = path[0].title;
+      }
+    });
   }
   async presentPopover(ev) {
     const popover = await this.popoverCtrl.create({

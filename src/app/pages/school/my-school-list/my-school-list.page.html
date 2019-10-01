@@ -38,8 +38,8 @@
             <!-- <ion-list class="full-container ion-no-padding" (click)="schoolDetails(school.name)">  
                     <ion-item> {{school.name}}</ion-item> 
               </ion-list> -->
-              <ion-list color="tertiary">
-                  <ion-card class="ion-no-padding profile" color="tertiary">
+              <ion-list color="primary">
+                  <ion-card class="ion-no-padding profile" color="primary">
                   <div *ngFor="let school of schoolList" color="transparent">
                     <ion-item button *ngIf="school.children?.length > 0" (click)="school.open = !school.open" [class.parent-active]="school.open" detail="false" color="transparent">
                       <ion-icon slot="end" name="arrow-forward" *ngIf="!school.open"></ion-icon>
