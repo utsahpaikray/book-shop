@@ -14,3 +14,9 @@ ion-card{
 body {
     cursor: url('https://ionicframework.com/img/finger.png'), auto;
   }
+  .alert-head{
+    background: var(--ion-color-primary);
+    .alert-title{
+        color: #fff;
+    }
+  }
