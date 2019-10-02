@@ -46,7 +46,7 @@
         </ion-row>
      </ion-grid>
         <ion-grid class="ion-no-padding">
-          <ion-row class="ion-no-padding">
+          <ion-row class="ion-no-padding news-content">
               <ion-col size-xs="12" size-sm="12" size-md="6" *ngFor="let News of NewsContent" class="ion-no-padding">    
                 <ion-card class="ion-no-padding">
                       <ion-img *ngIf="News.urlToImage" src="{{News.urlToImage}}"></ion-img>
@@ -54,7 +54,7 @@
                         <ion-card-subtitle *ngIf="News.WAGM">Author {{News.WAGM}}</ion-card-subtitle>
                         <ion-card-title *ngIf="News.title">{{News.title}}</ion-card-title>
                       </ion-card-header>
-                      <ion-card-content *ngIf="News.content">{{News.content}}</ion-card-content>
+                      <!-- <ion-card-content *ngIf="News.content">{{News.content}}</ion-card-content> -->
                   </ion-card>
             </ion-col>
           </ion-row>

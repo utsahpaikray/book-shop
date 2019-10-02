@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, AlertController, Platform } from '@ionic/angular';
 import { AddToCartModalPage } from '../../shared-component/shared-component/add-to-cart-modal/add-to-cart-modal.page';
+import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-tab1',
@@ -131,10 +136,26 @@ export class Tab1Page implements OnInit {
     'created': 'April 27, 2016'
   }];
   dataReturned:any;
-  constructor(public modalController: ModalController) { }
+  userss;
+
+  constructor( public modalController: ModalController, public navCtrl: NavController, private httpClient: HttpClient, private plt: Platform, private alertCtrl: AlertController, private authors: DashboardService) {
+    // this.userss = this.httpClient.get('https://randomuser.me/api/?results=20').subscribe(res => res['results']);
+    // console.log(this.userss)
+
+ }
 
   ngOnInit() {
-  }
+    this.authors.getAuthors().subscribe(res => { 
+      console.log(res.results)
+      this.userss = res.results;
+    });
+    // this.authors.getAuthors().pipe(
+    //   map(response => {
+    //     console.log(response)
+    //     this.userss = response.results
+    //     return this.userss;
+    //   }));
+    }
   async openModal(user,index) {
     const modal = await this.modalController.create({
       component: AddToCartModalPage,

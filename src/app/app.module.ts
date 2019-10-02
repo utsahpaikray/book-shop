@@ -4,6 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,7 @@ import { IonTabPageModule } from '../app/shared-component/ion-tab/ion-tab.module
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { HeaderColor } from '@ionic-native/header-color/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
+
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { Vibration } from '@ionic-native/vibration/ngx';
     Vibration,
     StatusBar,
     SplashScreen,
+    LottieSplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

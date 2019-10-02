@@ -8,13 +8,12 @@
 </ion-header> -->
 
 
-    <ion-content fullscreen>
-        <ion-list id="list">
+    <!-- <ion-content fullscreen> -->
+        <!-- <ion-list id="list">
           <ion-item *ngFor="let user of users;let i = index"  [attr.data-index]="i"  class="ion-activatable" (click)="openModal(user,i  )">
               <ion-ripple-effect></ion-ripple-effect>
               <ion-avatar slot="start" class="md hydrated">
                   <img src="https://www.gravatar.com/avatar/{{i+1}}?d=monsterid&amp;f=y">
-                  <!-- <img src="//maps.googleapis.com/maps/api/streetview?size=400x400&location={{property.lat}},{{property.long}}&key=aiwefmboij234blahblah" /> -->
               </ion-avatar>
               <ion-label>{{user.name}}{{i}}</ion-label>
           </ion-item>
@@ -36,8 +35,6 @@
               <ion-label>Super Mario World</ion-label>
             </ion-item>
           </ion-list>
-          
-          <!-- List of Input Items -->
           <ion-list>
             <ion-item>
               <ion-label>Input</ion-label>
@@ -55,7 +52,7 @@
               <ion-label>Checkbox</ion-label>
               <ion-checkbox slot="start"></ion-checkbox>
             </ion-item>
-          </ion-list>
+          </ion-list> -->
           
           <!-- List of Sliding Items -->
           <!-- <ion-list>
@@ -77,14 +74,81 @@
               </ion-item-options>
             </ion-item-sliding>
           </ion-list> -->
-          <ion-button expand="block" routerLink="/menu/first/tabs/tab1/details" routerDirection="forward">
+          <!-- <ion-button expand="block" routerLink="/menu/first/tabs/tab1/details" routerDirection="forward">
             Details forward
           </ion-button>
         <ion-infinite-scroll threshold="100px" id="infinite-scroll">
           <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
           </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
-    </ion-content>
+        </ion-infinite-scroll> -->
+    <!-- </ion-content> -->
 
   
- 
+    <ion-content fullscreen class="ion-no-padding"> 
+      <ion-grid class="padding-top ion-no-padding">
+        <ion-row>
+          <ion-col size-xs="12">
+              <ion-list id="list">
+                  <ng-container *ngFor="let user of userss;let i = index"  [attr.data-index]="i">
+                      <ion-item-sliding>
+                          <ion-item-options lot="top" side="start">
+                            <ion-item-option color="primary" expandable=true (click)="openModal(user,i)" > 
+                              Related Books
+                            </ion-item-option>
+                          </ion-item-options>
+                          <ion-item class="ion-activatable" (click)="user.open = !user.open">
+                              <ion-ripple-effect></ion-ripple-effect>
+                              <ion-avatar slot="start" class="md hydrated">
+                                  <!-- <img src="https://www.gravatar.com/avatar/{{i+1}}?d=monsterid&amp;f=y"> -->
+                                  <img [src]="user.picture.medium">
+                              </ion-avatar>
+                              <!-- <ion-label>{{user.name}}</ion-label> -->
+                              <ion-label>{{ user.name?.first }} {{ user.name?.last }}</ion-label>
+                             
+                          </ion-item>
+                          
+                          <ion-item-options slot="bottom">
+                              <ion-item-option color="primary" expandable=true (click)="user.open = !user.open">
+                                <ion-icon slot="bottom" name="more"></ion-icon>
+                               About
+                              </ion-item-option>
+                          </ion-item-options>
+                   </ion-item-sliding>
+                   <ion-card class="ion-no-padding"  *ngIf="user.open">
+                      <ion-img *ngIf="user.picture.large" [src]="user.picture.large"></ion-img>
+                      <ion-card-header>
+                          <ion-card-title>{{ user.name?.first }}</ion-card-title>
+                        <ion-card-subtitle>email: {{user.email}}</ion-card-subtitle>
+                        <ion-card-subtitle>phone: {{user.phone}}</ion-card-subtitle>   
+                      </ion-card-header>
+                      <ion-card-content>
+                          Bacon ipsum dolor amet salami prosciutto ham hock, strip steak buffalo ribeye pork chop. Beef ribs tenderloin tail shoulder.
+                          Spare ribs ham shoulder brisket rump hamburger. Pork belly kevin shoulder prosciutto ribeye pork chop chicken
+                          strip steak pig.
+                        </ion-card-content>
+                  </ion-card>
+                  </ng-container>
+              </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid >
+        <ion-row>
+          <ion-col *ngFor="let user of userss" size-xs="12" size-sm="12" size-md="6" size-xs="12" size-xl="2" size-lg="3" size-m="4">
+            <ion-card>
+              <ion-item>
+                <ion-avatar item-start>
+                  <img [src]="user.picture.medium">
+                </ion-avatar>
+                <h2 text-capitalize>{{ user.name?.first }} {{ user.name?.last }}</h2>
+              </ion-item>
+              <ion-card-content>
+                Bacon ipsum dolor amet salami prosciutto ham hock, strip steak buffalo ribeye pork chop. Beef ribs tenderloin tail shoulder.
+                Spare ribs ham shoulder brisket rump hamburger. Pork belly kevin shoulder prosciutto ribeye pork chop chicken
+                strip steak pig.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+     </ion-content>

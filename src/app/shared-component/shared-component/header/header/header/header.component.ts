@@ -1,16 +1,16 @@
-import { Component, OnInit, Renderer, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Renderer, AfterViewInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
-import { SettingService} from '../../services/setting.service'
+import { SettingService} from '../../../../../services/setting.service'
 import { PopoverController, IonRouterOutlet } from '@ionic/angular';
-import {ProfileSettingComponent } from '../../shared-component/shared-component/header/profile-setting/profile-setting.component';
-import { Observable } from 'rxjs';
+import {ProfileSettingComponent } from '../../../../../shared-component/shared-component/header/profile-setting/profile-setting.component';
 
 @Component({
-  selector: 'app-master',
-  templateUrl: './master.page.html',
-  styleUrls: ['./master.page.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
-export class MasterPage implements OnInit {
+export class HeaderComponent implements OnInit {
 
   selectedPath = '';
   pages = [
@@ -119,43 +119,35 @@ export class MasterPage implements OnInit {
  public Title="";
   constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet) {
   }
-
-ionViewWillEnter() {
-   this.routerOutlet.swipeGesture = false;
-}
-
-ionViewWillLeave() {
-    this.routerOutlet.swipeGesture = true;
-}
   public toggleTheme(status) {
     this.renderer.setElementClass(document.body, 'dark', status?false:true);
   }
   ngOnInit() {
-    // this.toggleTheme(true);
-    // this.setTitle();
+     this.toggleTheme(true);
+     this.setTitle();
   }
-  // ngAfterViewInit() {
-  //  this.setTitle();
-  // }
-  // public setTitle(){
-  //   this.router.events.subscribe((event: RouterEvent) => {
-  //     if (event && event.url) {
-  //       let path = this.pages.filter(item=>{
-  //           return item.url== event.url;
-  //       });
-  //       this.Title = path[0].title;
-  //       this.selectedPath = event.url;
+  public setTitle(){
+    this.router.events.subscribe((event: RouterEvent) => {
+      if (event && event.url) {
+        let path = this.pages.filter(item=>{
+            return item.url== event.url;
+        });
+        this.Title = path[0].title;
+        this.selectedPath = event.url;
         
-  //     }
-  //   });
-  // }
-  // async presentPopover(ev) {
-  //   const popover = await this.popoverCtrl.create({
-  //     component: ProfileSettingComponent,
-  //     event: ev,
-  //     translucent: true
-  //   });
-  //   return await popover.present();
-  // }
+      }
+    });
+  }
+  async presentPopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: ProfileSettingComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
 
 }
+
+
+

@@ -63,14 +63,13 @@
         </ion-menu>
       
         <ion-router-outlet id="content" main>
-          <ion-header>
+            
+           <ion-header>
             <ion-toolbar color="primary" expand="block">
                 <ion-buttons slot="start"> 
                     <ion-menu-button></ion-menu-button>
-                  </ion-buttons>
-                <ion-title>{{Title}}</ion-title> 
-                <app-profile class="ion-float-right" (click)="presentPopover($event)"></app-profile>
-                <app-cart-count class="ion-float-right"></app-cart-count>
+                </ion-buttons>
+                <app-header></app-header>
             </ion-toolbar>
           </ion-header>
           <ion-tabs>
@@ -97,8 +96,7 @@
                   </ion-tab-button>
                 </ion-tab-bar>
                
-            </ion-tabs>
-           
+          </ion-tabs>   
         </ion-router-outlet>
   </ion-split-pane>
  

@@ -21,4 +21,7 @@ export class DashboardService {
  public getBooks(query?:string): Observable<any>{
   return this._http.get<any>(this.controllerbooks);
  }
+ public getAuthors(query?:string): Observable<any>{
+  return this._http.get<any>('https://randomuser.me/api/?results=10');
+ }
 }

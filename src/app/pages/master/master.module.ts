@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProfileComponent } from '../../../app/shared-component/shared-component/header/profile/profile.component';
 import { CartCountComponent } from '../../../app/shared-component/shared-component/header/cart-count/cart-count.component';
 import {ProfileSettingComponent } from '../../shared-component/shared-component/header/profile-setting/profile-setting.component';
+import { HeaderComponent } from '../../shared-component/shared-component/header/header/header/header.component'
 
 import { MasterPage } from './master.page';
 
@@ -76,7 +77,8 @@ const routes: Routes = [
     MasterPage,
     ProfileComponent,
     CartCountComponent,
-    ProfileSettingComponent
+    ProfileSettingComponent,
+    HeaderComponent
   ],
   entryComponents: [ProfileSettingComponent]
 })

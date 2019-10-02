@@ -8,7 +8,7 @@ import { Chart } from 'chart.js';
 })
 export class MySchoolDetailsPage implements OnInit {
   facultyList: {}[];
-  @ViewChild('Gallery') Gallery: IonSlides;
+  // @ViewChild('Gallery') Gallery: IonSlides;
   @ViewChild('eventGallery') eventGallery: IonSlides;
   @ViewChild('barChart') barChart;
   bars: any;
@@ -19,35 +19,43 @@ export class MySchoolDetailsPage implements OnInit {
     this.facultyList=[
       {
         position:'Principal',
-        profileImage:'assets/pic1.png'
+        profileImage:'assets/pic1.png',
+        Name:'Niranjan'
       },
       {
         position:'Mathematics',
-        profileImage:'assets/pic2.png'
+        profileImage:'assets/pic2.png',
+        Name:'Niranjan'
       },
       {
         position:'Odia',
-        profileImage:'assets/pic8.png'
+        profileImage:'assets/pic8.png',
+        Name:'Niranjan'
       },
       {
         position:'English',
-        profileImage:'assets/pic7.png'
+        profileImage:'assets/pic7.png',
+        Name:'Niranjan'
       },
       {
         position:'General Science',
-        profileImage:'assets/pic3.png'
+        profileImage:'assets/pic3.png',
+        Name:'Prtiam Kumar'
       },
       {
         position:'Social Science',
-        profileImage:'assets/pic4.png'
+        profileImage:'assets/pic4.png',
+        Name:'Mahinder Biswal'
       },
       {
         position:'History',
-        profileImage:'assets/pic5.png'
+        profileImage:'assets/pic5.png',
+        Name:'Prabhod Swain'
       },
       {
         position:'Geography',
-        profileImage:'assets/pic7.png'
+        profileImage:'assets/pic7.png',
+        Name:'Siba Kumar'
       }
     ];
     this.createBarChart();
@@ -57,7 +65,7 @@ export class MySchoolDetailsPage implements OnInit {
     this.updateChart();
   }
   ngAfterViewInit() {
-    this.Gallery.startAutoplay();
+   // this.Gallery.startAutoplay();
     this.eventGallery.startAutoplay();
     
   }
