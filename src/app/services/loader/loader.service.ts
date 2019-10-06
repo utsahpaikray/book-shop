@@ -11,7 +11,7 @@ export class LoaderService {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
       translucent: true,
-      duration:2000
+     // duration:2000
     });
     await loading.present();
 

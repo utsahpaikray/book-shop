@@ -1,6 +1,6 @@
 
 <ion-list class="full-container ion-no-padding">  
-      <ion-item>
+      <ion-item (click)="openProfile()" >
           <ion-icon color="warning" name="person"></ion-icon>
         <ion-label> Profile</ion-label>
       </ion-item> 
@@ -14,7 +14,7 @@
         <ion-label>Theme</ion-label>
         <ion-toggle [(ngModel)]="theme" (ionChange)="toggleTheme()"></ion-toggle>
       </ion-item> 
-      <ion-item tappable routerLink="/login" routerDirection="root">
+      <ion-item tappable routerLink="/login" routerDirection="root" (click)="dismissProfile()">
           <ion-icon color="warning" name="log-in"></ion-icon>
         <ion-label> Login</ion-label>
       </ion-item> 

@@ -1,10 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, Platform } from '@ionic/angular';
 import { Chart } from 'chart.js';
+import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+// import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
 @Component({
   selector: 'app-my-school-details',
   templateUrl: './my-school-details.page.html',
-  styleUrls: ['./my-school-details.page.scss'],
+  styleUrls: ['./my-school-details.page.scss']
 })
 export class MySchoolDetailsPage implements OnInit {
   facultyList: {}[];
@@ -13,7 +17,9 @@ export class MySchoolDetailsPage implements OnInit {
   @ViewChild('barChart') barChart;
   bars: any;
   colorArray: any;
-  constructor() { }
+ 
+  //constructor() { }
+  constructor(private document: DocumentViewer,  private platform: Platform, private file: File, private transfer:FileTransfer) { }
 
   ngOnInit() {
     this.facultyList=[
@@ -114,5 +120,27 @@ export class MySchoolDetailsPage implements OnInit {
       duration: 800,
       easing: 'easeOutBounce'
   });
+  }
+
+  public showPdf(){
+    const options: DocumentViewerOptions = {
+      title: 'My PDF'
+    }
+    let path = null;
+    if(this.platform.is('ios')){
+      path = this.file.documentsDirectory;
+    }else{
+      path = this.file.dataDirectory;
+    }
+    console.log(path);
+    const transfer = this.transfer.create();
+    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf',path+'myfile.pdf').then(entry=>{
+      console.log(entry);
+      let url = entry.toURL();
+      this.document.viewDocument(url, 'application/pdf', options)
+    });
+  
+   
+  //  this.document.viewDocument('https://static.careers360.mobi/media/uploads/froala_editor/files/GATE-2020-Syllabus-Computer-Science-Information-Technology.pdf', 'application/pdf', options)
   }
 }

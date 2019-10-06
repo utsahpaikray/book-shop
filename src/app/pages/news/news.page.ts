@@ -19,7 +19,9 @@ export class NewsPage implements OnInit {
     this.refs.markForCheck();
     this.newsService.getEverythingNews('india').subscribe(res => {
       this.NewsEverything = res.articles;
-      this.loader.dismissloading();
+      if(this.loader){
+        this.loader.dismissloading();
+      }
     });
   }
 public onInput(event){

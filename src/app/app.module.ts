@@ -4,8 +4,6 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,13 +12,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/material.module';
 import { MatStepperModule } from '@angular/material';
 import { AddToCartModalPageModule } from '../app/shared-component/shared-component/add-to-cart-modal/add-to-cart-modal.module';
+import { ProfilePageModule } from '../app/shared-component/shared-component/profile/profile.module'
 import { IonTabPageModule } from '../app/shared-component/ion-tab/ion-tab.module';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { HeaderColor } from '@ionic-native/header-color/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
-
-
-
+import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -35,6 +34,7 @@ import { Vibration } from '@ionic-native/vibration/ngx';
     AppRoutingModule,
     BrowserAnimationsModule,
     AddToCartModalPageModule,
+    ProfilePageModule,
     IonTabPageModule
   ],
   providers: [
@@ -43,7 +43,9 @@ import { Vibration } from '@ionic-native/vibration/ngx';
     Vibration,
     StatusBar,
     SplashScreen,
-    LottieSplashScreen,
+    DocumentViewer,
+    File,
+    FileTransfer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

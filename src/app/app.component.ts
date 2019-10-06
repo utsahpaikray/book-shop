@@ -4,7 +4,6 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HeaderColor } from '@ionic-native/header-color/ngx';
-import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
 
 
 @Component({
@@ -16,8 +15,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private headerColor: HeaderColor,
-    private lottieSplashScreen: LottieSplashScreen
+    private headerColor: HeaderColor
   ) {
     this.initializeApp();
   }
@@ -29,7 +27,6 @@ export class AppComponent {
        this.statusBar.overlaysWebView(true);
        this.statusBar.backgroundColorByHexString('#228ae0');
        this.splashScreen.show();
-       this.lottieSplashScreen.show('www/lottie/animation.json', false, 1024, 768);
     });
   }
 }

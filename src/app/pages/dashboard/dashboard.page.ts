@@ -199,7 +199,9 @@ export class DashboardPage implements OnInit {
    this.getHeadlines('us',this.pagesize,this.page);
     this.newsService.getEverythingNews({ query: 'Science' }).subscribe(res => { 
       this.NewsEverything = res.articles;
-      this.loader.dismissloading();
+      if(this.loader){
+       this.loader.dismissloading();
+      }
     });
     
   }

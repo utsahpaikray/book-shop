@@ -10,6 +10,8 @@
 ion-card{
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    box-shadow: 0px 3px 7px rgba(0,0,0,.12) !important;
+    border-radius: 10px !important;
 }
 body {
     cursor: url('https://ionicframework.com/img/finger.png'), auto;
@@ -20,3 +22,17 @@ body {
         color: #fff;
     }
   }
+  .expand-block{
+      display: block;
+      width: 100%;
+  }
+
+ ion-item {
+    &.no-padding-right{
+        --ion-safe-area-right: 0;
+        // ion-card-subtitle{
+        //     color: #fff;
+        // }
+    }
+ 
+}
