@@ -11,7 +11,7 @@
     
   <ion-grid class="padding-top">
     <ion-row>
-        <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts">
+        <ion-slides  class="slider" pager="true" loop="true" >
             <ion-slide>
                 <img src='https://s3-ap-south-1.amazonaws.com/cdn.odishatv.in/wp-content/uploads/2017/12/education.png' alt="">
             </ion-slide>
@@ -27,7 +27,7 @@
         </ion-slides> 
     </ion-row>
     <ion-row>
-          <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (change)="onInput()" showCancelButton="focus" value="India" animated></ion-searchbar>
+          <ion-searchbar [debounce]="250"  showCancelButton="focus" value="India" animated></ion-searchbar>
       </ion-row>
       <ion-row>
           <ion-title>Area wise school list</ion-title>

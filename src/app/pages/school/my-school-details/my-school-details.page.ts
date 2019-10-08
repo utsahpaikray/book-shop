@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, Platform } from '@ionic/angular';
+import { IonSlides, Platform, AlertController } from '@ionic/angular';
 import { Chart } from 'chart.js';
 import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 // import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
 @Component({
   selector: 'app-my-school-details',
@@ -17,9 +19,29 @@ export class MySchoolDetailsPage implements OnInit {
   @ViewChild('barChart') barChart;
   bars: any;
   colorArray: any;
- 
+  
+  storageDirectory: string = '';
+  image: any;
   //constructor() { }
-  constructor(private document: DocumentViewer,  private platform: Platform, private file: File, private transfer:FileTransfer) { }
+  constructor(private document: DocumentViewer,  private platform: Platform, private file: File, private transfer:FileTransfer, private fileOpener: FileOpener,  public alertCtrl: AlertController) {
+    this.platform.ready().then(() => {
+      // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
+      // if(!this.platform.is('cordova')) {
+      //   return false;
+      // }
+
+      if (this.platform.is('ios')) {
+        this.storageDirectory = this.file.documentsDirectory;
+      }
+      else if(this.platform.is('android')) {
+        this.storageDirectory = this.file.dataDirectory;
+      }
+      else {
+        // exit otherwise, but you could add further types here e.g. Windows
+        return false;
+      }
+    });
+   }
 
   ngOnInit() {
     this.facultyList=[
@@ -122,25 +144,112 @@ export class MySchoolDetailsPage implements OnInit {
   });
   }
 
+
+downloadImage(image) {
+
+  this.platform.ready().then(() => {
+
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    const imageLocation = `${this.file.applicationDirectory}www/assets/${image}`;
+    fileTransfer.download(imageLocation, this.storageDirectory + image).then((entry) => {
+       console.log(`${image} was successfully downloaded to: ${entry.toURL()}`);
+      
+    }, (error) => {
+
+      
+        console.log(`${image} was not successfully downloaded. Error code: ${error.code}`);
+    });
+
+  });
+
+}
+
+retrieveImage(image) {
+  const imageLocation = `${this.file.applicationDirectory}www/assets/${image}`;
+  this.file.checkFile(imageLocation, image)
+    .then(() => {
+      
+        console.log(`${image} was successfully retrieved from: ${this.storageDirectory}`);
+        this.image=(<any>window).Ionic.WebView.convertFileSrc(image);
+
+    })
+    .catch((err) => {
+
+    console.log(`${image} was not successfully retrieved. Error Code: ${err.code}`);
+
+    });
+}
+
   public showPdf(){
-    const options: DocumentViewerOptions = {
-      title: 'My PDF'
-    }
-    let path = null;
-    if(this.platform.is('ios')){
-      path = this.file.documentsDirectory;
-    }else{
-      path = this.file.dataDirectory;
-    }
-    console.log(path);
+    this.platform.ready().then(() => {
+    let downloadUrl= 'https://devdactic.com/html/5-simple-hacks-LBT.pdf';
+    let path= this.file.externalApplicationStorageDirectory;
     const transfer = this.transfer.create();
-    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf',path+'myfile.pdf').then(entry=>{
+console.log(this.file)
+    console.log(transfer)
+    console.log(`${path}myfile.pdf`);
+    transfer.download(downloadUrl,`${path}myfile.pdf`).then(entry=>{
       console.log(entry);
       let url = entry.toURL();
-      this.document.viewDocument(url, 'application/pdf', options)
-    });
-  
+      if(this.platform.is('ios')){
+        this.document.viewDocument(url, 'application/pdf', {});
+      }else{
+        console.log(url)
+        this.fileOpener.open(url,'application/pdf');
+      }
+    },(error) => {
+      console.log("An error has occurred: Code = " + error.code);
+      console.log("upload error source " + error.source);
+      console.log("upload error target " + error.target);
+      const newpath = path+'5-simple-hacks-LBT.pdf';
+      this.fileOpener.open(newpath,'application/pdf');
+      });
+
+  //   const options: DocumentViewerOptions = {
+  //     title: 'My PDF'
+  //   }
+  //   // let path = null;
+  //   if(this.platform.is('ios')){
+  //     path = this.file.documentsDirectory;
+  //   }else{
+  //     path = this.file.dataDirectory;
+  //   }
+  // //  const transfer = this.transfer.create();
+  //   transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf',path+'myfile.pdf').then(entry=>{
+  //     console.log(entry);
+  //     let url = entry.toURL();
+  //     this.document.viewDocument(url, 'application/pdf', options);
+  //   });
+});
    
-  //  this.document.viewDocument('https://static.careers360.mobi/media/uploads/froala_editor/files/GATE-2020-Syllabus-Computer-Science-Information-Technology.pdf', 'application/pdf', options)
+   
+  }
+ public openLocalPdf(){
+  this.platform.ready().then(() => {
+    let filepath= this.file.applicationDirectory+ 'www/assets';
+  if(this.file.applicationDirectory!=null){
+        if(this.platform.is('android')){
+          console.log(filepath);
+          console.log(this.file)
+        let fakename= Date.now();
+        this.file.copyFile(filepath,'5-simple-hacks-LBT.pdf', this.file.externalApplicationStorageDirectory,`${fakename}.pdf`).then(result=>{
+          console.log(result)
+          this.fileOpener.open(result.nativeURL,'application/pdf');
+        },(error)=>{
+          console.log("An error has occurred: Code = " + error.code);
+          console.log("upload error source " + error.source);
+          console.log("upload error target " + error.target);
+          const newpath = this.file.externalApplicationStorageDirectory+'5-simple-hacks-LBT.pdf';
+          this.fileOpener.open(newpath,'application/pdf');
+        })
+        }else{
+          const options: DocumentViewerOptions = {
+            title: 'My PDF'
+          }
+          this.document.viewDocument(`${filepath}/5-simple-hacks-LBT.pdf`, 'application/pdf', options);
+        }
+   }
+  });
   }
 }

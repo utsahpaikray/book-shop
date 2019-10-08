@@ -13,12 +13,12 @@
 .padding-top{
   padding-top: 60px;
 }
-// .news-content{
-//     --ion-grid-columns: 10;
-//     --ion-grid-column-padding: 0px;
-//     flex-wrap: nowrap;
-//     overflow-x: scroll;
-//     will-change: scroll-position;
-//     margin-left: calc(var(--page-margin) * -1);
-//     margin-right: calc(var(--page-margin) * -1);
-// }
+.news-arrival{
+    --ion-grid-columns: 10;
+    --ion-grid-column-padding: 0px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    will-change: scroll-position;
+  //  margin-left: calc(var(--page-margin) * -10);
+  //  margin-right: calc(var(--page-margin) * -10);
+}

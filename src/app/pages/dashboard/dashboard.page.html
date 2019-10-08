@@ -17,7 +17,7 @@
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher> -->
           <ion-title class="title">New Featured Books</ion-title>
-          <ion-slides  class="slider  ion-no-margin ion-no-padding" pager="true" loop="true" [options]="slideOpts" >
+          <ion-slides  class="slider  ion-no-margin ion-no-padding" pager="true" loop="true"  >
             <ion-slide *ngFor= "let book of books" class="ion-no-margin ion-no-padding">
                 <img src={{book.image}} alt="">
             </ion-slide>
@@ -45,20 +45,31 @@
       </ion-card> -->
         </ion-row>
      </ion-grid>
+       <ion-grid class="ion-no-padding">
+          <ion-row class="ion-no-padding news-arrival">
+              <ion-col size-xs="3" size-sm="3" size-md="3" *ngFor="let book of books" class="ion-no-padding">
+                <ion-card class="ion-no-padding">
+                    <img src={{book.image}} alt="">
+                  </ion-card>  
+            </ion-col>
+          </ion-row>
+        </ion-grid>
         <ion-grid class="ion-no-padding">
           <ion-row class="ion-no-padding news-content">
               <ion-col size-xs="12" size-sm="12" size-md="6" *ngFor="let News of NewsContent" class="ion-no-padding">    
                 <ion-card class="ion-no-padding">
-                      <ion-img *ngIf="News.urlToImage" src="{{News.urlToImage}}"></ion-img>
+                      <img *ngIf="News.urlToImage" [src]="News.urlToImage || loadingAnimation"/>
                       <ion-card-header>
                         <ion-card-subtitle *ngIf="News.WAGM">Author {{News.WAGM}}</ion-card-subtitle>
                         <ion-card-title *ngIf="News.title">{{News.title}}</ion-card-title>
                       </ion-card-header>
                       <!-- <ion-card-content *ngIf="News.content">{{News.content}}</ion-card-content> -->
                   </ion-card>
+                  
             </ion-col>
           </ion-row>
         </ion-grid>
+      
         <img src="{{image}}">
         <div *ngIf="!NewsContent">
             <ion-row>
@@ -84,11 +95,10 @@
                 </ion-col>
             </ion-row>
         </div>
-          
-              <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-                  <ion-infinite-scroll-content
-                    loadingSpinner="bubbles"
-                    loadingText="Loading more NEWS...">
-                  </ion-infinite-scroll-content>
-                </ion-infinite-scroll>
+          <ion-infinite-scroll threshold="200px" (ionInfinite)="loadData($event)">
+              <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="Loading more NEWS...">
+              </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ToasterService } from '../../services/toaster/toaster.service';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { IonicRatingModule } from 'ionic4-rating';
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +9,7 @@ import { Vibration } from '@ionic-native/vibration/ngx';
   styleUrls: ['./tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-
+public rate =4;
   constructor(private toast: ToasterService, private vibration: Vibration) { }
 
   ngOnInit() {

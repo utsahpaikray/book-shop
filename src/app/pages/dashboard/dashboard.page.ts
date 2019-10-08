@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { DashboardService } from '../../services/dashboard.service'
+import { DashboardService } from '../../services/dashboard.service';
 import {LoaderService } from '../../services/loader/loader.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
@@ -192,16 +192,19 @@ export class DashboardPage implements OnInit {
   NewsEverything: any;
   pagesize=10;
   page=1;
+  public loadingAnimation = "../../assets/loading.gif";
+  public imgHeight = '250px';
   constructor(private newsService: DashboardService, private loader: LoaderService, private camera: Camera) { }
 
   ngOnInit() {
+    
     this.loader.presentLoading();
    this.getHeadlines('us',this.pagesize,this.page);
     this.newsService.getEverythingNews({ query: 'Science' }).subscribe(res => { 
       this.NewsEverything = res.articles;
-      if(this.loader){
-       this.loader.dismissloading();
-      }
+      //if(this.loader){
+         this.loader.dismissloading();
+     // }
     });
     
   }

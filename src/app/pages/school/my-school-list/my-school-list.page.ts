@@ -2,19 +2,23 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
+import { DashboardService } from '../../../services/dashboard.service';
 
 @Component({
   selector: 'app-my-school-list',
   templateUrl: './my-school-list.page.html',
   styleUrls: ['./my-school-list.page.scss'],
+  providers: [DashboardService]
 })
 export class MySchoolListPage implements OnInit {
   schoolList: any[];
   @ViewChild(IonSlides) slides: IonSlides;
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private quotes: DashboardService) { }
 
   ngOnInit() {
-    
+    this.quotes.getQuoates().subscribe(res => { 
+      this.quotes = res.articles;
+    });
    
     this.schoolList =[
       {

@@ -36,3 +36,38 @@ body {
     }
  
 }
+#rating {
+   // margin-top: 5px;
+    display: inline-block;
+    float: right;
+    ion-buttons {
+        float: right;
+    }
+    ion-label{
+        display: inline-block;
+    }
+    ion-button {
+        display: contents;
+        --padding-top: 0;
+        --padding-end: 0;
+        --padding-bottom: 0px;
+        --padding-start: 0px;
+        --border-radius: 50%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 17px;
+        height: 17px;
+    }
+    ion-icon {
+        width: 18px;
+        height: 20px;
+        color: gray;
+
+        &.filled {
+            //color: #ffb400;
+            color: var( --ion-color-warning-tint) !important;
+        }
+    }
+  }

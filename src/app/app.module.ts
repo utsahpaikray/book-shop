@@ -20,6 +20,8 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -46,6 +48,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
     DocumentViewer,
     File,
     FileTransfer,
+    FileOpener,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

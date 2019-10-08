@@ -115,11 +115,17 @@
                 <ion-col size-xs="6" size-sm="6" size-md="4" align-self-center *ngFor="let book of books" class="ion-no-padding align-self-end ">
                     <ion-card class=" list card ion-no-padding ion-no-margin align-self-baseline" >
                         <div class="item item-body">
-                            <ion-card-header class="card-header-bottom">
-                                <ion-label>{{book.title}}</ion-label>
-                                <ion-label> Price: {{book.price}}</ion-label>
-                              </ion-card-header> 
                             <img src= {{book.image}} class="ion-no-padding"/>
+                            <ion-card-header class="card-header-bottom">
+                                <!-- <ion-label>{{book.title}}</ion-label> -->
+                                <span>{{book.price}}</span>
+                                <rating id="rating" class="ion-no-padding" [rate]="rate"
+                                        readonly="false" 
+                                        size="small"
+                                        >
+                                        <!-- (rateChange)="onRateChange($event)" -->
+                                  </rating>
+                            </ion-card-header> 
                             <div class="card-header-top">
                                 <ion-button color="primary" class="add-button" (click)="addToCart()">   
                                     <ion-label>Add To Cart</ion-label>
@@ -131,6 +137,4 @@
               </ion-col>
              </ion-row>
           </ion-grid>
-
-        
   </ion-content>

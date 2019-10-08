@@ -24,7 +24,7 @@ export class NewsPage implements OnInit {
       }
     });
   }
-public onInput(event){
+public onInput(){
   this.newsService.getEverythingNews(this.searchQuery).subscribe(res => {
     this.NewsEverything = res.articles;
   });

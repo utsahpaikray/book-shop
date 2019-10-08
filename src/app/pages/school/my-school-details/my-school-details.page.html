@@ -60,12 +60,24 @@
                  </ion-item> 
               </ng-container>
                 <ion-item>
-                  <ion-tab-button (click)="showPdf()">
+          
+                   
+                   <ion-tab-button (click)="showPdf()">
                     <ion-icon name="pdf"></ion-icon>
-                    <ion-label>PDF</ion-label>
+                    <ion-label>Server PDF</ion-label>
                   </ion-tab-button>
+                  <ion-tab-button (click)="openLocalPdf()">
+                    <ion-icon name="pdf"></ion-icon>
+                    <ion-label>Local PDF</ion-label>
+                  </ion-tab-button> 
                 </ion-item>
-               
+               <ion-item>
+                <span style="z-index:50;font-size:0.9em;">
+                  <img src="http://api.paperquotes.com/static/images/paperquotes.png" height="20" width="20" alt="paperquotes.com"/>
+                  <a href="http://paperquotes.com" title="Powered by quotes from paperquotes.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">paperquotes.com
+                  </a>
+                </span>
+               </ion-item>
             </ion-list>
            
           </ion-row>
@@ -101,7 +113,7 @@
             </ion-item-divider>
         </ion-row>
         <ion-row>
-            <ion-slides  class="slider" pager="true" loop="true" [options]="slideOpts" #eventGallery>
+            <ion-slides  class="slider" pager="true" loop="true"  #eventGallery>
                 <ion-slide>
                     <img src='http://www.apschandimandir.in/uploads/1517298931_132.JPG' alt="">
                 </ion-slide>

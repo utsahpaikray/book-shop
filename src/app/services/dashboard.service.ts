@@ -24,4 +24,24 @@ export class DashboardService {
  public getAuthors(query?:string): Observable<any>{
   return this._http.get<any>('https://randomuser.me/api/?results=10');
  }
+ public getQuoates(query?:string): Observable<any>{
+
+//   fetch("https://theysaidso.p.rapidapi.com/quote?query=software", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "theysaidso.p.rapidapi.com",
+// 		"x-rapidapi-key": "52544db013mshe99152422385723p15dd59jsnb36fe41e0a67"
+// 	}
+// })
+// .then(response => {
+// 	console.log(response);
+// })
+// .catch(err => {
+// 	co
+  return this._http.get<any>('https://api.paperquotes.com/quotes?tags=love,life&language=en', {
+    "headers": {
+      "Token": "6504fa85a19cb5fb3b7b1c02a3fa5a13422958b9"
+    }
+  });
+ }
 }

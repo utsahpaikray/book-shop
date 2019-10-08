@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Tab2Page } from './tab2.page';
-
+import { IonicRatingModule } from 'ionic4-rating';
 
 const routes: Routes = [
   {
@@ -18,6 +18,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    IonicRatingModule,
     RouterModule.forChild(routes)
   ],
   declarations: [Tab2Page]
