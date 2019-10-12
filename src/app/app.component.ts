@@ -23,7 +23,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {    
        this.headerColor.tint('#228ae0');
-     //  this.statusBar.styleDefault();
+       this.statusBar.styleDefault();
        this.statusBar.overlaysWebView(true);
        this.statusBar.backgroundColorByHexString('#228ae0');
        this.splashScreen.show();

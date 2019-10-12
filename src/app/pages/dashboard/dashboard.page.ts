@@ -198,8 +198,9 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {
     
-    this.loader.presentLoading();
+   
    this.getHeadlines('us',this.pagesize,this.page);
+   this.loader.presentLoading();
     this.newsService.getEverythingNews({ query: 'Science' }).subscribe(res => { 
       this.NewsEverything = res.articles;
       //if(this.loader){

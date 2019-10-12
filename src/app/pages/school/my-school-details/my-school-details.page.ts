@@ -22,6 +22,7 @@ export class MySchoolDetailsPage implements OnInit {
   
   storageDirectory: string = '';
   image: any;
+  doc: Document;
   //constructor() { }
   constructor(private document: DocumentViewer,  private platform: Platform, private file: File, private transfer:FileTransfer, private fileOpener: FileOpener,  public alertCtrl: AlertController) {
     this.platform.ready().then(() => {
@@ -183,13 +184,17 @@ retrieveImage(image) {
 
   public showPdf(){
     this.platform.ready().then(() => {
+     // console.log(this.doc)
     let downloadUrl= 'https://devdactic.com/html/5-simple-hacks-LBT.pdf';
-    let path= this.file.externalApplicationStorageDirectory;
-    const transfer = this.transfer.create();
-console.log(this.file)
-    console.log(transfer)
-    console.log(`${path}myfile.pdf`);
-    transfer.download(downloadUrl,`${path}myfile.pdf`).then(entry=>{
+    let path= this.file.externalRootDirectory;
+    let random = Math.floor(Math.random() * 100);
+    this.file.createDir(this.file.externalRootDirectory, `${random}my_downloads`, false).then(response => {
+      console.log('Directory created',response);
+      const fileTransfer: FileTransferObject = this.transfer.create();
+// console.log(this.file)
+//     console.log(transfer)
+    console.log(`${path}my_downloads/myfile.pdf`);
+    fileTransfer.download(downloadUrl,`${path}${random}my_downloads/myfile.pdf`).then(entry=>{
       console.log(entry);
       let url = entry.toURL();
       if(this.platform.is('ios')){
@@ -205,6 +210,9 @@ console.log(this.file)
       const newpath = path+'5-simple-hacks-LBT.pdf';
       this.fileOpener.open(newpath,'application/pdf');
       });
+    }).catch(err => {
+      console.log('Could not create directory "my_downloads" ',err);
+    });
 
   //   const options: DocumentViewerOptions = {
   //     title: 'My PDF'
@@ -252,4 +260,21 @@ console.log(this.file)
    }
   });
   }
+  // public downloadDoc(doc: Document) {
+  //   this.doc = doc;
+  
+  //     this.file.createDir(this.file.externalRootDirectory, 'my_downloads', false).then(response => {
+  //     console.log('Directory created',response);
+  //     const fileTransfer: FileTransferObject = this.transfer.create();
+  //       fileTransfer.download(this.doc.URL,this.file.externalRootDirectory + '/my_downloads/' + this.doc.name + '.docx').then((entry) => {
+  //         console.log('file download response',entry);
+  //       })
+  //       .catch((err) =>{
+  //         console.log('error in file download',err);
+  //       });
+  
+  //   }).catch(err => {
+  //     console.log('Could not create directory "my_downloads" ',err);
+  //   }); 
+  //  }
 }

@@ -66,19 +66,19 @@ export class MasterPage implements OnInit {
       title: 'Books',
       children: [
         {
-          title: 'Hindi',
+          title: 'School Books',
           url: '/master/language/hindi',
           icon: 'journal',
           navigation:true
         },
         {
-          title: 'English',
+          title: 'College Books',
           url: '/master/language/english',
           icon: 'journal',
           navigation:true
         },
         {
-          title: 'Odia',
+          title: 'Private school books',
           url: '/master/language/odia',
           icon: 'journal',
           navigation:true
@@ -86,19 +86,19 @@ export class MasterPage implements OnInit {
       ]
     },
     {
-      title: 'Hindi',
+      title: 'School Books',
       url: '/master/language/hindi',
       icon: 'journal',
       navigation:false
     },
     {
-      title: 'English',
+      title: 'College Books',
       url: '/master/language/english',
       icon: 'journal',
       navigation:false
     },
     {
-      title: 'Odia',
+      title: 'Private school books',
       url: '/master/language/odia',
       icon: 'journal',
       navigation:false
