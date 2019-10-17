@@ -18,7 +18,8 @@ ion-thumbnail{
     padding: 0px;
     width: 100%;
     li{
-        padding: 8px 0px;
+        padding: 4px 0px;
+        font-size: 0.9rem;
     }
 }
 .ion-item{
@@ -29,7 +30,20 @@ ion-thumbnail{
     position: absolute;
     bottom: 0;
     font-size: 0.6rem;
+    &.remove{
+        left: 0;
+    }
+    &.add{
+        left: 4rem;
+    }
+    &.quantity{
+left: 2.25rem;
+    }
 }
 .padding-top{
     padding-top: 60px;
+}
+.card-image{
+    max-height: 8rem;
+    max-width: 8rem
 }

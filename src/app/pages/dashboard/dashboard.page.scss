@@ -22,3 +22,16 @@
   //  margin-left: calc(var(--page-margin) * -10);
   //  margin-right: calc(var(--page-margin) * -10);
 }
+.pins{
+  column-count: 3;
+  @media only screen and (max-width: 768px) {
+    column-count: 1;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+    column-count: 2;
+  }
+
+.pin{
+  display: inline-block;
+}
+}

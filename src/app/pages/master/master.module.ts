@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { ProfileComponent } from '../../../app/shared-component/shared-component/header/profile/profile.component';
 import { CartCountComponent } from '../../../app/shared-component/shared-component/header/cart-count/cart-count.component';
 import {ProfileSettingComponent } from '../../shared-component/shared-component/header/profile-setting/profile-setting.component';
-import { HeaderComponent } from '../../shared-component/shared-component/header/header/header/header.component'
+import { HeaderComponent } from '../../shared-component/shared-component/header/header/header/header.component';
+
 
 import { MasterPage } from './master.page';
 
@@ -55,6 +56,22 @@ const routes: Routes = [
       {
         path: 'tab2/details',
         loadChildren: '../details/details.module#DetailsPageModule'
+      },
+      {
+        path: 'admin/configuration',
+        loadChildren: '../admin/config/config.module#ConfigPageModule'
+      },
+      {
+        path: 'admin/inventory',
+        loadChildren: '../admin/inventory/inventory.module#InventoryPageModule'
+      },
+      {
+        path: 'admin/orders',
+        loadChildren: '../admin/orders/orders.module#OrdersPageModule'
+      },
+      {
+        path: 'rent-service/car-service',
+        loadChildren: '../rent-services/car-services/car-rent-services/car-rent-services.module#CarRentServicesPageModule'
       }
     ]
   },

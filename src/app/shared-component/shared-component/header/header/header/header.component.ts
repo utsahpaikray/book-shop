@@ -86,6 +86,29 @@ export class HeaderComponent implements OnInit {
       ]
     },
     {
+      title: 'Admin',
+      children: [
+        {
+          title: 'Configuration',
+          url: '/master/admin/configuration',
+          icon: 'journal',
+          navigation:true
+        },
+        {
+          title: 'Inventory',
+          url: '/master/admin/inventory',
+          icon: 'journal',
+          navigation:true
+        },
+        {
+          title: 'Orders',
+          url: '/master/admin/orders',
+          icon: 'journal',
+          navigation:true
+        },
+      ]
+    },
+    {
       title: 'School Books',
       url: '/master/language/hindi',
       icon: 'journal',
@@ -115,7 +138,32 @@ export class HeaderComponent implements OnInit {
       icon:'globe',
       navigation:false
     },
+    {
+      title: 'Configuration',
+      url: '/master/admin/configuration',
+      icon: 'journal',
+      navigation:false
+    },
+    {
+      title: 'Inventory',
+      url: '/master/admin/inventory',
+      icon: 'journal',
+      navigation:false
+    },
+    {
+      title: 'Orders',
+      url: '/master/admin/orders',
+      icon: 'journal',
+      navigation:false
+    },
+    {
+      title: 'Car Rent Service',
+      url: '/master/rent-service/car-service',
+      icon: 'car',
+      navigation:true
+    }
   ];
+ 
  public Title="";
   constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet) {
   }

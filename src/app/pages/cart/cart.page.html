@@ -18,28 +18,48 @@
                         Delete
                       </ion-item-option>
                     </ion-item-options>
-                <ion-item> 
-                    <ion-thumbnail class="thumb-nail"slot="start">
-                        <ion-img [src]="item.image"></ion-img>
-                      </ion-thumbnail>
-                      <ul class="property">
-                        <li>
-                            <ion-label>Title: {{item.title}}</ion-label>
-                        </li>
-                        <li text-right>
-                            <ion-label>Price: {{item.price}}</ion-label>
-                        </li>
-                        <li  text-right>
-                            <ion-label>Discount: $10</ion-label>
-                        </li>
-                        <li  text-right>
-                            <ion-label>Total: $100</ion-label>
-                        </li>
-                      </ul>  
-                      <ion-button color="danger" class="remove-button">   
-                          <ion-label>Remove</ion-label>
-                          <ion-icon name="trash"></ion-icon>
-                      </ion-button>           
+                <ion-item class="ion-activatable ion-no-padding no-padding-right"> 
+                      <ion-grid class="ion-no-padding">
+                        <ion-row class="ion-no-padding">
+                            <ion-col size-xs="4" >     
+                              <div class="card-image">
+                                  <ion-img [src]="item.image"></ion-img>
+                              </div>
+                              </ion-col>
+                            <ion-col size-xs="3" >
+                                <ion-button color="danger" class="remove-button remove">   
+                                    <!-- <ion-label>Remove</ion-label> -->
+                                    <ion-icon name="remove-circle"></ion-icon>
+                                </ion-button> 
+                                <ion-button color="secondary" class="remove-button quantity">   
+                                    <ion-label>1</ion-label>
+                                    <!-- <ion-icon name="trash"></ion-icon> -->
+                                </ion-button> 
+                                <ion-button color="success" class="remove-button add">   
+                                    <!-- <ion-label>Remove</ion-label> -->
+                                  <ion-icon name="add-circle"></ion-icon>
+                                </ion-button> 
+                              </ion-col>
+                            <ion-col size="5">
+                              <ul class="property">  
+                                  <li text-right>
+                                      <ion-label>Title: {{item.title}}</ion-label>
+                                  </li> 
+                                <li text-right>
+                                    <ion-label>Price: {{item.price}}</ion-label>
+                                </li>
+                                <li  text-right>
+                                    <ion-label>Discount: $10</ion-label>
+                                </li>
+                                <li  text-right>
+                                    <ion-label>Total: $100</ion-label>
+                                </li>
+                              </ul> 
+                            </ion-col>
+                        </ion-row>
+                      </ion-grid>
+                       
+                                
                </ion-item> 
             <ion-item-options side="end">
                 <ion-item-option color="tertiary" expandable>

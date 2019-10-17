@@ -114,8 +114,46 @@ export class MasterPage implements OnInit {
       url: '/master/my-school/details',
       icon:'globe',
       navigation:false
-    },
+    }
   ];
+  admin= [
+    {
+      title: 'Admin',
+      children: [
+        {
+          title: 'Configuration',
+          url: '/master/admin/configuration',
+          icon: 'cog',
+          navigation:true
+        },
+        {
+          title: 'Inventory',
+          url: '/master/admin/inventory',
+          icon: 'filing',
+          navigation:true
+        },
+        {
+          title: 'Orders',
+          url: '/master/admin/orders',
+          icon: 'medkit',
+          navigation:true
+        },
+      ]
+    }
+  ]
+  rentServices= [
+    {
+      title: 'Rent Services',
+      children: [
+        {
+          title: 'Car Rent Service',
+          url: '/master/rent-service/car-service',
+          icon: 'car',
+          navigation:true
+        }
+      ]
+    }
+  ]
  public Title="";
   constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet) {
   }

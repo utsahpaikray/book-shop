@@ -21,6 +21,8 @@ import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-vi
 import { File } from '@ionic-native/file/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
+//import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-native/file-transfer'; 
+//import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,6 +51,9 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
     File,
     FileTransfer,
     FileOpener,
+    FileTransfer,
+    FileTransferObject,
+   // File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

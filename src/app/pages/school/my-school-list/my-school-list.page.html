@@ -39,17 +39,18 @@
                     <ion-item> {{school.name}}</ion-item> 
               </ion-list> -->
               <ion-list color="primary">
-                  <ion-card class="ion-no-padding profile" color="primary">
-                  <div *ngFor="let school of schoolList" color="transparent">
+                  <ion-card class="ion-no-padding profile" color="primary" >
+                  <div *ngFor="let school of schoolList" color="transparent" >
                     <ion-item button *ngIf="school.children?.length > 0" (click)="school.open = !school.open" [class.parent-active]="school.open" detail="false" color="transparent">
                       <ion-icon slot="end" name="arrow-forward" *ngIf="!school.open"></ion-icon>
                       <ion-icon slot="end" name="arrow-down" *ngIf="school.open"></ion-icon>
-                      <ion-label>{{ school.name }}</ion-label>
+                      <ion-label>{{ school.area }}</ion-label>
                     </ion-item>
-                    <ion-list *ngIf="school.open">
-                          <ion-item *ngFor="let sub of school.children" class="sub-item">
+                    <ion-list *ngIf="school.open" cdkDropList (cdkDropListDropped)="drop($event)" >
+                          <ion-item *ngFor="let sub of school.children" class="sub-item" cdkDrag>
                             <ion-label (click)="schoolDetails(school.name)">
                               {{ sub.name }}
+                              <img  *cdkDragPreview [src]="sub.poster">
                             </ion-label>
                           </ion-item>
                     </ion-list>
@@ -59,6 +60,12 @@
         </ion-col>  
       </ion-row>
   </ion-grid>
+  <!-- <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let movie of movies" cdkDrag>
+        {{movie.title}}
+        <img *cdkDragPreview [src]="movie.poster" [alt]="movie.title">
+      </div>
+    </div> -->
   <!-- <ion-segment value="shared">
     lines="full"
       <ion-segment-button value="bookmarks">
@@ -71,4 +78,7 @@
         <ion-label>Shared Links</ion-label>
       </ion-segment-button>
     </ion-segment> -->
+    <ion-tab-button (click)="downloadHandler()">
+      <ion-label>Download file</ion-label>
+    </ion-tab-button>
 </ion-content>

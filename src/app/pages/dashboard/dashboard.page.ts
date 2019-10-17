@@ -194,13 +194,15 @@ export class DashboardPage implements OnInit {
   page=1;
   public loadingAnimation = "../../assets/loading.gif";
   public imgHeight = '250px';
-  constructor(private newsService: DashboardService, private loader: LoaderService, private camera: Camera) { }
+  constructor(private newsService: DashboardService, private loader: LoaderService, private camera: Camera) { 
+    this.loader.presentLoading();
+  }
 
   ngOnInit() {
     
    
    this.getHeadlines('us',this.pagesize,this.page);
-   this.loader.presentLoading();
+   
     this.newsService.getEverythingNews({ query: 'Science' }).subscribe(res => { 
       this.NewsEverything = res.articles;
       //if(this.loader){

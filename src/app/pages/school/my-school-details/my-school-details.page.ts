@@ -153,7 +153,7 @@ downloadImage(image) {
     const fileTransfer: FileTransferObject = this.transfer.create();
 
     const imageLocation = `${this.file.applicationDirectory}www/assets/${image}`;
-    fileTransfer.download(imageLocation, this.storageDirectory + image).then((entry) => {
+    fileTransfer.download(imageLocation, this.storageDirectory + image, true).then((entry) => {
        console.log(`${image} was successfully downloaded to: ${entry.toURL()}`);
       
     }, (error) => {
@@ -191,10 +191,7 @@ retrieveImage(image) {
     this.file.createDir(this.file.externalRootDirectory, `${random}my_downloads`, false).then(response => {
       console.log('Directory created',response);
       const fileTransfer: FileTransferObject = this.transfer.create();
-// console.log(this.file)
-//     console.log(transfer)
-    console.log(`${path}my_downloads/myfile.pdf`);
-    fileTransfer.download(downloadUrl,`${path}${random}my_downloads/myfile.pdf`).then(entry=>{
+    fileTransfer.download(downloadUrl,`${path}${random}my_downloads/myfile.pdf`, true).then(entry=>{
       console.log(entry);
       let url = entry.toURL();
       if(this.platform.is('ios')){
@@ -207,11 +204,15 @@ retrieveImage(image) {
       console.log("An error has occurred: Code = " + error.code);
       console.log("upload error source " + error.source);
       console.log("upload error target " + error.target);
-      const newpath = path+'5-simple-hacks-LBT.pdf';
-      this.fileOpener.open(newpath,'application/pdf');
+    //  const newpath = path+'5-simple-hacks-LBT.pdf';
+    //  this.fileOpener.open(newpath,'application/pdf');
       });
     }).catch(err => {
       console.log('Could not create directory "my_downloads" ',err);
+    });
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    fileTransfer.download(downloadUrl,`${path}Download/myfile.pdf`, true).then(entry=>{
+console.log(entry)
     });
 
   //   const options: DocumentViewerOptions = {

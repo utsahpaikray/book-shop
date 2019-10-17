@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-toolbar>
+      <!-- <ion-title>Orders</ion-title> -->
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card class="ion-no-padding" color="medium">
+      <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+        <ng-container  matColumnDef="PersonName">
+          <th mat-header-cell *matHeaderCellDef>Person Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.PersonName}} </td>
+        </ng-container>
+        <ng-container  matColumnDef="TotalPrice">
+          <th mat-header-cell *matHeaderCellDef>Total Price</th>
+          <td mat-cell *matCellDef="let element"> {{element.TotalPrice| currency: 'INR'}} </td>
+        </ng-container>
+        <ng-container  matColumnDef="quantity"> 
+          <th mat-header-cell *matHeaderCellDef> Qty</th>
+          <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        </ng-container>
+        <ng-container  matColumnDef="PaymentMode">
+            <th mat-header-cell *matHeaderCellDef>Payment Mode</th>
+            <td mat-cell *matCellDef="let element"> {{element.PaymentMode}} </td>
+          </ng-container>
+        <ng-container  matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+          </ng-container>
+
+        <ng-container matColumnDef="expandedDetail">
+          <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+            <div class="example-element-detail row" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+              <table>
+                <tr *ngFor="let item of element.items">
+                  <td class="display-flex">
+                      <ng-container>
+                          <div class="card-image display-inline">
+                              <ion-img [src]="item.image"></ion-img>
+                          </div>
+                          <div class="example-element-description display-inline">
+                              <ul>
+                                <li><span>Qty: {{element.quantity}}</span></li>
+                                <li> <span>Title: {{item.title}}</span></li>
+                                <li> <span>Unit Price:{{item.price}} </span></li>
+                              </ul>
+                            </div>
+                      </ng-container>
+                  </td>
+                    
+                </tr>
+              </table>
+                
+               
+                 <!-- <div class="card-image">
+                    <ion-img [src]="element.image"></ion-img>
+                 </div>
+              
+              <div class="example-element-description">
+                <ul>
+                  <li><span>{{element.quantity}}  </span> </li>
+                  <li> <span class="example-element-symbol"> {{element.ISBN}} </span></li>
+                  <li> <span class="example-element-productName"> {{element.ProductName}} </span></li>
+                  <li> <span class="example-element-Price"> {{element.Price| currency: 'INR'}} </span></li>         
+                </ul>
+               
+              </div> -->
+            </div>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+          [class.example-expanded-row]="expandedElement === element"
+          (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+      </table>
+    </ion-card>
+  </ion-content>
