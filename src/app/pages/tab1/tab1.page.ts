@@ -144,7 +144,6 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
     this.authors.getAuthors().subscribe(res => { 
-      console.log(res.results)
       this.userss = res.results;
     });
     // this.authors.getAuthors().pipe(

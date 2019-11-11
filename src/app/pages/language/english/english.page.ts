@@ -53,15 +53,12 @@ export class EnglishPage implements OnInit {
   ]
   schoolShow: boolean = false;
   constructor(private booksService: DashboardService,  private loader: LoaderService, private toast: ToasterService, private vibration: Vibration) {
-    this.loader.presentLoading();
+  //  this.loader.presentLoading();
    }
 
   ngOnInit() {
     this.booksService.getBooks('Science').subscribe(res => {
       this.Books = res.items;
-      if(this.loader){
-        this.loader.dismissloading();
-         }
     });
   }
 public searchBook(){

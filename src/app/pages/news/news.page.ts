@@ -15,13 +15,10 @@ export class NewsPage implements OnInit {
   constructor(private newsService: DashboardService, private refs: ChangeDetectorRef, private loader: LoaderService) { }
 
   ngOnInit() {
-    this.loader.presentLoading();
+ //   this.loader.presentLoading();
     this.refs.markForCheck();
     this.newsService.getEverythingNews('india').subscribe(res => {
       this.NewsEverything = res.articles;
-      if(this.loader){
-        this.loader.dismissloading();
-      }
     });
   }
 public onInput(){

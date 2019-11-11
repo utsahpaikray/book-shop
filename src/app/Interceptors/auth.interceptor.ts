@@ -17,7 +17,10 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(private _loaderService: LoaderService, private _errHandler: ErrorHandlerService, private _toastr: ToasterService, private router: Router, private helperservice: HelperService){
       router.events.subscribe((val) => {
           if(val instanceof NavigationEnd) {
-            this._loaderService.dismissloading();
+             if(this._loaderService){
+               
+                this._loaderService.dismissloading();
+             }
           }
       });
   }
@@ -29,7 +32,6 @@ export class TokenInterceptor implements HttpInterceptor {
 
     this._loaderService.presentLoading();
     return from(this.helperservice.getSession()).pipe(switchMap(token => {
-      console.log(token)
               var header = {};
               if (token) {
                   header = {
@@ -42,30 +44,34 @@ export class TokenInterceptor implements HttpInterceptor {
                   Localdate: new Date().toDateString()
                 };
               }
-              console.log(request)
            //   this._loaderService.presentLoading();
-           //if(token!==null){
+           if(request.body!==null){
             request = request.clone({
               setHeaders: header,
               url: environment.host + request.url
             });
-         //  }
+           }
              
               return next.handle(request).pipe(tap(
                 (success: any) => {
-                  console.log(success);
                   if (success instanceof HttpErrorResponse) {
                     console.log('working')
                   }
                 },
                 (err: any) => {
-                  this._loaderService.dismissloading();
+                   if(this._loaderService){
+                    
+                      this._loaderService.dismissloading();
+                  }
                   if (err instanceof HttpErrorResponse) {
     
                    
                   }
                 }, ()=>{
-                  this._loaderService.dismissloading();
+                   if(this._loaderService){
+                    
+                      this._loaderService.dismissloading();
+                   }
                 }
               ));
       }));

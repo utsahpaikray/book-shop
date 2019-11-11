@@ -20,11 +20,10 @@ export class LoaderService {
     await loading.present();
 
     const { role, data } = await loading.onDidDismiss();
-
-    console.log('Loading dismissed!');
   }
   public async dismissloading(){
-    await this.loadingController.dismiss();
+    this.loadingController.getTop().then(v => v ? this.loadingController.dismiss() : null);
+  //  await this.loadingController.dismiss();
   }
  public async presentLoadingWithOptions() {
     const loading = await this.loadingController.create({

@@ -45,7 +45,6 @@ export class LoginPage implements OnInit {
   }
   public onLogin() {
     this.submitted = true;
-    console.log(this.firstFormGroup)
     let data = {
       username: this.firstFormGroup.value.emailAddress,
       password: this.secondFormGroup.value.password

@@ -114,19 +114,23 @@
                               </ion-item-option>
                           </ion-item-options>
                    </ion-item-sliding>
-                   <ion-card class="ion-no-padding"  *ngIf="user.open">
-                      <ion-img *ngIf="user.picture.large" [src]="user.picture.large"></ion-img>
-                      <ion-card-header>
-                          <ion-card-title>{{ user.name?.first }}</ion-card-title>
-                        <ion-card-subtitle>email: {{user.email}}</ion-card-subtitle>
-                        <ion-card-subtitle>phone: {{user.phone}}</ion-card-subtitle>   
-                      </ion-card-header>
-                      <ion-card-content>
-                          Bacon ipsum dolor amet salami prosciutto ham hock, strip steak buffalo ribeye pork chop. Beef ribs tenderloin tail shoulder.
-                          Spare ribs ham shoulder brisket rump hamburger. Pork belly kevin shoulder prosciutto ribeye pork chop chicken
-                          strip steak pig.
-                        </ion-card-content>
-                  </ion-card>
+                   <ion-row class="ion-no-padding">
+                    <ion-col size-xs="12" size-sm="12" size-md="6" class="ion-no-padding">
+                        <ion-card size-xs="12" size-md="6" size-lg="6" class="ion-no-padding"  *ngIf="user.open">
+                          <ion-img *ngIf="user.picture.large" [src]="user.picture.large"></ion-img>
+                          <ion-card-header>
+                              <ion-card-title>{{ user.name?.first }}</ion-card-title>
+                            <ion-card-subtitle>email: {{user.email}}</ion-card-subtitle>
+                            <ion-card-subtitle>phone: {{user.phone}}</ion-card-subtitle>   
+                          </ion-card-header>
+                          <ion-card-content>
+                              Bacon ipsum dolor amet salami prosciutto ham hock, strip steak buffalo ribeye pork chop. Beef ribs tenderloin tail shoulder.
+                              Spare ribs ham shoulder brisket rump hamburger. Pork belly kevin shoulder prosciutto ribeye pork chop chicken
+                              strip steak pig.
+                            </ion-card-content>
+                            </ion-card>
+                            </ion-col>
+                            </ion-row>
                   </ng-container>
               </ion-list>
           </ion-col>

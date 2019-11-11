@@ -248,9 +248,6 @@ export class DashboardPage implements OnInit {
     this.newsService.getNews(country,pagesize,page).subscribe(res => {
       console.log(res)
       this.NewsContent = res.articles;
-        if(this.loader){
-         // this.loader.dismissloading();
-          }
     });
   }
   ngAfterViewInit() {
