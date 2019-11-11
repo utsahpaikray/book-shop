@@ -5,6 +5,7 @@ import { HelperService } from '../../services/helper-service/helper.service';
 import { Router } from '@angular/router';
 import { UserRole } from '../../enums/user-role.enum';
 import { AuthenticationService } from '../../services/authentication-service/authentication.service';
+import { ToasterService } from 'src/app/services/toaster/toaster.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginPage implements OnInit {
   @Input('role') public role: number;
   public submitted = false;
   public userRole = UserRole;
-  constructor(private _router: Router, private fb: FormBuilder, private _authService: AuthenticationService, private _helper: HelperService) {}
+  constructor(private _router: Router, private fb: FormBuilder, private _authService: AuthenticationService, private _helper: HelperService,  private _toastr: ToasterService) {}
 
   ngOnInit() {
     this.createForm();
@@ -46,7 +47,7 @@ export class LoginPage implements OnInit {
     this.submitted = true;
     console.log(this.firstFormGroup)
     let data = {
-      email: this.firstFormGroup.value.emailAddress,
+      username: this.firstFormGroup.value.emailAddress,
       password: this.secondFormGroup.value.password
     }
     this._helper.setSession(data);
@@ -54,6 +55,7 @@ export class LoginPage implements OnInit {
       this._helper.setSession(res);
     },
     err =>  {
+      this._toastr.presentToast('Login Failed','bottom','danger', 'sad');
      // this.formLogin.patchValue({password: ''});
     }
     );

@@ -9,7 +9,7 @@ export class AuthenticationService {
   constructor(private _http: HttpClient) { }
 
   public login(data: any): Observable<object[]> {
-    const path = '/login';
+    const path = '/authenticate';
     return this._http.post<object[]>(path, data);
   }
 

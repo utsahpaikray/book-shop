@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
+import { ToasterService } from 'src/app/services/toaster/toaster.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterPage implements OnInit {
   formRegister: FormGroup;
   submitted: boolean;
   pager =false;
-  constructor(private fb: FormBuilder, private _authService: AuthenticationService) {}
+  constructor(private fb: FormBuilder, private _authService: AuthenticationService, private _toastr: ToasterService) {}
 
   ngOnInit() {
       this.createForm();
@@ -62,9 +63,10 @@ export class RegisterPage implements OnInit {
     public onRegister(){
       this.submitted = true;
       console.log(this.formRegister.value)
-      if(this.formRegister.invalid){return;}
+     // if(this.formRegister.invalid){return;}
       this._authService.register(this.formRegister.value).subscribe(res => {
       }, err =>{
+        this._toastr.presentToast('Registartion Failed','bottom','danger', 'sad');
       });
     }
 }
