@@ -50,7 +50,6 @@ export class LoginPage implements OnInit {
       username: this.firstFormGroup.value.emailAddress,
       password: this.secondFormGroup.value.password
     }
-    this._helper.setSession(data);
     this._authService.login(data).subscribe(res => {
       this._helper.setSession(res);
     },
