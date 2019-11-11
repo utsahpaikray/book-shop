@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MaterialModule} from '../../material.module';
 import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 

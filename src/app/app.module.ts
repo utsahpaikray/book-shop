@@ -75,7 +75,6 @@ import { IonicStorageModule } from '@ionic/storage';
     HelperService,
     ToasterService,
     AuthenticationService,
-    Storage,
    // File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
