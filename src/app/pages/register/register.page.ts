@@ -12,6 +12,7 @@ export class RegisterPage implements OnInit {
   isLinear = false;
   formRegister: FormGroup;
   submitted: boolean;
+  pager =false;
   constructor(private fb: FormBuilder, private _authService: AuthenticationService) {}
 
   ngOnInit() {

@@ -77,14 +77,16 @@
           </ion-row>
         </ion-grid>
  </ion-content> -->
- <ion-content fullscreen align-self-center class="background">
+ <ion-content fullscreen align-self-center no-bounce no-scroll class="background">
         <ion-grid>
             <ion-row class="content-align">
                 <ion-col size-sm="8" size-xs="12" size-md="6"  size-lg="6" align-self-center>
                  <div>
-                 <ion-card >
+                 <ion-card class="ion-no-padding ion-no-margin">
                 <!-- <ion-button expand="block" (click)="isLinear = !isLinear" id="toggle-linear"> {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}</ion-button> -->
-
+                <ion-card-header color="primary">
+                    <img src="/assets/login.png" />
+                  </ion-card-header>
                     <mat-vertical-stepper [linear]="isLinear" #stepper>
                       <mat-step [stepControl]="firstFormGroup">
                         <form [formGroup]="firstFormGroup">
