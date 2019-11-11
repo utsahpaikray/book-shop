@@ -13,28 +13,48 @@
     <ion-row>
         <ion-slides  class="slider" pager="true" loop="true" >
             <ion-slide>
-                <img src='https://s3-ap-south-1.amazonaws.com/cdn.odishatv.in/wp-content/uploads/2017/12/education.png' alt="">
+                <img class="card-image" src='https://s3-ap-south-1.amazonaws.com/cdn.odishatv.in/wp-content/uploads/2017/12/education.png' alt="">
             </ion-slide>
             <ion-slide>
-                <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201808/private_school_elementary_kids.png?EiwnhC1LqlS8Dalew6r2EAUlj7QZyQhI" alt="">
+                <img class="card-image" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201808/private_school_elementary_kids.png?EiwnhC1LqlS8Dalew6r2EAUlj7QZyQhI" alt="">
             </ion-slide>
             <ion-slide>
-                <img src="https://cdn.studyinternational.com/news/wp-content/uploads/2017/03/pelita-schools-malaysia-390x249.jpg" alt="">
+                <img class="card-image" src="https://cdn.studyinternational.com/news/wp-content/uploads/2017/03/pelita-schools-malaysia-390x249.jpg" alt="">
             </ion-slide>
             <ion-slide>
-                <img src="https://odishasuntimes.com/wp-content/uploads/2017/04/School-students.gif" alt="">
+                <img class="card-image" src="https://odishasuntimes.com/wp-content/uploads/2017/04/School-students.gif" alt="">
             </ion-slide>
         </ion-slides> 
     </ion-row>
     <ion-row>
           <ion-searchbar [debounce]="250"  showCancelButton="focus" value="India" animated></ion-searchbar>
+    </ion-row>
+
+      <ion-row>
+         <ion-col size-xs="12" size-md='6'>
+             <div class="ion-text-center">
+                 <h5>Today's Thought</h5>
+               </div>
+             <ion-card class="ion-no-padding ion-no-margin card-image">
+               <img src='https://www.brainyquote.com/photos_tr/en/h/hjacksonbrownjr/382774/hjacksonbrownjr3-2x.jpg'/>
+             </ion-card>
+         </ion-col>
+         <ion-col size-xs="12" size-md='6'>
+             <div class="ion-text-center">
+                 <h5>Today's Pic</h5>
+               </div>
+             <ion-card class="ion-no-padding ion-no-margin card-image">
+               <img src='https://wp-assets.futurism.com/2019/09/india-attempt-moon-landing-1200x630.jpg'/>
+             </ion-card>
+         </ion-col>
       </ion-row>
+
       <ion-row>
           <ion-title>Area wise school list</ion-title>
       </ion-row>
       <ion-row class="ion-no-padding">
        
-        <ion-col size="12" size-sm="6" size-md="6">
+        <ion-col size="12" size-sm="8" size-md="8">
             <!-- <ion-list class="full-container ion-no-padding" (click)="schoolDetails(school.name)">  
                     <ion-item> {{school.name}}</ion-item> 
               </ion-list> -->
@@ -60,6 +80,7 @@
         </ion-col>  
       </ion-row>
   </ion-grid>
+
   <!-- <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let movie of movies" cdkDrag>
         {{movie.title}}
@@ -78,7 +99,7 @@
         <ion-label>Shared Links</ion-label>
       </ion-segment-button>
     </ion-segment> -->
-    <ion-tab-button (click)="downloadHandler()">
+    <!-- <ion-tab-button (click)="downloadHandler()">
       <ion-label>Download file</ion-label>
-    </ion-tab-button>
+    </ion-tab-button> -->
 </ion-content>

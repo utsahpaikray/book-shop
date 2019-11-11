@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar color="primary" text-center>
+        <ion-buttons slot="start" (click)="closeModal()">
+            <ion-icon name="arrow-round-back"></ion-icon>
+        </ion-buttons>
+      <ion-title>Story Board</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content>  
+    <ion-grid>
+        <ion-col>
+          <ion-button (click)="decrementPage()"><ion-icon name="arrow-round-back"></ion-icon> </ion-button>
+          <ion-button (click)="incrementPage()"><ion-icon name="arrow-round-forward"></ion-icon> </ion-button>
+          <ion-button (click)="decrementZoom(1)"><ion-icon name="contract"></ion-icon> </ion-button>
+          <ion-button (click)="incrementZoom(1)"><ion-icon name="expand"></ion-icon> </ion-button>
+          <pdf-viewer [src]="pdfSrc" [(page)]="page" [rotation]="rotation" 
+          [fit-to-page]="fitToPage" (after-load-complete)="afterLoadComplete($event)" [zoom]="zoom" [show-all]="showAll"
+          [stick-to-page]="stickToPage" [render-text]="renderText" [external-link-target]="'blank'"
+          [autoresize]="true" [original-size]="false" [render-text-mode]="1" [fit-to-page]="true" (on-progress)="onProgress($event)"
+          (page-rendered)="pageRendered($event)" style="display: block;max-width: 100%"></pdf-viewer>
+        </ion-col>
+      </ion-grid>
+</ion-content>
+

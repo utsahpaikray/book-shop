@@ -6,73 +6,80 @@
 <ion-content fullscreen align-self-center class="background">
 <ion-grid>
   <ion-row class="content-align">
-      <ion-col size-sm="8" size-xs="12" size-md="6"  size-lg="6" align-self-center>
-       <ion-card class="regist">
-            <ion-slides #signupSlider pager color="contrast">
-            <ion-slide color="contrast">
-              <p  style="color: #ea6153;">Please fill out all details accurately.</p>
-              <ion-list lines="none" color="contrast">
-                  <form color="contrast">
-                      <ion-item color="contrast">
-                          <ion-label position="floating">First Name</ion-label>
-                          <ion-input  type="text" ></ion-input>
-                      </ion-item>
-                      <!-- <ion-item color="contrast">
-                          <p>Please enter a valid name.</p>
-                      </ion-item> -->
-                      <ion-item color="contrast">
-                          <ion-label position="floating">Last Name</ion-label>
-                          <ion-input type="text"></ion-input>
-                      </ion-item>
-                      <!-- <ion-item color="contrast">
-                          <p>Please enter a valid name.</p>
-                      </ion-item> -->
-                      <ion-item color="contrast">
-                        <ion-label position="floating">Email</ion-label>
-                        <ion-input type="text"></ion-input>
-                    </ion-item>
-                    <ion-item color="contrast">
-                            <ion-label position="floating">Mobile Number</ion-label>
-                            <ion-input type="text"></ion-input>
-                        </ion-item>
-                      <!-- <ion-item color="contrast">
-                          <p>Please enter a valid email.</p>
-                      </ion-item> -->
-            
-                 
-            <!-- </ion-slide>
-            <ion-slide color="contrast"> -->
-              <!-- <ion-list lines="none" color="contrast">   -->
-                      <!-- <ion-item color="contrast">
-                          <p>Please enter a valid Number.</p>
-                      </ion-item> -->
-                      <!-- <ion-item color="contrast">
-                          <ion-label position="floating">Age</ion-label>
-                          <ion-input type="number" ></ion-input>
-                      </ion-item> -->
-                      <!-- <ion-item color="contrast">
-                          <p>Please enter a valid age.</p>
-                      </ion-item> -->
-                      <ion-item color="contrast">
-                          <ion-label position="floating">Role</ion-label>
-                          <ion-select>
-                              <ion-select-option value="student" checked="true">Student</ion-select-option>
-                              <ion-select-option value="teacher">Teacher</ion-select-option>
-                              <ion-select-option value="lecture">Lecture</ion-select-option>
-                              <ion-select-option value="Other">Other</ion-select-option>
-                          </ion-select>
-                      </ion-item>
-                    </form>
-                      <!-- <ion-item color="contrast">
-                          <ion-label position="floating">Bio</ion-label>
-                          <ion-textarea></ion-textarea>
-                      </ion-item> -->
-              </ion-list>
-              <ion-button  color="primary" routerLink="/login">Create Account!</ion-button>
-            </ion-slide>
-          </ion-slides>
-     </ion-card>
-   </ion-col>
+     
+          <ion-col size-sm="8" size-xs="12" size-md="6"  size-lg="6" align-self-center>
+              <ion-card class="regist">
+                  <form [formGroup]="formRegister"  novalidate autocomplete="off"  >
+                    <ion-slides #signupSlider pager color="contrast">
+                    <ion-slide color="contrast">
+                      <p  style="color: #ea6153;">Please fill out all details accurately.</p>
+                      <ion-list lines="none" color="contrast">
+                              <ion-item color="contrast">
+                                  <ion-label position="floating">First Name</ion-label>
+                                  <ion-input  type="text" formControlName="firstName"></ion-input>
+                              </ion-item>
+                              <!-- <ion-item color="contrast">
+                                  <p>Please enter a valid name.</p>
+                              </ion-item> -->
+                              <ion-item color="contrast">
+                                  <ion-label position="floating">Last Name</ion-label>
+                                  <ion-input type="text" formControlName="lastName"></ion-input>
+                              </ion-item>
+                              <!-- <ion-item color="contrast">
+                                  <p>Please enter a valid name.</p>
+                              </ion-item> -->
+                              <ion-item color="contrast">
+                                <ion-label position="floating">Email</ion-label>
+                                <ion-input type="email" formControlName="email"></ion-input>
+                            </ion-item>
+                              <ion-item color="contrast">
+                                <ion-label position="floating">Password</ion-label>
+                                <ion-input type="password" formControlName="password"></ion-input>
+                            </ion-item>
+                            <ion-item color="contrast">
+                                    <ion-label position="floating">Mobile Number</ion-label>
+                                    <ion-input type="number" formControlName="mobileNumber"></ion-input>
+                                </ion-item>
+                              <!-- <ion-item color="contrast">
+                                  <p>Please enter a valid email.</p>
+                              </ion-item> -->
+                    
+                        
+                    <!-- </ion-slide>
+                    <ion-slide color="contrast"> -->
+                      <!-- <ion-list lines="none" color="contrast">   -->
+                              <!-- <ion-item color="contrast">
+                                  <p>Please enter a valid Number.</p>
+                              </ion-item> -->
+                              <!-- <ion-item color="contrast">
+                                  <ion-label position="floating">Age</ion-label>
+                                  <ion-input type="number" ></ion-input>
+                              </ion-item> -->
+                              <!-- <ion-item color="contrast">
+                                  <p>Please enter a valid age.</p>
+                              </ion-item> -->
+                              <ion-item color="contrast">
+                                  <ion-label position="floating">Role</ion-label>
+                                  <ion-select formControlName="role">
+                                      <ion-select-option value="student" checked="true">Student</ion-select-option>
+                                      <ion-select-option value="teacher">Teacher</ion-select-option>
+                                      <ion-select-option value="lecture">Lecture</ion-select-option>
+                                      <ion-select-option value="Other">Other</ion-select-option>
+                                  </ion-select>
+                              </ion-item>
+                            
+                              <!-- <ion-item color="contrast">
+                                  <ion-label position="floating">Bio</ion-label>
+                                  <ion-textarea></ion-textarea>
+                              </ion-item> -->
+                      </ion-list>
+                      <ion-button  color="primary" (click)="onRegister()">Create Account!</ion-button>
+                    </ion-slide>
+                  </ion-slides>
+                </form>
+            </ion-card>
+          </ion-col>
+     
    </ion-row>
 </ion-grid>
 </ion-content>

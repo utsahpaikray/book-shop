@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/material.module';
 import { MatStepperModule } from '@angular/material';
@@ -21,8 +21,22 @@ import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-vi
 import { File } from '@ionic-native/file/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { DetailComboPageModule } from './shared-component/detail-combo/detail-combo.module';
+import { PdfViewerPageModule } from './shared-component/pdf-viewer/pdf-viewer.module';
 //import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-native/file-transfer'; 
 //import { File } from '@ionic-native/file';
+
+// Interceptors
+import { TokenInterceptor } from './Interceptors/auth.interceptor';
+import { ErrorHandlerService} from './services/error-handler-service/error-handler.service';
+import { HelperService } from './services/helper-service/helper.service';
+import { ToasterService} from './services/toaster/toaster.service';
+
+//Auth Services
+import { AuthenticationService } from './services/authentication-service/authentication.service';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,10 +50,14 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
       {swipeBackEnabled: false}
     ),
     AppRoutingModule,
+    IonicStorageModule.forRoot(),
     BrowserAnimationsModule,
     AddToCartModalPageModule,
+    DetailComboPageModule,
     ProfilePageModule,
-    IonTabPageModule
+    IonTabPageModule,
+    PdfViewerPageModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     Camera,
@@ -53,8 +71,18 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
     FileOpener,
     FileTransfer,
     FileTransferObject,
+    ErrorHandlerService,
+    HelperService,
+    ToasterService,
+    AuthenticationService,
+    Storage,
    // File,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

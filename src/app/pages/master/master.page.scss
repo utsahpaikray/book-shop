@@ -36,3 +36,36 @@ ion-toolbar{
         font-size: 0.8rem;
     }
 }
+.tabs{
+    // --ion-grid-columns: 10;
+    // --ion-grid-column-padding: 0;
+    // flex-wrap: nowrap;
+    // overflow-x: scroll;
+    // will-change: scroll-position;
+}
+.bottom-tab {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+}
+ion-tab-bar{
+    --background-focused:#333;
+}
+ion-tab-button{
+    --margin-left:0;
+    --margin-right:0;
+    ion-label{
+        font-size: 0.5rem;
+    }
+a{
+    padding: 0;
+    margin: 0;
+}
+}
+ion-tab-button {
+    --color-selected: var(--ion-color-dark-contrast);
+  }
+ion-tab-button {
+    --padding-start: 0px;
+    --padding-end: 0px;
+  }

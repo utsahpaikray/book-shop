@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController, Platform } from '@ionic/angular';
 import { AddToCartModalPage } from '../../shared-component/shared-component/add-to-cart-modal/add-to-cart-modal.page';
 import { NavController } from '@ionic/angular';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({

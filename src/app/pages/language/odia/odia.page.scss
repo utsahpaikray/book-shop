@@ -4,3 +4,35 @@ ion-card-title{
 .padding-top{
     padding-top: 65px;
  }
+ .item{
+    border: 1px solid transparent;
+    .card-header-top{
+        border-top: 1px solid #e0e0e0;
+        text-align: center;
+        .add-button{
+        bottom: 0;
+        font-size: 0.6rem;
+        }
+    }
+    .card-header-bottom{
+        border-bottom: 1px solid #e0e0e0;
+        padding: 5px 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.img-container {
+    width: 120px;
+    display: table; 
+    margin: 0.5rem auto;  
+    .image-container {
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        img {
+            max-width: 160px;      
+        }
+    }  
+}

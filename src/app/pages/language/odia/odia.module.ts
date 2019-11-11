@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule } from '@ionic/angular';
-
+import { IonicRatingModule } from 'ionic4-rating';
 import { OdiaPage } from './odia.page';
 
 const routes: Routes = [
@@ -21,6 +21,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     HttpClientModule,
+    IonicRatingModule,
     RouterModule.forChild(routes)
   ],
   declarations: [OdiaPage]

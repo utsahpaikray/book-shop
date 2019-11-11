@@ -9,19 +9,19 @@
 </ion-header> -->
 
 
-<ion-content fullscreen class="ion-no-padding"> 
-    <ion-grid class="padding-top">
-        <!-- <ion-button (click)="openCam()" >Open Camera</ion-button> -->
-        <ion-row>
-    <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+<ion-content fullscreen class="ion-no-padding">
+  <ion-grid class="padding-top ion-no-padding">
+    <!-- <ion-button (click)="openCam()" >Open Camera</ion-button> -->
+    <ion-row>
+      <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher> -->
-          <ion-title class="title">New Featured Books</ion-title>
-          <ion-slides  class="slider  ion-no-margin ion-no-padding" pager="true" loop="true"  >
-            <ion-slide *ngFor= "let book of books" class="ion-no-margin ion-no-padding">
-                <img src={{book.image}} alt="">
-            </ion-slide>
-          </ion-slides> 
+      <ion-slides class="slider  ion-no-margin ion-no-padding" pager="true">
+        <ion-slide *ngFor="let service of services" class="ion-no-margin ion-no-padding">
+          <img src={{service.image}} alt="" class="card-image">
+        </ion-slide>
+      </ion-slides>
+
       <!-- <ion-card>
         <ion-item  class="activated">
           <ion-icon name="wifi" slot="start"></ion-icon>
@@ -43,19 +43,110 @@
           <ion-label>Card Button Item 2</ion-label>
         </ion-item>
       </ion-card> -->
-        </ion-row>
-     </ion-grid>
-       <ion-grid class="ion-no-padding">
-          <ion-row class="ion-no-padding news-arrival">
-              <ion-col size-xs="3" size-sm="2" size-md="2" size-lg="1" *ngFor="let book of books" class="ion-no-padding">
-                <ion-card class="ion-no-padding">
-                    <img src={{book.image}} alt="">
-                  </ion-card>  
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <ion-grid class="ion-no-padding">
-          <!-- <ion-row class="ion-no-padding news-content">
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+        <ion-col size-xs="6"  class="ion-no-padding ion-no-margin">
+            <div class="ion-no-padding ion-no-margin ion-no-border category">
+                <ion-row>
+                    <ion-col size-xs="6"  size-md="3" class="ion-no-padding">
+                      <div class="image-container" routerLink="/master/news" routerDirection="root">
+                          <img alt="News"
+                          src="https://t3.ftcdn.net/jpg/01/89/84/16/500_F_189841600_CSLUOqiWAIzdguMyaCTwTNy631wRuOTw.jpg">   
+                      </div>
+                    </ion-col>
+                    <ion-col size-xs="6"  size-md="3" class="ion-no-padding">
+                        <div class="image-container" routerLink="/master/my-school" routerDirection="root">
+                        <img alt="school"
+                        src="https://image.freepik.com/free-vector/background-with-flat-designed-school_23-2147656837.jpg" >
+                        </div>
+                    </ion-col>
+                    <ion-col size-xs="6"  size-md="3" class="ion-no-padding">
+                        <div class="image-container" routerLink="master/bookstore/books" routerDirection="root">
+                        <img alt="Bookstore"
+                        src="http://getdrawings.com/vectors/store-vector-9.jpg">
+                        </div>
+                    </ion-col>
+                    <ion-col size-xs="6"  size-md="3" class="ion-no-padding">
+                        <div class="image-container" routerLink="/master/bookstore/accesories" routerDirection="root">
+                        <img alt="HOME DECOR"
+                        src="https://image.freepik.com/free-vector/let-s-go-school_57801-110.jpg">
+                        </div>
+                    </ion-col>
+                </ion-row>            
+            </div>
+        </ion-col>
+        <ion-col size-xs="6"  class="ion-no-padding ion-no-margin">
+            <div class="ion-no-padding ion-no-margin ion-no-border category">
+                <ion-row>
+                    <ion-col size-xs="6"  size-md="3" class="ion-no-padding">
+                        <div class="image-container" routerLink="/master/rent-service/car-service" routerDirection="root">
+                            <img alt="Car Services"
+                            src="https://image.freepik.com/free-vector/flat-travel-background_23-2148049934.jpg">
+                        </div>
+                    </ion-col>
+                    <ion-col size-xs="6"  size-md="3" class="ion-no-padding">
+                        <div class="image-container" routerLink="/master/celebration/birthday" routerDirection="root">
+                        <img alt="WOMEN'S FASHION"
+                        src="https://image.freepik.com/free-vector/boy-with-party-hat-birthday-celebration_25030-41206.jpg" >
+                        </div>
+                    </ion-col>
+                    <ion-col size-xs="6"  size-md="3" class="ion-no-padding">
+                        <div class="image-container" routerLink="/master/celebration/anniversary" routerDirection="root">
+                        <img alt="ELECTRONICS"
+                        src="https://png.pngtree.com/element_origin_min_pic/16/10/03/1957f24110d62f5.jpg">
+                        </div>
+                    </ion-col>
+                    <ion-col size-xs="6"  size-md="3" class="ion-no-padding">
+                        <div class="image-container" routerLink="/master/story-board" routerDirection="root">
+                        <img alt="HOME DECOR"
+                        src="https://i.scdn.co/image/f0cd307e225fba60daa7298cefdc8bcfb0faaff9">
+                        </div>
+                    </ion-col>
+                </ion-row>            
+            </div>
+        </ion-col>
+        <!-- <ion-col size-xs="4"  class="ion-no-padding ion-no-margin">
+            <ion-card class="ion-no-padding ion-no-margin">
+                <ion-row>
+                    <ion-col size-xs="6"  class="ion-no-padding">
+                        <img alt="MEN'S FASHION"
+                        src="https://images-eu.ssl-images-amazon.com/images/G/31/Gateway/BrightBuy/MensFashion_4._SY119_CB464576364_.jpg">
+                    </ion-col>
+                    <ion-col size-xs="6"  class="ion-no-padding">
+                        <img alt="WOMEN'S FASHION"
+                        src="https://images-eu.ssl-images-amazon.com/images/G/31/Gateway/BrightBuy/WomensFashion_4._SY119_CB464576364_.jpg" >
+                    </ion-col>
+                    <ion-col size-xs="6"  class="ion-no-padding">
+                        <img alt="ELECTRONICS"
+                        src="https://images-eu.ssl-images-amazon.com/images/G/31/Gateway/BrightBuy/Electronics_4._SY119_CB464576365_.jpg">
+                    </ion-col>
+                    <ion-col size-xs="6"  class="ion-no-padding">
+                        <img alt="HOME DECOR"
+                        src="https://images-eu.ssl-images-amazon.com/images/G/31/Gateway/BrightBuy/HomeDecor_4._SY119_CB464576365_.jpg">
+                    </ion-col>
+                </ion-row>            
+            </ion-card>
+        </ion-col> -->
+     
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="ion-no-padding ion-padding-5">
+    <div class="ion-text-center">
+      <h5> New Arrivals</h5>
+    </div>
+
+    <ion-row class="ion-no-padding news-arrival">
+      <ion-col size-xs="3" size-sm="2" size-md="2" size-lg="1" *ngFor="let book of books" class="ion-no-padding">
+        <ion-card class="ion-no-padding">
+          <img src={{book.image}} alt="">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="ion-no-padding">
+    <!-- <ion-row class="ion-no-padding news-content">
               <ion-col size-xs="12" size-sm="12" size-md="6" *ngFor="let News of NewsContent" class="ion-no-padding">    
                 <ion-card class="ion-no-padding">
                       <img *ngIf="News.urlToImage" [src]="News.urlToImage || loadingAnimation"/>
@@ -68,50 +159,48 @@
                   
             </ion-col>
           </ion-row> -->
-          <div class="pins ion-no-padding news-content">
-            <div *ngFor="let News of NewsContent" class="pin ion-no-padding">    
-              <ion-card class="ion-no-padding">
-                    <img *ngIf="News.urlToImage" [src]="News.urlToImage || loadingAnimation"/>
-                    <ion-card-header>
-                      <ion-card-subtitle *ngIf="News.WAGM">Author {{News.WAGM}}</ion-card-subtitle>
-                      <ion-card-title *ngIf="News.title">{{News.title}}</ion-card-title>
-                    </ion-card-header>
-                    <!-- <ion-card-content *ngIf="News.content">{{News.content}}</ion-card-content> -->
-                </ion-card>
-                
-          </div>
-        </div>
-        </ion-grid>
-      
-        <img src="{{image}}">
-        <div *ngIf="!NewsContent">
-            <ion-row>
-                <ion-col size="12" size-sm="6" size-md="6" *ngFor="let item of [1,2,3,4,5,6]">
-                    <ion-list>
-                        <ion-item>
-                          <ion-thumbnail slot="start">
-                            <ion-skeleton-text animated></ion-skeleton-text>
-                          </ion-thumbnail>
-                          <ion-label>
-                            <h3>
-                              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                            </h3>
-                            <p>
-                              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                            </p>
-                            <p>
-                              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                            </p>
-                          </ion-label>
-                        </ion-item>
-                        </ion-list>
-                </ion-col>
-            </ion-row>
-        </div>
-          <ion-infinite-scroll threshold="200px" (ionInfinite)="loadData($event)">
-              <ion-infinite-scroll-content
-                loadingSpinner="bubbles"
-                loadingText="Loading more NEWS...">
-              </ion-infinite-scroll-content>
-            </ion-infinite-scroll>
+    <div class="pins ion-no-padding news-content">
+      <div *ngFor="let News of NewsContent" class="pin ion-no-padding">
+        <ion-card class="ion-no-padding">
+          <img *ngIf="News.urlToImage" [src]="News.urlToImage || loadingAnimation" />
+          <ion-card-header>
+            <ion-card-subtitle *ngIf="News.WAGM">Author {{News.WAGM}}</ion-card-subtitle>
+            <ion-card-title *ngIf="News.title">{{News.title}}</ion-card-title>
+          </ion-card-header>
+          <!-- <ion-card-content *ngIf="News.content">{{News.content}}</ion-card-content> -->
+        </ion-card>
+
+      </div>
+    </div>
+  </ion-grid>
+
+  <img src="{{image}}">
+  <div *ngIf="!NewsContent">
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-md="6" *ngFor="let item of [1,2,3,4,5,6]">
+        <ion-list>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              </p>
+              <p>
+                <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-infinite-scroll threshold="200px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more NEWS...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

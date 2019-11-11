@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar color="primary" text-center>
+        <ion-buttons slot="start" (click)="closeModal()">
+            <ion-icon name="arrow-round-back"></ion-icon>
+        </ion-buttons>
+      <ion-title>Combo Detail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content>   
+      <ion-grid class="padding-top ion-no-padding">
+          <ion-row class="ion-no-padding align-self-baseline">
+              <ion-col size-xs="12" size-sm="12"  class="ion-no-padding align-self-baseline">
+                  <ion-card size-xs="12" size-md="6" size-lg="6" class="card ion-no-padding ion-no-margin align-self-baseline">
+                      <img *ngIf="model.comboImage" src="{{model.comboImage}}"/>   
+                          <ion-card-header>
+                              <ion-row class="ion-no-padding row">            
+                                  <ion-col size-xs="4" size-sm="4" size-md="6" align-self-center *ngFor="let item of model.items" class="ion-no-padding align-self-end "> 
+                                      <ng-container >
+                                          <ion-card class="ion-no-padding">
+                                              <ng-container *ngFor="let cont of item.category">
+                                                  <img src="{{cont.image}}" alt="">
+                                              </ng-container>
+                                          </ion-card>
+                                    </ng-container>
+                                  </ion-col>
+                              </ion-row>
+                          </ion-card-header>
+                          <ion-card-content>
+                              <ion-button expand="block">Order</ion-button>
+                              <ion-item>
+                              <ion-label> Order before 24 hours</ion-label>
+                              </ion-item>
+                          </ion-card-content>
+                  </ion-card>
+                </ion-col>
+                <ion-col  size-xs="12" size-sm="12"  class="ion-no-padding align-self-baseline">
+                    <ion-card size-xs="12" size-md="3" size-lg="3" class="ion-no-padding align-self-baseline">
+                        <ion-card-header>
+                            <ion-list id="list"> 
+                                  <ng-container *ngFor="let item of model.items"> 
+                                          <ion-item> 
+                                              <ng-container *ngFor="let cont of item.category">
+                                            <ion-label *ngIf="cont.Name">{{cont.Name}}</ion-label> 
+                                            <ion-label *ngIf="cont.Qty"> {{cont.Qty}} pcs</ion-label>
+                                          </ng-container>
+                                          </ion-item>
+                                    
+                                    </ng-container>
+                            </ion-list>
+                        </ion-card-header>
+                      </ion-card>
+                </ion-col>
+              </ion-row>
+      </ion-grid>
+</ion-content>

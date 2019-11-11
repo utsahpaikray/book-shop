@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header> -->
 
-<ion-content class="ion-no-padding">
+<ion-content class="ion-no-padding background">
     <ion-grid  class="padding-top">
         <ion-row>
             <ion-col size-xs="12" class="ion-no-padding">
@@ -72,16 +72,22 @@
                   </ion-tab-button> 
                 </ion-item>
                <ion-item>
-                <span style="z-index:50;font-size:0.9em;">
-                  <img src="http://api.paperquotes.com/static/images/paperquotes.png" height="20" width="20" alt="paperquotes.com"/>
-                  <a href="http://paperquotes.com" title="Powered by quotes from paperquotes.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">paperquotes.com
-                  </a>
-                </span>
+               
                </ion-item>
             </ion-list>
            
           </ion-row>
       </ion-grid>
+      <!-- <ion-grid>
+        <ion-col>
+          <ion-button (click)="incrementPage()"> inc</ion-button>
+          <pdf-viewer [src]="pdfSrc" [(page)]="page" [rotation]="rotation" 
+          [fit-to-page]="fitToPage" [show-borders]="true" (after-load-complete)="afterLoadComplete($event)" [zoom]="zoom" [show-all]="showAll"
+          [stick-to-page]="stickToPage" [render-text]="renderText" [external-link-target]="'blank'"
+          [autoresize]="true" [original-size]="false" [render-text-mode]="1" [fit-to-page]="true" (on-progress)="onProgress($event)"
+          (page-rendered)="pageRendered($event)" style="display: block;max-width: 100%"></pdf-viewer>
+        </ion-col>
+      </ion-grid> -->
       <!-- <ion-grid >
           <ion-row>
             <ion-item-divider class="ion-margin-bottom">

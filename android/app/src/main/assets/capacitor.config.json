@@ -1,7 +1,7 @@
 {
   "appId": "io.ionic.starter",
   "appName": "Aiona",
-  "bundledWebRuntime": false,
+  "bundledWebRuntime": true,
   "npmClient": "npm",
   "webDir": "www",
   "android": {

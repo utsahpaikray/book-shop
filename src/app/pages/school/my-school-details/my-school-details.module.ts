@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { MySchoolDetailsPage } from './my-school-details.page';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
+
 const routes: Routes = [
   {
     path: '',

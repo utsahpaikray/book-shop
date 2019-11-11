@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>story-board</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="ion-no-padding padding-top back-gradient">
+        <ion-col>
+            <div id="Awesome" class="anim750">
+                <div class="reveal circle_wrapper">
+                  <div class="circle">
+                      <img src="https://i.scdn.co/image/f0cd307e225fba60daa7298cefdc8bcfb0faaff9" class="ion-no-padding"/>
+                  </div>
+                </div>         
+                <div class="sticky anim750">
+                  <div class="front circle_wrapper anim750">
+                    <div class="circle anim750"></div>
+                  </div>
+                </div> 
+                <h4>New Story!</h4>          
+                <div class="sticky anim750">
+                  <div class="back circle_wrapper anim750">
+                    <div class="circle anim750"></div>
+                  </div>
+                </div>
+                          
+              </div> 
+          </ion-col>
+          <div class="ion-text-left">
+                <ion-title>Top Stories</ion-title>
+            </div>
+        <ion-row class="ion-no-padding row ion-no-padding news-arrival">   
+            <ion-col size-xs="3" size-sm="2" size-md="2" size-lg="1" align-self-center *ngFor="let combo of birthdayCombos" class="ion-no-padding align-self-end ">  
+                <ion-card class=" list  ion-no-padding align-self-baseline" (click)="OpenStoryBoard()">
+                            <div class="image-container">
+                                <img src="{{combo.image}}" class="ion-no-padding"/>
+                            </div>
+                </ion-card>
+          </ion-col>
+         </ion-row>
+          <div class="ion-text-left">
+                <ion-title>Mythological Stories</ion-title>
+            </div>
+        <ion-row class="ion-no-padding row ion-no-padding news-arrival">   
+            <ion-col size-xs="3" size-sm="2" size-md="2" size-lg="1" align-self-center *ngFor="let combo of birthdayCombos" class="ion-no-padding align-self-end ">  
+                <ion-card class=" list  ion-no-padding align-self-baseline" (click)="OpenStoryBoard()">
+                            <div class="image-container">
+                                <img src="{{combo.image}}" class="ion-no-padding"/>
+                            </div>
+                </ion-card>
+          </ion-col>
+         </ion-row>
+          <div class="ion-text-left">
+                <ion-title>Sanskrit Stories</ion-title>
+            </div>
+        <ion-row class="ion-no-padding row ion-no-padding news-arrival">   
+            <ion-col size-xs="3" size-sm="2" size-md="2" size-lg="1" align-self-center *ngFor="let combo of birthdayCombos" class="ion-no-padding align-self-end ">  
+                <ion-card class=" list  ion-no-padding align-self-baseline" (click)="OpenStoryBoard()">
+                            <div class="image-container">
+                                <img src="{{combo.image}}" class="ion-no-padding"/>
+                            </div>
+                </ion-card>
+          </ion-col>
+         </ion-row>
+          <div class="ion-text-left">
+                <ion-title>Panchatantra Stories</ion-title>
+            </div>
+        <ion-row class="ion-no-padding row ion-no-padding news-arrival">   
+            <ion-col size-xs="3" size-sm="2" size-md="2" size-lg="1" align-self-center *ngFor="let combo of birthdayCombos" class="ion-no-padding align-self-end ">  
+                <ion-card class=" list  ion-no-padding align-self-baseline" (click)="OpenStoryBoard()">
+                            <div class="image-container">
+                                <img src="{{combo.image}}" class="ion-no-padding"/>
+                            </div>
+                </ion-card>
+          </ion-col>
+         </ion-row>
+    </ion-grid>
+</ion-content>

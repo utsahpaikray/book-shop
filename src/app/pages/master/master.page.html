@@ -2,7 +2,7 @@
         <ion-menu contentId="content">
           <ion-header translucent>
             <ion-toolbar color="primary">
-              <ion-title>Eonia</ion-title>
+              <ion-title class="text-style retroshadow">Eonia</ion-title>
               <ion-title slot="end"></ion-title>
             </ion-toolbar>
           </ion-header>    
@@ -41,13 +41,15 @@
                   </ion-item>
                   <ion-list *ngIf="p.open">
                     <ion-menu-toggle auto-hide="false" color="transparent" >
-                        <ion-item *ngFor="let sub of p.children" class="sub-item" [routerLink]="sub.url" routerDirection="root"
-                          routerLinkActive="active" >
-                          <ion-icon [name]="sub.icon" slot="end"></ion-icon>
-                          <ion-label>
-                            {{ sub.title }}
-                          </ion-label>
-                        </ion-item>
+                        <ng-container  *ngFor="let sub of p.children">
+                            <ion-item *ngIf="sub.navigation"  class="sub-item" [routerLink]="sub.url" routerDirection="root"
+                              routerLinkActive="active" >
+                              <ion-icon [name]="sub.icon" slot="end"></ion-icon>
+                              <ion-label>
+                                {{ sub.title }}
+                              </ion-label>
+                            </ion-item>
+                          </ng-container>
                     </ion-menu-toggle>
                   </ion-list>
               </div>
@@ -73,41 +75,17 @@
                 </ion-item>
                 <ion-list *ngIf="p.open">
                   <ion-menu-toggle auto-hide="false" color="transparent" >
-                      <ion-item *ngFor="let sub of p.children" class="sub-item" [routerLink]="sub.url" routerDirection="root"
+                    <ng-container  *ngFor="let sub of p.children">
+
+                   
+                      <ion-item *ngIf="sub.navigation"  class="sub-item" [routerLink]="sub.url" routerDirection="root"
                         routerLinkActive="active" >
                         <ion-icon [name]="sub.icon" slot="end"></ion-icon>
                         <ion-label>
                           {{ sub.title }}
                         </ion-label>
                       </ion-item>
-                  </ion-menu-toggle>
-                </ion-list>
-            </div>
-          </ion-card>
-            </ion-list>
-            <ion-list color="secondary">
-              <ion-card class="ion-no-padding profile" color="secondary">
-              <div *ngFor="let p of rentServices" color="transparent">
-                <ion-menu-toggle auto-hide="false" color="transparent" >
-                  <ion-item *ngIf="!p.children?.length > 0 && p.navigation" [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)" color="transparent"> 
-                    <ion-label>{{ p.title }}</ion-label>
-                    <ion-icon name="{{p.icon}}" slot="end"></ion-icon>
-                  </ion-item>
-               </ion-menu-toggle>
-                <ion-item button *ngIf="p.children?.length > 0" (click)="p.open = !p.open" [class.parent-active]="p.open" detail="false" color="transparent">
-                  <ion-icon slot="end" name="arrow-forward" *ngIf="!p.open"></ion-icon>
-                  <ion-icon slot="end" name="arrow-down" *ngIf="p.open"></ion-icon>
-                  <ion-label>{{ p.title }}</ion-label>
-                </ion-item>
-                <ion-list *ngIf="p.open">
-                  <ion-menu-toggle auto-hide="false" color="transparent" >
-                      <ion-item *ngFor="let sub of p.children" class="sub-item" [routerLink]="sub.url" routerDirection="root"
-                        routerLinkActive="active" >
-                        <ion-icon [name]="sub.icon" slot="end"></ion-icon>
-                        <ion-label>
-                          {{ sub.title }}
-                        </ion-label>
-                      </ion-item>
+                    </ng-container>
                   </ion-menu-toggle>
                 </ion-list>
             </div>
@@ -127,31 +105,54 @@
                 <app-header></app-header>
             </ion-toolbar>
           </ion-header>
-          <ion-tabs>
-                <ion-tab-bar >
-               
-                  <ion-tab-button tab="authors" > 
-                    <ion-chip color="primary">     
-                      <ion-icon name="logo-buffer" color="warning-shade"></ion-icon>
-                      <ion-label color="warning-shade">Authors</ion-label>
-                    </ion-chip>
-                  </ion-tab-button>
-               
-                  <ion-tab-button tab="books" >
-                    <ion-chip color="primary">
-                        <ion-icon name="book" color="warning-shade"></ion-icon>
-                        <ion-label color="warning-shade">Books</ion-label>
-                    </ion-chip>
-                  </ion-tab-button>
-                  <ion-tab-button tab="cart">
-                    <ion-chip color="primary">
-                        <ion-icon name="cart" color="warning-shade"></ion-icon>
-                        <ion-label color="warning-shade">Cart</ion-label>
-                    </ion-chip> 
-                  </ion-tab-button>
-                </ion-tab-bar>
-               
+          <ion-tabs mode="md" tabsHighlight="true" color="primary"> 
+              <ion-tab-bar slot="bottom" color="primary">
+                  <div class="bottom-tab">
+                            <div class="ion-no-padding no-wrap">
+                                <ion-tab-button tab="authors" > 
+                                   
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">     
+                                      <ion-icon name="logo-buffer" slot="start" size="small"></ion-icon>
+                                      <ion-label mode="md" slot="end" size="small">Authors</ion-label>
+                                    </ion-button>
+                                  </ion-tab-button>
+                              
+                            </div>
+                            <div class="ion-no-padding no-wrap">
+                                <ion-tab-button tab="bookstore/books" >
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
+                                       
+                                        <ion-icon name="business" slot="start"></ion-icon>
+                                        <ion-label >Book Store</ion-label>
+                                    </ion-button>
+                                  </ion-tab-button>
+                            </div>
+                            <div class="ion-no-padding no-wrap">
+                                <ion-tab-button tab="bookstore/accesories" >
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
+                                        <ion-icon name="book" slot="start"></ion-icon>
+                                        <ion-label >Book Accesories</ion-label>
+                                    </ion-button>
+                                  </ion-tab-button>
+                            </div>
+                            <div class="ion-no-padding no-wrap">
+                                <ion-tab-button tab="rent-service/car-service" > 
+                                  <ion-button color="light" size="small" shape="round" expand="block" fill="outline">     
+                                    <ion-icon name="car" slot="start"></ion-icon>
+                                    <ion-label >Travel</ion-label>
+                                  </ion-button>
+                                </ion-tab-button>
+                            </div>
+                            <div class="ion-no-padding no-wrap">
+                                <ion-tab-button tab="cart">
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
+                                        <ion-icon name="cart" slot="start" ></ion-icon>
+                                        <ion-label >Cart</ion-label>
+                                    </ion-button> 
+                                  </ion-tab-button>
+                            </div>
+                  </div>
+              </ion-tab-bar>
           </ion-tabs>   
         </ion-router-outlet>
   </ion-split-pane>
- 

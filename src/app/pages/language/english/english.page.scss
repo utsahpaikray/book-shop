@@ -4,3 +4,78 @@ ion-card-title{
 .padding-top{
     padding-top: 65px;
  }
+ .item{
+    border: 1px solid transparent;
+    .card-header-top{
+        border-top: 1px solid #e0e0e0;
+        text-align: center;
+        .add-button{
+        bottom: 0;
+        font-size: 0.6rem;
+        }
+    }
+    .card-header-bottom{
+        border-bottom: 1px solid #e0e0e0;
+        padding: 5px 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.img-container {
+    width: 120px;
+    display: table; 
+    margin: 0.5rem auto;  
+    .image-container {
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        img {
+            max-width: 160px;
+            border-radius: 4px;
+            transition: all ease-in-out .25s;
+            padding: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);      
+        }
+    }  
+}
+.list{
+    &.card{
+      //  background: linear-gradient(to right, #480f35eb, #480f356e);
+    }
+}
+.bottom-tab {
+  //  border-bottom: 1px solid #b2b2b2;
+    .no-wrap {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+      //  margin: 10px 0;
+      padding: 10px 0;
+    }
+    ion-chip{
+        width: 8rem;
+        max-width: 10rem;
+    }
+}
+ion-segment-button{
+    --background-checked: #FF9800;
+    --background-activated:#FF9800;
+    --background: #009688;
+    border-radius: 2rem;
+    margin: 0 2px;
+  height: 30px;
+  min-height: 30px;
+  ion-label {
+    margin: 0;
+    font-size: 0.6rem;
+  }
+   
+}
+ion-segment{
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid #abacac;
+    padding: 5px 0;
+}

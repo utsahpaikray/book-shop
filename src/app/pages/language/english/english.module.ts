@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { EnglishPage } from './english.page';
 import { HttpClientModule } from '@angular/common/http';
-
+import { IonicRatingModule } from 'ionic4-rating';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +21,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     HttpClientModule,
+    IonicRatingModule,
     RouterModule.forChild(routes)
   ],
   declarations: [EnglishPage]

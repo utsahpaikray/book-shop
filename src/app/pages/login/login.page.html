@@ -88,9 +88,9 @@
                     <mat-vertical-stepper [linear]="isLinear" #stepper>
                       <mat-step [stepControl]="firstFormGroup">
                         <form [formGroup]="firstFormGroup">
-                          <ng-template matStepLabel>Fill out your name</ng-template>
+                          <ng-template matStepLabel>Email</ng-template>
                           <mat-form-field>
-                            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                            <input matInput placeholder="Email" formControlName="emailAddress" required #email>
                           </mat-form-field>
                           <div class="button login">
                             <button mat-button  matStepperNext  mat-raised-button color="primary">Next</button>
@@ -99,9 +99,9 @@
                       </mat-step>
                       <mat-step [stepControl]="secondFormGroup">
                         <form [formGroup]="secondFormGroup">
-                          <ng-template matStepLabel>Fill out your address</ng-template>
+                          <ng-template matStepLabel>Password</ng-template>
                           <mat-form-field>
-                            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+                            <input matInput placeholder="Address" formControlName="password" required>
                           </mat-form-field>
                           <div class="button back">
                             <button mat-button matStepperPrevious  mat-raised-button color="primary">Back</button>
@@ -115,7 +115,7 @@
                         
                           <!-- <button mat-button matStepperPrevious  mat-raised-button color="primary" class="ion-padding">Back</button>
                           <button mat-button (click)="stepper.reset()"  mat-raised-button color="primary" class="ion-padding">Reset</button> -->
-                          <ion-button expand="block" routerLink="/master/home">Login</ion-button>
+                          <ion-button expand="block" (click)="onLogin()">Login</ion-button>
                         </div>
                       </mat-step>
                     </mat-vertical-stepper>

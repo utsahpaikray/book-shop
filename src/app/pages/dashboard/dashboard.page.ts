@@ -95,6 +95,23 @@ export class DashboardPage implements OnInit {
       "url": "https://itbook.store/books/9781430228264"
     }
   ]
+  public services= [
+    {
+      "title": "School Service",
+      "image": "assets/school.jpg",
+      "url": "https://itbook.store/books/9780764579080"
+    },
+    {
+      "title": "Book shop Service",
+      "image": "assets/bookstore.jpg",
+      "url": "https://itbook.store/books/9780764579080"
+    },
+    {
+      "title": "Car Service",
+      "image": "assets/travel.jpg",
+      "url": "https://itbook.store/books/9780764579080"
+    },
+  ]
   @ViewChild(IonSlides) slides: IonSlides;
   bars: any;
   colorArray: any;
@@ -195,19 +212,16 @@ export class DashboardPage implements OnInit {
   public loadingAnimation = "../../assets/loading.gif";
   public imgHeight = '250px';
   constructor(private newsService: DashboardService, private loader: LoaderService, private camera: Camera) { 
-    this.loader.presentLoading();
+  //  this.loader.presentLoading();
   }
 
   ngOnInit() {
-    
+  
    
    this.getHeadlines('us',this.pagesize,this.page);
    
     this.newsService.getEverythingNews({ query: 'Science' }).subscribe(res => { 
       this.NewsEverything = res.articles;
-      //if(this.loader){
-         this.loader.dismissloading();
-     // }
     });
     
   }
@@ -230,9 +244,13 @@ export class DashboardPage implements OnInit {
 
   }
   public getHeadlines(country,pagesize,page){
+   // this.loader.presentLoading();
     this.newsService.getNews(country,pagesize,page).subscribe(res => {
       console.log(res)
       this.NewsContent = res.articles;
+        if(this.loader){
+         // this.loader.dismissloading();
+          }
     });
   }
   ngAfterViewInit() {

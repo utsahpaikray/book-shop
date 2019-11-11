@@ -39,16 +39,44 @@ export class MasterPage implements OnInit {
       navigation:true
     },
     {
-      title: 'Cart',
-      url: '/master/cart',
-      icon:'cart',
-      navigation:true
+      title: 'Celebration',
+      children: [
+        {
+          title: 'Combos',
+          url: '/master/celebration/celebration-combos',
+          icon: 'home',
+          navigation:false
+        },
+        {
+          title: 'Birthday',
+          url: '/master/celebration/birthday',
+          icon: 'gift',
+          navigation:true
+        },
+        {
+          title: 'Anniversary',
+          url: '/master/celebration/anniversary',
+          icon: 'gift',
+          navigation:true
+        }
+      ]
     },
     {
       title: 'News',
       url: '/master/news',
       icon:'globe',
       navigation:true
+    },
+    {
+      title: 'Travel',
+      children: [
+        {
+          title: 'Car Rent Service',
+          url: '/master/rent-service/car-service',
+          icon: 'car',
+          navigation:true
+        }
+      ]
     },
     {
       title: 'Books',
@@ -63,26 +91,26 @@ export class MasterPage implements OnInit {
       navigation:false
     },
     {
-      title: 'Books',
+      title: 'Book Store',
       children: [
         {
-          title: 'School Books',
-          url: '/master/language/hindi',
+          title: 'Books',
+          url: '/master/bookstore/books',
           icon: 'journal',
           navigation:true
         },
         {
-          title: 'College Books',
-          url: '/master/language/english',
+          title: 'Accesories',
+          url: '/master/bookstore/accesories',
           icon: 'journal',
           navigation:true
         },
-        {
-          title: 'Private school books',
-          url: '/master/language/odia',
-          icon: 'journal',
-          navigation:true
-        },
+        // {
+        //   title: 'Private school books',
+        //   url: '/master/language/odia',
+        //   icon: 'journal',
+        //   navigation:true
+        // },
       ]
     },
     {
@@ -103,17 +131,37 @@ export class MasterPage implements OnInit {
       icon: 'journal',
       navigation:false
     },
+
+  
     {
-      title: 'My School',
-      url: '/master/my-school',
-      icon:'business',
-      navigation:true,
+      title: 'Education',
+      children: [
+        {
+          title: 'My School',
+          url: '/master/my-school',
+          icon:'business',
+          navigation:true,
+        },
+        {
+          title: 'Authors',
+          url: '/master/authors',
+          icon:'globe',
+          navigation:true
+        },
+        {
+          title: 'Story Board',
+          url: '/master/story-board',
+          icon:'paw',
+          navigation:true
+        },
+      ]
     },
+
     {
-      title: 'School Details',
-      url: '/master/my-school/details',
-      icon:'globe',
-      navigation:false
+      title: 'Cart',
+      url: '/master/cart',
+      icon:'cart',
+      navigation:true
     }
   ];
   admin= [
@@ -138,19 +186,6 @@ export class MasterPage implements OnInit {
           icon: 'medkit',
           navigation:true
         },
-      ]
-    }
-  ]
-  rentServices= [
-    {
-      title: 'Rent Services',
-      children: [
-        {
-          title: 'Car Rent Service',
-          url: '/master/rent-service/car-service',
-          icon: 'car',
-          navigation:true
-        }
       ]
     }
   ]

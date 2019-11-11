@@ -38,8 +38,16 @@ const routes: Routes = [
         loadChildren: '../news/news.module#NewsPageModule'
       },
       {
-        path: 'language',
+        path: 'bookstore',
         loadChildren: '../language/language/language.module#LanguagePageModule'
+      },
+      {
+        path: 'celebration',
+        loadChildren: '../celebration/celebration/celebration.module#CelebrationPageModule'
+      },
+      {
+        path: 'story-board',
+        loadChildren: '../story-board/story-board.module#StoryBoardPageModule'
       },
       {
         path: 'my-school',

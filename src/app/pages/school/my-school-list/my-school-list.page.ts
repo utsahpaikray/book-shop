@@ -56,13 +56,13 @@ export class MySchoolListPage implements OnInit {
     }
   ];
   ngOnInit() {
-    this.quotes.getQuoates().subscribe(res => { 
-      this.quotes = res.articles;
-    });
+    // this.quotes.getQuoates().subscribe(res => { 
+    //  // this.quotes = res.articles;
+    // });
    
     this.schoolList =[
       {
-        area:'Balugaon',
+        area:'Banpur',
         children:[
           {
             name: 'Bhalipada School',
@@ -114,7 +114,7 @@ export class MySchoolListPage implements OnInit {
             name: 'RAGHUNATHPUR School'
             },
           {
-            name: 'AUROBINDO PURNANGA S. KENDRA School'
+            name: 'Sri AUROBINDO PURNANGA S. KENDRA School'
             },
             {
             name: 'HARIJAN SAHI P School'
@@ -134,7 +134,7 @@ export class MySchoolListPage implements OnInit {
         ]
       },
       {
-        area:'Banpur',
+        area:'Balugaon',
         children:[
           {
             name:  'DR. RADHA CHARAN P School'

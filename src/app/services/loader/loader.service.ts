@@ -9,9 +9,13 @@ export class LoaderService {
   constructor(public loadingController: LoadingController) { }
   public async presentLoading() {
     const loading = await this.loadingController.create({
-      message: 'Please wait...',
+      spinner:null,
+      message: `<div class="custom-spinner-container">
+      <img class="loading" width="120px" height="120px" src="assets/loading.gif" />
+    </div>`,
       translucent: true,
-     duration:2000
+      cssClass: 'custom-class custom-loading',
+    // duration:2000
     });
     await loading.present();
 
@@ -26,7 +30,9 @@ export class LoaderService {
     const loading = await this.loadingController.create({
       spinner: null,
       duration: 5000,
-      message: 'Please wait...',
+      message: `<div class="custom-spinner-container">
+      <img class="loading" width="120px" height="120px" src="assets/loading.gif" />
+    </div>`,
       translucent: true,
       cssClass: 'custom-class custom-loading'
     });

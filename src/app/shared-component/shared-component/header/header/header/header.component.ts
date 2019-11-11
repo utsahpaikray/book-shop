@@ -109,14 +109,14 @@ export class HeaderComponent implements OnInit {
       ]
     },
     {
-      title: 'School Books',
-      url: '/master/language/hindi',
+      title: 'Books',
+      url: '/master/bookstore/books',
       icon: 'journal',
       navigation:false
     },
     {
-      title: 'College Books',
-      url: '/master/language/english',
+      title: 'Book Accesories',
+      url: '/master/bookstore/accesories',
       icon: 'journal',
       navigation:false
     },
@@ -160,6 +160,30 @@ export class HeaderComponent implements OnInit {
       title: 'Car Rent Service',
       url: '/master/rent-service/car-service',
       icon: 'car',
+      navigation:true
+    },
+    {
+      title: 'Combos',
+      url: '/master/celebration/celebration-combos',
+      icon: 'journal',
+      navigation:true
+    },
+    {
+      title: 'Birthday',
+      url: '/master/celebration/birthday',
+      icon: 'journal',
+      navigation:true
+    },
+    {
+      title: 'Anniversary',
+      url: '/master/celebration/anniversary',
+      icon: 'journal',
+      navigation:true
+    },
+    {
+      title: 'Story Board',
+      url: '/master/story-board',
+      icon:'paw',
       navigation:true
     }
   ];

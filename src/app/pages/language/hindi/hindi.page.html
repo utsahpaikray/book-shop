@@ -9,7 +9,7 @@
 
   <ion-content fullscreen>
       <!-- <ion-searchbar [(ngModel)]="searchQuery"  [debounce]="250" (change)="onInput()"  showCancelButton="focus" value="India" animated></ion-searchbar> -->
-      <ion-grid class="padding-top">
+      <!-- <ion-grid class="padding-top">
           <ion-row>
               <ion-col  size="6" size-sm="4" size-md="3" size-lg="2" *ngFor="let News of Books">
                   <ion-card>
@@ -20,5 +20,175 @@
                   </ion-card>
               </ion-col>
             </ion-row>
+        </ion-grid> -->
+        <ion-grid class="ion-no-padding padding-top back-gradient">
+         <div class=" title"><ion-title>Note Books</ion-title></div>
+            <ion-row class="ion-no-padding row">
+                    
+                <ion-col size-xs="6" size-sm="4" size-md="2" align-self-center *ngFor="let notebook of noteBooks" class="ion-no-padding align-self-end ">
+                    
+                    <ion-card class=" list card  ion-no-padding align-self-baseline">
+                        <div class="item item-body">
+                            <div class="img-container">
+                                <div class="image-container">
+                                    <img src="{{notebook.image}}" class="ion-no-padding"/>
+                                </div>
+                            </div>​
+                          <ion-card-content class="ion-no-padding">
+                              <ion-card-header class="card-header-bottom">
+                                  <span>{{notebook.price| currency:"INR"}}</span>
+                                  <rating id="rating" class="ion-no-padding" [rate]="4"
+                                          readonly="false" 
+                                          size="small"
+                                          >
+                                    </rating>
+                              </ion-card-header> 
+                              <div class="card-header-top">
+                                  <ion-button color="primary" class="add-button" (click)="addToCart()">   
+                                      <ion-label>Add To Cart</ion-label>
+                                      <ion-icon name="cart"></ion-icon>
+                                  </ion-button>  
+                                </div> 
+                          </ion-card-content>     
+                          </div>
+                    </ion-card>
+              </ion-col>
+             </ion-row>
+        </ion-grid>
+        <ion-grid class="ion-no-padding back-gradient ">
+        <div class=" title"><ion-title>Note Book Accesories</ion-title></div>
+            <ion-row class="ion-no-padding row">
+                    
+                <ion-col size-xs="6" size-sm="4" size-md="2" align-self-center *ngFor="let notebookacc of noteBookAccesories" class="ion-no-padding align-self-end ">
+                    
+                    <ion-card class=" list card  ion-no-padding align-self-baseline" >
+                        <div class="item item-body">
+                            <div class="img-container">
+                                <div class="image-container">
+                                    <img src="{{notebookacc.image}}" class="ion-no-padding"/>
+                                </div>
+                            </div>​
+                          <ion-card-content class="ion-no-padding">
+                              <ion-card-header class="card-header-bottom">
+                                  <span>{{notebookacc.price| currency:"INR"}}</span>
+                                  <rating id="rating" class="ion-no-padding" [rate]="4"
+                                          readonly="false" 
+                                          size="small"
+                                          >
+                                    </rating>
+                              </ion-card-header> 
+                              <div class="card-header-top">
+                                  <ion-button color="primary" class="add-button" (click)="addToCart()">   
+                                      <ion-label>Add To Cart</ion-label>
+                                      <ion-icon name="cart"></ion-icon>
+                                  </ion-button>  
+                                </div> 
+                          </ion-card-content>     
+                          </div>
+                    </ion-card>
+              </ion-col>
+             </ion-row>
+        </ion-grid>
+        <ion-grid class="ion-no-padding back-gradient">
+         <div class=" title"><ion-title>School Bags</ion-title></div>
+            <ion-row class="ion-no-padding row">
+                    
+                <ion-col size-xs="6" size-sm="4" size-md="2" align-self-center *ngFor="let schollBag of schollBags" class="ion-no-padding align-self-end ">
+                    
+                    <ion-card class=" list card  ion-no-padding align-self-baseline" >
+                        <div class="item item-body">
+                            <div class="img-container">
+                                <div class="image-container">
+                                    <img src="{{schollBag.image}}" class="ion-no-padding"/>
+                                </div>
+                            </div>​
+                          <ion-card-content class="ion-no-padding">
+                              <ion-card-header class="card-header-bottom">
+                                  <span>{{schollBag.price| currency:"INR"}}</span>
+                                  <rating id="rating" class="ion-no-padding" [rate]="4"
+                                          readonly="false" 
+                                          size="small"
+                                          >
+                                    </rating>
+                              </ion-card-header> 
+                              <div class="card-header-top">
+                                  <ion-button color="primary" class="add-button" (click)="addToCart()">   
+                                      <ion-label>Add To Cart</ion-label>
+                                      <ion-icon name="cart"></ion-icon>
+                                  </ion-button>  
+                                </div> 
+                          </ion-card-content>     
+                          </div>
+                    </ion-card>
+              </ion-col>
+             </ion-row>
+        </ion-grid>
+        <ion-grid class="ion-no-padding back-gradient">
+                <div class=" title"><ion-title>School Uiniforms</ion-title></div>
+            <ion-row class="ion-no-padding row">
+                    
+                <ion-col size-xs="6" size-sm="4" size-md="2" align-self-center *ngFor="let schollUiniform of schollUiniforms" class="ion-no-padding align-self-end ">
+                    
+                    <ion-card class=" list card  ion-no-padding align-self-baseline" >
+                        <div class="item item-body">
+                            <div class="img-container">
+                                <div class="image-container">
+                                    <img src="{{schollUiniform.image}}" class="ion-no-padding"/>
+                                </div>
+                            </div>​
+                          <ion-card-content class="ion-no-padding">
+                              <ion-card-header class="card-header-bottom">
+                                  <span>{{schollUiniform.price| currency:"INR"}}</span>
+                                  <rating id="rating" class="ion-no-padding" [rate]="4"
+                                          readonly="false" 
+                                          size="small"
+                                          >
+                                    </rating>
+                              </ion-card-header> 
+                              <div class="card-header-top">
+                                  <ion-button color="primary" class="add-button" (click)="addToCart()">   
+                                      <ion-label>Add To Cart</ion-label>
+                                      <ion-icon name="cart"></ion-icon>
+                                  </ion-button>  
+                                </div> 
+                          </ion-card-content>     
+                          </div>
+                    </ion-card>
+              </ion-col>
+             </ion-row>
+        </ion-grid>
+        <ion-grid class="ion-no-padding back-gradient">
+                <div class=" title"><ion-title>School Tiffin Box</ion-title></div>
+            <ion-row class="ion-no-padding row">
+                    
+                <ion-col size-xs="6" size-sm="4" size-md="2" align-self-center *ngFor="let schollTifinBox of schollTifinBoxs" class="ion-no-padding align-self-end ">
+                    
+                    <ion-card class=" list card  ion-no-padding align-self-baseline" >
+                        <div class="item item-body">
+                            <div class="img-container">
+                                <div class="image-container">
+                                    <img src="{{schollTifinBox.image}}" class="ion-no-padding"/>
+                                </div>
+                            </div>​
+                          <ion-card-content class="ion-no-padding">
+                              <ion-card-header class="card-header-bottom">
+                                  <span>{{schollTifinBox.price| currency:"INR"}}</span>
+                                  <rating id="rating" class="ion-no-padding" [rate]="4"
+                                          readonly="false" 
+                                          size="small"
+                                          >
+                                    </rating>
+                              </ion-card-header> 
+                              <div class="card-header-top">
+                                  <ion-button color="primary" class="add-button" (click)="addToCart()">   
+                                      <ion-label>Add To Cart</ion-label>
+                                      <ion-icon name="cart"></ion-icon>
+                                  </ion-button>  
+                                </div> 
+                          </ion-card-content>     
+                          </div>
+                    </ion-card>
+              </ion-col>
+             </ion-row>
         </ion-grid>
   </ion-content>

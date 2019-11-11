@@ -6,7 +6,7 @@ import { File } from '@ionic-native/file/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 import { FileOpener } from '@ionic-native/file-opener/ngx';
-// import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer/ngx';
+import {PDFProgressData, PDFDocumentProxy, PDFSource} from 'ng2-pdf-viewer';
 @Component({
   selector: 'app-my-school-details',
   templateUrl: './my-school-details.page.html',
@@ -23,13 +23,34 @@ export class MySchoolDetailsPage implements OnInit {
   storageDirectory: string = '';
   image: any;
   doc: Document;
+  pdfSrc: string | PDFSource | ArrayBuffer = 'http://uploads.worldlibrary.org/uploads/pdf/20171028052721pancha_tantra___4__madhuri_adhikary.pdf';
+    // pdfSrc: any = {
+  //   url: '../../../../assets/5-simple-hacks-LBT.pdf',
+  //   withCredentials: true,
+  //// httpHeaders: { // cross domain
+  ////   'Access-Control-Allow-Credentials': true
+  //// }
+  // };
+  error: any;
+  page = 1;
+  rotation = 0;
+  zoom = 1;
+  originalSize = false;
+  pdf: any;
+  renderText = true;
+  progressData: PDFProgressData;
+  isLoaded = false;
+  stickToPage = false;
+  showAll = false;
+  autoresize = true;
+  fitToPage = false;
+  outline: any[];
+  isOutlineShown = false;
+  pdfQuery = '';
+ 
   //constructor() { }
   constructor(private document: DocumentViewer,  private platform: Platform, private file: File, private transfer:FileTransfer, private fileOpener: FileOpener,  public alertCtrl: AlertController) {
     this.platform.ready().then(() => {
-      // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
-      // if(!this.platform.is('cordova')) {
-      //   return false;
-      // }
 
       if (this.platform.is('ios')) {
         this.storageDirectory = this.file.documentsDirectory;
@@ -43,7 +64,7 @@ export class MySchoolDetailsPage implements OnInit {
       }
     });
    }
-
+ 
   ngOnInit() {
     this.facultyList=[
       {
@@ -198,7 +219,8 @@ retrieveImage(image) {
         this.document.viewDocument(url, 'application/pdf', {});
       }else{
         console.log(url)
-        this.fileOpener.open(url,'application/pdf');
+        this.document.viewDocument(url, 'application/pdf', {});
+      //  this.fileOpener.open(url,'application/pdf');
       }
     },(error) => {
       console.log("An error has occurred: Code = " + error.code);
@@ -237,28 +259,32 @@ console.log(entry)
  public openLocalPdf(){
   this.platform.ready().then(() => {
     let filepath= this.file.applicationDirectory+ 'www/assets';
-  if(this.file.applicationDirectory!=null){
-        if(this.platform.is('android')){
-          console.log(filepath);
-          console.log(this.file)
-        let fakename= Date.now();
-        this.file.copyFile(filepath,'5-simple-hacks-LBT.pdf', this.file.externalApplicationStorageDirectory,`${fakename}.pdf`).then(result=>{
-          console.log(result)
-          this.fileOpener.open(result.nativeURL,'application/pdf');
-        },(error)=>{
-          console.log("An error has occurred: Code = " + error.code);
-          console.log("upload error source " + error.source);
-          console.log("upload error target " + error.target);
-          const newpath = this.file.externalApplicationStorageDirectory+'5-simple-hacks-LBT.pdf';
-          this.fileOpener.open(newpath,'application/pdf');
-        })
-        }else{
-          const options: DocumentViewerOptions = {
-            title: 'My PDF'
-          }
-          this.document.viewDocument(`${filepath}/5-simple-hacks-LBT.pdf`, 'application/pdf', options);
-        }
-   }
+  // if(this.file.applicationDirectory!=null){
+  //       if(this.platform.is('android')){
+  //         console.log(filepath);
+  //         console.log(this.file)
+  //       let fakename= Date.now();
+  //       this.file.copyFile(filepath,'5-simple-hacks-LBT.pdf', this.file.externalApplicationStorageDirectory,`${fakename}.pdf`).then(result=>{
+  //         console.log(result)
+  //         this.fileOpener.open(result.nativeURL,'application/pdf');
+  //       },(error)=>{
+  //         console.log("An error has occurred: Code = " + error.code);
+  //         console.log("upload error source " + error.source);
+  //         console.log("upload error target " + error.target);
+  //         const newpath = this.file.externalApplicationStorageDirectory+'5-simple-hacks-LBT.pdf';
+  //         this.fileOpener.open(newpath,'application/pdf');
+  //       })
+  //       }else{
+  //         const options: DocumentViewerOptions = {
+  //           title: 'My PDF'
+  //         }
+  //         this.document.viewDocument(`${filepath}/5-simple-hacks-LBT.pdf`, 'application/pdf', options);
+  //       }
+  //  }
+  const options: DocumentViewerOptions = {
+    title: 'My PDF'
+  }
+  this.document.viewDocument(`${filepath}/5-simple-hacks-LBT.pdf`, 'application/pdf', options)
   });
   }
   // public downloadDoc(doc: Document) {
@@ -278,4 +304,91 @@ console.log(entry)
   //     console.log('Could not create directory "my_downloads" ',err);
   //   }); 
   //  }
+  loadPdf() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://localhost:8000/assets/pdf-test.pdf', true);
+    xhr.responseType = 'blob';
+
+    xhr.onload = (e: any) => {
+      console.log(xhr);
+      if (xhr.status === 200) {
+        const blob = new Blob([xhr.response], { type: 'application/pdf' });
+        this.pdfSrc = URL.createObjectURL(blob);
+      }
+    };
+
+    xhr.send();
+  }
+
+
+  incrementPage() {
+    this.page += 1;
+  }
+
+  incrementZoom(amount: number) {
+    this.zoom += amount;
+  }
+
+  rotate(angle: number) {
+    this.rotation += angle;
+  }
+
+  /**
+   * Render PDF preview on selecting file
+   */
+  onFileSelected() {
+    const $pdf: any = document.querySelector('#file');
+
+    if (typeof FileReader !== 'undefined') {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.pdfSrc = e.target.result;
+      };
+
+      reader.readAsArrayBuffer($pdf.files[0]);
+    }
+  }
+
+  /**
+   * Get pdf information after it's loaded
+   * @param pdf
+   */
+  afterLoadComplete(pdf: PDFDocumentProxy) {
+    this.pdf = pdf;
+
+    this.loadOutline();
+  }
+
+  /**
+   * Get outline
+   */
+  loadOutline() {
+    this.pdf.getOutline().then((outline: any[]) => {
+      this.outline = outline;
+    });
+  }
+
+
+  /**
+   * Pdf loading progress callback
+   * @param {PDFProgressData} progressData
+   */
+  onProgress(progressData: PDFProgressData) {
+    console.log(progressData);
+    this.progressData = progressData;
+
+    this.isLoaded = progressData.loaded >= progressData.total;
+    this.error = null; // clear error
+  }
+
+  getInt(value: number): number {
+    return Math.round(value);
+  }
+
+  pageRendered(e: CustomEvent) {
+    console.log('(page-rendered)', e);
+  }
+
+
 }

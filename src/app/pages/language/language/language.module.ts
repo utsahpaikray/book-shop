@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     children:[
       {
-        path: 'english',
+        path: 'books',
         loadChildren: '../english/english.module#EnglishPageModule'
       },
       {
@@ -20,7 +20,7 @@ const routes: Routes = [
         loadChildren: '../odia/odia.module#OdiaPageModule'
       },
       {
-        path: 'hindi',
+        path: 'accesories',
         loadChildren: '../hindi/hindi.module#HindiPageModule'
       }
     ]

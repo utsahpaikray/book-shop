@@ -12,9 +12,13 @@ ion-card{
     margin-inline-end: 0px;
     box-shadow: 0px 3px 7px rgba(0,0,0,.12) !important;
     border-radius: 10px !important;
+    &.ion-no-border{
+        border-radius: 0px !important;
+    }
 }
 body {
     cursor: url('https://ionicframework.com/img/finger.png'), auto;
+    background-color: radial-gradient(circle at top right,#3f6e79,#ffffff);
   }
   .alert-head{
     background: var(--ion-color-primary);
@@ -70,4 +74,37 @@ body {
             color: var( --ion-color-warning-tint) !important;
         }
     }
+  }  
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
   }
+  .scroller {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  // IE 10+
+    scrollbar-width: none;  // Firefox
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none; // Safari and Chrome
+    }
+}
+//Text Design
+.text-style {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    text-shadow: 0 2px 0 rgba(0,112,133,.6);
+}
+.custom-loading .loading-wrapper {
+    padding: 0;
+    margin: 0;
+    -webkit-padding-start: 0;
+    padding-inline-start: 0;
+    -webkit-padding-end: 0;
+    padding-inline-end: 0;
+    background: #333333b3;
+    border-radius: 50%;
+    img{
+        height: 6rem;
+    }
+}
