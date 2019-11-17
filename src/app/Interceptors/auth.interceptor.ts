@@ -40,7 +40,7 @@ export class TokenInterceptor implements HttpInterceptor {
                   }
               } else {
                 header = {
-                  Authorization:'Bearer',
+                 // Authorization:'Bearer',
                   Localdate: new Date().toDateString()
                 };
               }
@@ -63,13 +63,9 @@ export class TokenInterceptor implements HttpInterceptor {
                     
                       this._loaderService.dismissloading();
                   }
-                  if (err instanceof HttpErrorResponse) {
-    
-                   
-                  }
+                  if (err instanceof HttpErrorResponse) {}
                 }, ()=>{
                    if(this._loaderService){
-                    
                       this._loaderService.dismissloading();
                    }
                 }

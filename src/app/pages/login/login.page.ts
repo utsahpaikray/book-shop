@@ -25,6 +25,7 @@ export class LoginPage implements OnInit {
   constructor(private _router: Router, private fb: FormBuilder, private _authService: AuthenticationService, private _helper: HelperService,  private _toastr: ToasterService) {}
 
   ngOnInit() {
+    this._helper.clearStorage();
     this.createForm();
     // this._subscribeFormControls = this.formLogin.controls['username'].valueChanges.subscribe(val => {
     //   if (val.indexOf(' ') >= 0) {

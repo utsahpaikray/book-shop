@@ -26,8 +26,7 @@ export class HelperService {
   public setSession(res) {
     this.platform.ready().then(() => {
      this.storage.set('session', res);
-    });
-     
+    });   
   }
   public  getSession(){
     return this.storage.get('session');
@@ -37,6 +36,9 @@ export class HelperService {
     'set': function(session: any) {localStorage.setItem('session', JSON.stringify(session)); },
     'remove': function() {localStorage.removeItem('session'); }
   };
+  public clearStorage(){
+    this.storage.clear();
+  }
 
   // Business session related methods
   public business = {
@@ -78,16 +80,6 @@ export class HelperService {
     }
   }
 
-  // To check that model has properties or not.
-  // public hasModel(model: { hasOwnProperty: (arg0: string) => void; }): boolean {
-  //   for (const prop in model) {
-  //     if (model.hasOwnProperty(prop)) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   }
-  // }
 
   // To check that model has a specific property or not.
   public hasProperty(model: { [x: string]: any; }, property: string): boolean {
@@ -125,45 +117,6 @@ export class HelperService {
     }
   }
 
-  // To get login path against current role
-  // public getLoginAgainstCurrentRole(): string {
-  //   const session = this.session.get();
-  //   if(session){
-  //     let path = '/' + Resources.borrower + '/authentication/login';
-  //     if (session) {
-  //       if (session['Role']) {
-  //         if (session['Role'] === UserRole.Lender) {
-  //           path = '/' + Resources.lender + '/authentication/login';
-  //         } else if (session['Role'] === UserRole.Accountant) {
-  //           path = '/' + Resources.accountant + '/authentication/login';
-  //         }
-  //       }
-  //     }
-  //     return path;
-  //   }else{
-  //     return '';
-  //   }
-  // }
-
-  // Configuration for success toast messages
-  public toastConfigurations(): object {
-    return {
-      timeOut: 3000,
-      extendedTimeOut: 1000,
-      closeButton: false,
-      tapToDismiss: true
-    };
-  }
-
-  // Configuration for success toast messages
-  public reloadBiusinessToastConfiguration(): object {
-    return {
-      extendedTimeOut: 0,
-      closeButton: false,
-      tapToDismiss: false
-    };
-  }
-
   // Find objects using key
   public findObjectByKey(array: any[], key: string, value: string) {
     for (let i = 0; i < array.length; i++) {
@@ -186,39 +139,6 @@ export class HelperService {
     } else {
       return false;
     }
-  }
-
-  // clearing toast messages
-
-
-  // public pathToUsers(){
-  //   var role = 0;
-  //   var session = this.session.get();
-  //   if(session){
-  //     role = session['Role'];
-  //   }else{
-  //     this._router.navigateByUrl('sme/authentication');
-  //   }
-  //   switch (role) {
-  //     case UserRole.Lender: return 'lender';
-  //     case UserRole.Borrower: return 'sme';
-  //     case UserRole.CreditExchange: return 'exchange';
-  //     case UserRole.PayPieStaff: return 'staff';
-  //     case UserRole.Accountant: return 'accountant';
-  //     default:'';
-  //   }
-  // }
-
-  public dataTillDate(): string{
-    var lastDate = this.business.get()['LastDownloadedDate'];
-    var year = lastDate.substr(0, 4);
-    var month = lastDate.substr(5, 2);
-    var date = lastDate.substr(8, 2);
-    if(month.charAt(0) == '0'){
-      month = month.substr(1);
-      month = parseInt(month)
-    }
-    return this.monthNames[month - 1] + ' ' + date + ', ' + year;
   }
 
   public dataSinceOneYear(): string{
@@ -255,14 +175,4 @@ public isMobile():boolean{
       return false;
     }
 }
-public drilldownModal(name){
-  if(typeof this.classlist!=="undefined" && this.classlist!==(< HTMLInputElement > name).classList){
-    this.classlist.remove('in');
-   }
-   this.classlist=(< HTMLInputElement > name).classList;
-   (< HTMLInputElement > name).classList.toggle('in');
- }
- public close(name){
-  (< HTMLInputElement > name).classList.toggle('in');
- }
 }
