@@ -17,6 +17,10 @@ export class AuthenticationService {
     const path = '/register';
     return this._http.post<object[]>(path, data);
   }
+  public roles(): Observable<object[]> {
+    const path = '/roles';
+    return this._http.get<object[]>(path);
+  }
 
   public forgotPassword(data: any): Observable<object[]> {
     const path = '/forgotpassword';

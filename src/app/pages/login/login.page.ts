@@ -52,6 +52,8 @@ export class LoginPage implements OnInit {
     }
     this._authService.login(data).subscribe(res => {
       this._helper.setSession(res);
+      this._router.navigateByUrl('/master/home');
+      this._toastr.presentToast('Login Succesfully','bottom','primary');
     },
     err =>  {
       this._toastr.presentToast('Login Failed','bottom','danger', 'sad');

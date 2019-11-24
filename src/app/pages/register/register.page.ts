@@ -14,10 +14,32 @@ export class RegisterPage implements OnInit {
   formRegister: FormGroup;
   submitted: boolean;
   pager =false;
+  roles;
   constructor(private fb: FormBuilder, private _authService: AuthenticationService, private _toastr: ToasterService) {}
 
   ngOnInit() {
       this.createForm();
+      this.getRoles();
+  }
+  getRoles() {
+  //   this.roles = [
+  //     {
+  //         "id": 1,
+  //         "name": "admin"
+  //     },
+  //     {
+  //         "id": 3,
+  //         "name": "student"
+  //     },
+  //     {
+  //         "id": 2,
+  //         "name": "teacher"
+  //     }
+  // ]
+    this._authService.roles().subscribe(res=>{
+      this.roles = res;
+      console.log(res)
+    })
   }
   private createForm(){
     this.formRegister = this.fb.group({

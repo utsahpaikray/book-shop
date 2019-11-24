@@ -64,10 +64,14 @@
                               <ion-item >
                                   <ion-label position="floating">Role</ion-label>
                                   <ion-select formControlName="role">
+                                    <ng-container *ngFor="let role of roles">
+                                        <ion-select-option value="role.name">{{role.name}}</ion-select-option>
+                                    </ng-container>
+                                      <!-- <ion-select-option value="student" checked="true">{{</ion-select-option>
                                       <ion-select-option value="student" checked="true">Student</ion-select-option>
                                       <ion-select-option value="teacher">Teacher</ion-select-option>
                                       <ion-select-option value="lecture">Lecture</ion-select-option>
-                                      <ion-select-option value="Other">Other</ion-select-option>
+                                      <ion-select-option value="Other">Other</ion-select-option> -->
                                   </ion-select>
                               </ion-item>
                             
