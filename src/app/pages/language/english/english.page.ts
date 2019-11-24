@@ -69,8 +69,9 @@ public searchBook(){
 }
 public addToCart(){
   this.toast.presentToast('Added to cart successfully','bottom', 'dark');
-  this.vibration.vibrate([2000,1000,2000]);
-  this.vibration.vibrate(0);
+ // this.vibration.vibrate([2000,1000,2000]);
+//  this.vibration.vibrate(0);
+  navigator.vibrate(1000);
 }
 public segmentChanged(e){
 // if(e.detail.value == 'School'){

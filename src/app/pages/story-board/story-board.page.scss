@@ -1,155 +1,176 @@
-.thumb{
-    //  width: 3em;
-      border-radius: 50%;
-  }
-  .card{
-      margin: 1rem 0;
-  }
+.thumb {
+  //  width: 3em;
+  border-radius: 50%;
+}
 
+.card {
+  margin: 1rem 0;
+}
+.gradient{
+  // position: relative;
+  // display: grid;
+  background-image: url(src/assets/featured-comment.svg);
+  background-size: contain;
+  background-position: top center;
+  box-shadow: 0 4px 80px #070509;
+ // padding: 2rem;
+}
 
-  .news-arrival{
-    --ion-grid-columns: 10;
-    --ion-grid-column-padding: 0px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    will-change: scroll-position;
+.news-arrival {
+  --ion-grid-columns: 10;
+  --ion-grid-column-padding: 0px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  will-change: scroll-position;
+  box-shadow: 0 4px 8px #0096888c;
+  padding: 0rem 0;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  background: conic-gradient(#ff000059, #ffff0073, #00ff0075, #00ffff6e, #0000ff57, #ff00ff47, #ff000054);
+ // background: -webkit-gradient(linear, center top, center bottom, from(#009688), to(#ffffff));
+    @media only screen and (max-width: 768px) {
+      --ion-grid-columns: 10;
+    }
+  
+    @media only screen and (min-width: 768px) and (max-width: 992px) {
+
+      --ion-grid-columns: 15;
+    }
+    @media only screen and (min-width: 992px) {
+
+      --ion-grid-columns: 20;
+    }
   //  margin-left: calc(var(--page-margin) * -10);
   //  margin-right: calc(var(--page-margin) * -10);
-  .image-container{
-      max-height: 120px;
+  .image-container {
+    max-height: 120px;
   }
 }
-  .anim750{
-    transition: all 750ms ease-in-out;
+
+.anim750 {
+  transition: all 750ms ease-in-out;
+}
+
+#Awesome {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  backface-visibility: hidden;
+
+  .sticky {
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 180px;
   }
-  
-  #Awesome{
-      position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto;
-    
-    backface-visibility: hidden;
-  }
-  
-  #Awesome .sticky{
-      transform: rotate(45deg);
-  }
-  
-  #Awesome:hover .sticky{
+
+  &:hover {
+    .sticky {
       transform: rotate(10deg);
-  }
-  
-  #Awesome .sticky{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width:180px;
-      height: 180px;
-  }
-  
-  #Awesome .reveal .circle{
-      box-shadow: 0 1px 0px rgba(0,0,0,.15);
-    
-    font-family: 'helvetica neue', arial;
-    font-weight: 200;
-    line-height: 140px;
-    text-align: center;
-    
-    cursor: pointer;
-  }
-  
-  #Awesome .reveal .circle{
-      background: #fafafa;
-  }
-  
-  #Awesome .circle_wrapper{
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      left: 0px;
-      top: 0px;
-      overflow: hidden;
-  }
-  
-  #Awesome .circle{
-      position: absolute;
-      width: 140px;
-      height:  140px;
-      margin: 20px;
-      
-      border-radius: 999px;
-      img{
-        width: 60%;
-        height: 60%;
-        margin: 14px auto;
-        display: block;
-      }
-  }
-  
-  #Awesome .back{
-      height: 10px;
-      top: 30px;
-  }
-  
-  #Awesome:hover .back{
+    }
+
+    .back {
       height: 90px;
       top: 110px;
+
+      .circle {
+        margin-top: -50px;
+      }
+    }
+
+    .front {
+      height: 70px;
+
+      .circle {
+        margin-top: -90px;
+        background-color: #e2d439;
+        background-position: 0 100px;
+      }
+    }
+
+    h4 {
+      opacity: 0;
+      transition: opacity 50ms linear 300ms;
+    }
   }
-  #Awesome .back .circle{
+
+  .reveal {
+    .circle {
+      background: #fafafa;
+      box-shadow: 0 1px 0px rgba(0, 0, 0, .15);
+      font-family: 'helvetica neue', arial;
+      font-weight: 200;
+      line-height: 140px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+  .circle_wrapper {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+  }
+
+  .circle {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    margin: 20px;
+
+    border-radius: 999px;
+
+    img {
+      width: 60%;
+      height: 60%;
+      margin: 14px auto;
+      display: block;
+    }
+  }
+
+  .back {
+    height: 10px;
+    top: 30px;
+
+    .circle {
       margin-top: -130px;
       background-color: #ff256f;
-  
-      background-image: -webkit-linear-gradient(to top, rgba(251,236,63,.0), rgba(255,255,255,.8));
+     // background: conic-gradient(#ff000059, #ffff0073, #00ff0075, #00ffff6e, #0000ff57, #ff00ff47, #ff000054);
+    //  background-image: -webkit-linear-gradient(to top, rgba(251, 236, 63, .0), rgba(255, 255, 255, .8));
+    }
   }
-  
-  #Awesome:hover .back .circle{
-      margin-top: -50px;
-  }
-  
-  #Awesome .front{
-      height: 150px;
-      bottom: 0;
-      top: auto;
-      
-    //  -webkit-box-shadow: 0 -140px 20px -140px rgba(0,0,0,.3);
-  }
-  
-  #Awesome:hover .front{
-      height: 70px;
-      
-    //  -webkit-box-shadow: 0 -60px 10px -60px rgba(0,0,0,.1);
-  }
-  
-  #Awesome .front .circle{
+
+  .front {
+    height: 150px;
+    bottom: 0;
+    top: auto;
+
+    .circle {
       margin-top: -10px;
       background: #ff256f;
-  
-      background-image: -webkit-linear-gradient(to top, rgba(251,236,63,.0) 75%, #f7bb37 95%);
-    background-image: -moz-linear-gradient(to top, rgba(251,236,63,.0) 75%, #f7bb37 95%);
-    background-image: linear-gradient(to top, rgba(251,236,63,.0) 75%, #f7bb37 95%);
+   //   background-image: -webkit-linear-gradient(to top, rgba(251, 236, 63, .0) 75%, #f7bb37 95%);
+   //   background-image: -moz-linear-gradient(to top, rgba(251, 236, 63, .0) 75%, #f7bb37 95%);
+   //   background-image: linear-gradient(to top, rgba(251, 236, 63, .0) 75%, #f7bb37 95%);
+      background: conic-gradient(#ff000059, #ffff0073, #00ff0075, #00ffff6e, #0000ff57, #ff00ff47, #ff000054);
+    }
   }
-  
-  #Awesome h4{
+
+  h4 {
     font-family: 'helvetica neue', arial;
-    font-weight: 200;
     text-align: center;
-      position: absolute;
-      width: 180px;
-      height: 140px;
-    line-height: 140px;
-      
-      transition: opacity 50ms linear 400ms;
+    position: absolute;
+    width: 180px;
+    height: 140px;
+    line-height: 231px;
+    font-size: 1rem;
+    transition: opacity 50ms linear 400ms;
   }
-  
-  #Awesome:hover h4{
-      opacity: 0;
-      
-      transition: opacity 50ms linear 300ms;
-  }
-  
-  #Awesome:hover .front .circle{
-      margin-top: -90px;
-      background-color: #e2d439;
-      background-position: 0 100px;
-  }
+
+
+}

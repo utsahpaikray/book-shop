@@ -4,3 +4,9 @@
 .pdfViewer.removePageBorders .page {
     border: 1px solid rgba(0,0,0,.01) !important;
 }
+.pdf-container{
+    padding: 1px 10px;
+    background: crimson;
+    border-radius: 20px;
+    margin-top: 1px;
+}

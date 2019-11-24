@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'detail-combo', loadChildren: './shared-component/detail-combo/detail-combo.module#DetailComboPageModule' },
   { path: 'story-board', loadChildren: './pages/story-board/story-board.module#StoryBoardPageModule' },
   { path: 'pdf-viewer', loadChildren: './shared-component/pdf-viewer/pdf-viewer.module#PdfViewerPageModule' },
+  { path: 'video-viewer', loadChildren: './shared-component/video-viewer/video-viewer.module#VideoViewerPageModule' },
   // { path: 'first-with-tabs', loadChildren: './pages/first-with-tabs/first-with-tabs.module#FirstWithTabsPageModule' },
   // { path: 'second', loadChildren: './pages/second/second.module#SecondPageModule' },
  // { path: 'tab1', loadChildren: './pages/tab1/tab1.module#Tab1PageModule' },

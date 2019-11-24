@@ -25,6 +25,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DetailComboPageModule } from './shared-component/detail-combo/detail-combo.module';
 import { PdfViewerPageModule } from './shared-component/pdf-viewer/pdf-viewer.module';
+import { VideoViewerPageModule } from './shared-component/video-viewer/video-viewer.module';
 //import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-native/file-transfer'; 
 //import { File } from '@ionic-native/file';
 
@@ -37,6 +38,8 @@ import { ToasterService} from './services/toaster/toaster.service';
 //Auth Services
 import { AuthenticationService } from './services/authentication-service/authentication.service';
 import { IonicStorageModule } from '@ionic/storage';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,6 +60,8 @@ import { IonicStorageModule } from '@ionic/storage';
     ProfilePageModule,
     IonTabPageModule,
     PdfViewerPageModule,
+    VideoViewerPageModule,
+    NgxYoutubePlayerModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
@@ -75,6 +80,7 @@ import { IonicStorageModule } from '@ionic/storage';
     HelperService,
     ToasterService,
     AuthenticationService,
+    YoutubeVideoPlayer,
    // File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {

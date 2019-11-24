@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
 import {PDFProgressData, PDFDocumentProxy, PDFSource} from 'ng2-pdf-viewer';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 @Component({
   selector: 'app-pdf-viewer',
@@ -13,7 +14,7 @@ export class PdfViewerPage implements OnInit {
   modalTitle:string;
   model:any;
   index: any;
-  pdfSrc: string | PDFSource | ArrayBuffer = 'https://static.careers360.mobi/media/uploads/froala_editor/files/GATE-2020-Syllabus-Aerospace-Engineering.pdf';
+  pdfSrc: string | PDFSource | ArrayBuffer = 'https://www.unhcr.ca/wp-content/uploads/2014/10/poetry_book.pdf';
   error: any;
   page = 1;
   rotation = 0;
@@ -30,13 +31,18 @@ export class PdfViewerPage implements OnInit {
   outline: any[];
   isOutlineShown = false;
   pdfQuery = '';
+  id = 'qDuKsiwS5xw';
+  private player;
+  private ytEvent;
   constructor(
     private modalController: ModalController,
     private navParams: NavParams,
-    private _router: Router
+    private _router: Router,
+    private youtube: YoutubeVideoPlayer
   ) { }
   ngOnInit() {
     this.model = this.navParams.data.Data;
+    this.youtube.openVideo('licjBYeWKks');
   }
   async closeModal() {
     const onClosedData: string = "Wrapped Up!";
@@ -58,8 +64,6 @@ export class PdfViewerPage implements OnInit {
 
     xhr.send();
   }
-
-
   incrementPage() {
     this.page += 1;
   }
@@ -95,10 +99,6 @@ export class PdfViewerPage implements OnInit {
     }
   }
 
-  /**
-   * Get pdf information after it's loaded
-   * @param pdf
-   */
   afterLoadComplete(pdf: PDFDocumentProxy) {
     this.pdf = pdf;
 
@@ -113,12 +113,6 @@ export class PdfViewerPage implements OnInit {
       this.outline = outline;
     });
   }
-
-
-  /**
-   * Pdf loading progress callback
-   * @param {PDFProgressData} progressData
-   */
   onProgress(progressData: PDFProgressData) {
     console.log(progressData);
     this.progressData = progressData;

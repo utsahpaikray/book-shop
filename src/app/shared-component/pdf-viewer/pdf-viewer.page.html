@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
 <ion-content>  
-    <ion-grid>
+    <ion-grid class="pdf-container">
         <ion-col>
           <ion-button (click)="decrementPage()"><ion-icon name="arrow-round-back"></ion-icon> </ion-button>
           <ion-button (click)="incrementPage()"><ion-icon name="arrow-round-forward"></ion-icon> </ion-button>
@@ -20,5 +20,6 @@
           (page-rendered)="pageRendered($event)" style="display: block;max-width: 100%"></pdf-viewer>
         </ion-col>
       </ion-grid>
+      
 </ion-content>
 

@@ -246,7 +246,6 @@ export class DashboardPage implements OnInit {
   public getHeadlines(country,pagesize,page){
    // this.loader.presentLoading();
     this.newsService.getNews(country,pagesize,page).subscribe(res => {
-      console.log(res)
       this.NewsContent = res.articles;
     });
   }

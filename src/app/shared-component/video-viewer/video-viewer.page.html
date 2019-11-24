@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary" text-center>
+      <ion-buttons slot="start" (click)="closeModal()">
+          <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-buttons>
+    <ion-title>Story Board</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>  
+  <ion-grid *ngIf="id">
+      <ion-col size-xs="12" sixe-md='12' size-lg='12'>
+          <div class="youtube">
+            <youtube-player 
+                          [videoId]="id"
+                          (ready)="savePlayer($event)"
+                          (change)="onStateChange($event)"
+                          [playerVars]="playerVars"
+                          [width]=Devicewidth
+                        >
+            </youtube-player>
+          </div>
+              
+          <ion-button ion-button round *ngIf="ytEvent !== 1"
+            type="button"
+            (click)="playVideo()">
+            Play
+          </ion-button>
+          <ion-button ion-button round *ngIf="ytEvent === 1"
+            type="button"
+            
+            (click)="pauseVideo()">
+            Pause
+          </ion-button>
+          </ion-col>
+          </ion-grid>
+</ion-content>
+
