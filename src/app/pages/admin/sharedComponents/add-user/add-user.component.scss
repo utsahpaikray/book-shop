@@ -1,0 +1,21 @@
+.close{
+    width: auto;
+    font-size: 0.8rem;
+    font-weight: bold;
+    background: #E3F2FD;
+    border: 1px solid #03A9F4;
+    padding: 3px;
+    border-radius: 1rem;
+    color: #F44336;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 24px;
+}
+.add-user{
+    border-radius: 1rem 1rem 0 0;
+}
+.toolbar{
+    margin-top: 16px;
+    border-radius: 9px;
+}

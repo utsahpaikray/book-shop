@@ -1,0 +1,23 @@
+
+
+    <div class='close' (click)="closeDialog($event)" >X</div>
+    <ion-toolbar color="primary" class="toolbar">
+      <ion-title>Add User</ion-title>
+    </ion-toolbar>
+    <form class="example-form">
+        <form [formGroup]="addRole"  novalidate autocomplete="off"  >
+              <ion-list lines="none">
+                      <ion-item >
+                          <ion-label position="floating">Role</ion-label>
+                          <ion-input  type="text" formControlName="name"></ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label position="floating">Purpose Of add</ion-label>
+                          <ion-input type="text" formControlName="reason"></ion-input>
+                      </ion-item>
+              </ion-list>
+              <ion-button  color="primary" (click)="onAdd()">Add</ion-button>
+        </form>
+    </form>
+
+

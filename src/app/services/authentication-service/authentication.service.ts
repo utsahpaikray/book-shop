@@ -21,7 +21,15 @@ export class AuthenticationService {
     const path = '/roles';
     return this._http.get<object[]>(path);
   }
-
+  public createRole(role: any): Observable<object[]> {
+    const path = '/roles';
+    console.log(role)
+    return this._http.post<object[]>(path, role);
+  }
+  public deleteRole(id: number): Observable<object[]> {
+    const path = '/roles';
+    return this._http.delete<object[]>(`${path}/${id}`);
+  }
   public forgotPassword(data: any): Observable<object[]> {
     const path = '/forgotpassword';
     return this._http.post<object[]>(path, data);
