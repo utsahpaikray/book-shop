@@ -22,24 +22,24 @@ export class RegisterPage implements OnInit {
       this.getRoles();
   }
   getRoles() {
-  //   this.roles = [
-  //     {
-  //         "id": 1,
-  //         "name": "admin"
-  //     },
-  //     {
-  //         "id": 3,
-  //         "name": "student"
-  //     },
-  //     {
-  //         "id": 2,
-  //         "name": "teacher"
-  //     }
-  // ]
-    this._authService.roles().subscribe(res=>{
-      this.roles = res;
-      console.log(res)
-    })
+    this.roles = [
+      {
+          "id": 1,
+          "name": "admin"
+      },
+      {
+          "id": 3,
+          "name": "student"
+      },
+      {
+          "id": 2,
+          "name": "teacher"
+      }
+  ]
+    // this._authService.roles().subscribe(res=>{
+    //   this.roles = res;
+    //   console.log(res)
+    // })
   }
   private createForm(){
     this.formRegister = this.fb.group({
