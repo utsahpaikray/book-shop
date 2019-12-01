@@ -23,7 +23,7 @@ export class AuthenticationService {
   }
   public createRole(role: any): Observable<object[]> {
     const path = '/roles';
-    console.log(role)
+   // console.log(role)
     return this._http.post<object[]>(path, role);
   }
   public deleteRole(id: number): Observable<object[]> {

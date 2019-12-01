@@ -34,7 +34,9 @@ export class AddUserComponent implements OnInit {
   // this.bottomSheet.close(BottomSheetOverviewExampleSheet);
  }
  public onAdd(){
-   this._authService.createRole(this.addRole.value);
+   this._authService.createRole(this.addRole.value).subscribe((res)=>{
+    console.log(res)
+   });
    this.closeDialog();
  }
 }

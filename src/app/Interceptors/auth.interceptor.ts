@@ -46,12 +46,12 @@ export class TokenInterceptor implements HttpInterceptor {
               }
            //   this._loaderService.presentLoading();
            console.log(request.body)
-          // if(request.body!==null){
+           if(request.body!==null){
             request = request.clone({
               setHeaders: header,
               url: environment.host + request.url
             });
-         //  }
+          }
              
               return next.handle(request).pipe(tap(
                 (success: any) => {

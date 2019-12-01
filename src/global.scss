@@ -36,3 +36,15 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($candy-app-theme);
+
+
+body{
+    .bottom-sheet{
+        border-radius: 1.2rem 1.2rem 0 0;
+    }
+    &.dark{
+        .bottom-sheet{
+            background: #1a1b1e;
+        }
+    }
+}

@@ -67,12 +67,23 @@ export class MasterPage implements OnInit {
       icon:'globe',
       navigation:true
     },
+    // {
+    //   title: 'Travel',
+    //   children: [
+    //     {
+    //       title: 'Car Rent Service',
+    //       url: '/master/rent-service/car-service',
+    //       icon: 'car',
+    //       navigation:true
+    //     }
+    //   ]
+    // },
     {
       title: 'Travel',
       children: [
         {
           title: 'Car Rent Service',
-          url: '/master/rent-service/car-service',
+          url: '/master/rent-service/service',
           icon: 'car',
           navigation:true
         }
@@ -230,5 +241,13 @@ ionViewWillLeave() {
   //   });
   //   return await popover.present();
   // }
+  async presentPopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: ProfileSettingComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
 
 }

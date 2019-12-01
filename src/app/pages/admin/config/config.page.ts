@@ -43,11 +43,11 @@ export class ConfigPage implements OnInit {
   public addRole(){
     const bottomSheetRef=  this._bottomSheet.open(AddUserComponent,{
       disableClose: false,
-      panelClass: 'add-user'
+      panelClass: 'bottom-sheet'
     });
     bottomSheetRef.afterDismissed().subscribe((data) => {
+      this._authService.createRole(data);
       this.addElement(data)
-      console.log(this.roles)
     //  this.getRoles();
     });
   }

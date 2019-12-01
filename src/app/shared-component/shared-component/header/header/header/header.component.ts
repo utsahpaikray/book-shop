@@ -163,6 +163,12 @@ export class HeaderComponent implements OnInit {
       navigation:true
     },
     {
+      title: 'Rent Service',
+      url: '/master/rent-service/service',
+      icon: 'car',
+      navigation:true
+    },
+    {
       title: 'Combos',
       url: '/master/celebration/celebration-combos',
       icon: 'journal',

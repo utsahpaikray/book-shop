@@ -136,13 +136,21 @@
                                   </ion-tab-button>
                             </div>
                             <div class="ion-no-padding no-wrap">
-                                <ion-tab-button tab="rent-service/car-service" > 
+                                <ion-tab-button tab="rent-service/service" > 
                                   <ion-button color="light" size="small" shape="round" expand="block" fill="outline">     
                                     <ion-icon name="car" slot="start"></ion-icon>
                                     <ion-label >Travel</ion-label>
                                   </ion-button>
                                 </ion-tab-button>
                             </div>
+                            <!-- <div class="ion-no-padding no-wrap">
+                                <ion-tab-button tab="rent-service/car-service" > 
+                                  <ion-button color="light" size="small" shape="round" expand="block" fill="outline">     
+                                    <ion-icon name="car" slot="start"></ion-icon>
+                                    <ion-label >Travel</ion-label>
+                                  </ion-button>
+                                </ion-tab-button>
+                            </div> -->
                             <div class="ion-no-padding no-wrap">
                                 <ion-tab-button tab="cart">
                                     <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
@@ -151,6 +159,15 @@
                                     </ion-button> 
                                   </ion-tab-button>
                             </div>
+                            <div class="ion-no-padding no-wrap" (click)="presentPopover($event)">
+                                <ion-tab-button>
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
+                                        <ion-icon name="person" slot="start" ></ion-icon>
+                                        <ion-label >User</ion-label>
+                                    </ion-button> 
+                                  </ion-tab-button>
+                            </div>
+                            
                   </div>
               </ion-tab-bar>
           </ion-tabs>   

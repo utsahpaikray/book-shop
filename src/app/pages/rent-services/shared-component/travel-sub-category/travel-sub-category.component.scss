@@ -17,3 +17,14 @@
     margin-top: 16px;
     border-radius: 9px;
 }
+.sub-category{
+    position: sticky;
+    top: -8px;
+    background-color: var(--ion-item-background);
+    padding: 16px 0;
+    font-size: 20px;
+    z-index: 1000;
+}
+.ion-header{
+    border-radius: 5px;
+}

@@ -80,6 +80,10 @@ const routes: Routes = [
       {
         path: 'rent-service/car-service',
         loadChildren: '../rent-services/car-services/car-rent-services/car-rent-services.module#CarRentServicesPageModule'
+      },
+      {
+        path: 'rent-service/service',
+        loadChildren: '../rent-services/car-services/rent-categories/rent-categories.module#RentCategoriesPageModule'
       }
     ]
   },

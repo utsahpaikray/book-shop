@@ -4,9 +4,8 @@
     <ion-toolbar color="primary" class="toolbar">
       <ion-title>Add User</ion-title>
     </ion-toolbar>
-    <form class="example-form">
-        <form [formGroup]="addRole"  novalidate autocomplete="off"  >
-              <ion-list lines="none">
+        <form [formGroup]="addRole"  novalidate autocomplete="off"  class="example-form">
+              <ion-list lines="none" color="light">
                       <ion-item >
                           <ion-label position="floating">Role</ion-label>
                           <ion-input  type="text" formControlName="name"></ion-input>
@@ -18,6 +17,5 @@
               </ion-list>
               <ion-button  color="primary" (click)="onAdd()">Add</ion-button>
         </form>
-    </form>
 
 
