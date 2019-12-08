@@ -1,0 +1,21 @@
+.background{
+    border: 5px solid var(--ion-color-primary);
+    border-top: none;
+    padding: 1px;
+    background: var(--ion-color-primary);
+    .ion-card-content{
+        background: #fff;
+    }
+    .card-heder-appding{
+        padding: 5px 12px;
+        .card-title-font{
+            font-size: 1rem;
+        }
+    }
+    .image-container{
+        img{
+            border-radius: 20px;
+        }
+    }
+    
+}

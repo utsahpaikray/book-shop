@@ -7,7 +7,7 @@
             </ion-toolbar>
           </ion-header>    
           <ion-content>
-              <ion-card class="ion-no-padding profile" color="medium">
+              <ion-card class="ion-no-padding profile" color="primary">
                   <ion-thumbnail class="thumb-nail" >
                       <ion-img src="assets/pic1.png"></ion-img>
                   </ion-thumbnail>
@@ -25,8 +25,8 @@
                   </ion-card-content> -->
                  
               </ion-card>
-            <ion-list color="secondary">
-                <ion-card class="ion-no-padding profile" color="secondary">
+            <ion-list color="primary">
+                <ion-card class="ion-no-padding profile" color="primary">
                 <div *ngFor="let p of pages" color="transparent">
                   <ion-menu-toggle auto-hide="false" color="transparent" >
                     <ion-item *ngIf="!p.children?.length > 0 && p.navigation" [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)" color="transparent"> 
@@ -53,13 +53,13 @@
                     </ion-menu-toggle>
                   </ion-list>
               </div>
-              <ion-item tappable routerLink="/login" routerDirection="root" color="secondary">
+              <ion-item tappable routerLink="/login" routerDirection="root" color="primary">
                 <ion-icon name="log-out" slot="end"></ion-icon>
                 <ion-label>Logout</ion-label>
               </ion-item>
             </ion-card>
             </ion-list>
-            <ion-list color="secondary">
+            <ion-list color="primary">
               <ion-card class="ion-no-padding profile" color="secondary">
               <div *ngFor="let p of admin" color="transparent">
                 <ion-menu-toggle auto-hide="false" color="transparent" >
@@ -109,37 +109,45 @@
               <ion-tab-bar slot="bottom" color="primary">
                   <div class="bottom-tab">
                             <div class="ion-no-padding no-wrap">
+                                <div class="icon">
+                                    <ion-icon name="logo-buffer" slot="start"></ion-icon>
+                                </div> 
                                 <ion-tab-button tab="authors" > 
                                    
                                     <ion-button color="light" size="small" shape="round" expand="block" fill="outline">     
-                                      <ion-icon name="logo-buffer" slot="start" size="small"></ion-icon>
+                                      <!-- <ion-icon name="logo-buffer" slot="start" size="small"></ion-icon> -->
                                       <ion-label mode="md" slot="end" size="small">Authors</ion-label>
                                     </ion-button>
                                   </ion-tab-button>
                               
                             </div>
                             <div class="ion-no-padding no-wrap">
+                                <div class="icon">
+                                    <ion-icon name="business" slot="start"></ion-icon>
+                                </div> 
                                 <ion-tab-button tab="bookstore/books" >
                                     <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
-                                       
-                                        <ion-icon name="business" slot="start"></ion-icon>
                                         <ion-label >Book Store</ion-label>
                                     </ion-button>
                                   </ion-tab-button>
                             </div>
                             <div class="ion-no-padding no-wrap">
+                                <div class="icon">
+                                    <ion-icon name="book" slot="start"></ion-icon>
+                                </div> 
                                 <ion-tab-button tab="bookstore/accesories" >
                                     <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
-                                        <ion-icon name="book" slot="start"></ion-icon>
                                         <ion-label >Book Accesories</ion-label>
                                     </ion-button>
                                   </ion-tab-button>
                             </div>
                             <div class="ion-no-padding no-wrap">
-                                <ion-tab-button tab="rent-service/service" > 
-                                  <ion-button color="light" size="small" shape="round" expand="block" fill="outline">     
+                                <div class="icon">
                                     <ion-icon name="car" slot="start"></ion-icon>
-                                    <ion-label >Travel</ion-label>
+                                </div> 
+                                <ion-tab-button tab="rent-service/service" > 
+                                  <ion-button color="light" size="small" shape="round" expand="block" fill="outline">   
+                                    <div class="label"><ion-label >Travel</ion-label></div> 
                                   </ion-button>
                                 </ion-tab-button>
                             </div>
@@ -152,17 +160,22 @@
                                 </ion-tab-button>
                             </div> -->
                             <div class="ion-no-padding no-wrap">
+                                <div class="icon">
+                                    <ion-icon name="cart" slot="start"></ion-icon>
+                                </div> 
                                 <ion-tab-button tab="cart">
                                     <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
-                                        <ion-icon name="cart" slot="start" ></ion-icon>
                                         <ion-label >Cart</ion-label>
                                     </ion-button> 
                                   </ion-tab-button>
                             </div>
                             <div class="ion-no-padding no-wrap" (click)="presentPopover($event)">
+                                <div class="icon">
+                                    <ion-icon name="person" slot="start"></ion-icon>
+                                </div> 
                                 <ion-tab-button>
                                     <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
-                                        <ion-icon name="person" slot="start" ></ion-icon>
+                                       
                                         <ion-label >User</ion-label>
                                     </ion-button> 
                                   </ion-tab-button>

@@ -38,7 +38,7 @@ import { ToasterService} from './services/toaster/toaster.service';
 //Auth Services
 import { AuthenticationService } from './services/authentication-service/authentication.service';
 import { IonicStorageModule } from '@ionic/storage';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+//import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 
 @NgModule({
@@ -80,7 +80,7 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     HelperService,
     ToasterService,
     AuthenticationService,
-    YoutubeVideoPlayer,
+  //  YoutubeVideoPlayer,
    // File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {

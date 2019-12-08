@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
 import {PDFProgressData, PDFDocumentProxy, PDFSource} from 'ng2-pdf-viewer';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+//import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 @Component({
   selector: 'app-pdf-viewer',
@@ -38,11 +38,11 @@ export class PdfViewerPage implements OnInit {
     private modalController: ModalController,
     private navParams: NavParams,
     private _router: Router,
-    private youtube: YoutubeVideoPlayer
+   // private youtube: YoutubeVideoPlayer
   ) { }
   ngOnInit() {
     this.model = this.navParams.data.Data;
-    this.youtube.openVideo('licjBYeWKks');
+   // this.youtube.openVideo('licjBYeWKks');
   }
   async closeModal() {
     const onClosedData: string = "Wrapped Up!";
