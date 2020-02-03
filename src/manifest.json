@@ -1,7 +1,7 @@
 {
   "name": "aiona",
   "short_name": "aiona",
-  "theme_color": "transparent",
+  "theme_color": "#ffffff",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",

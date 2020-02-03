@@ -1,4 +1,4 @@
-    <ion-split-pane>
+    <ion-split-pane >
         <ion-menu contentId="content">
           <ion-header translucent>
             <ion-toolbar color="primary">
@@ -7,14 +7,14 @@
             </ion-toolbar>
           </ion-header>    
           <ion-content>
-              <ion-card class="ion-no-padding profile" color="primary">
+              <ion-card class="ion-no-padding profile" color="primary" *ngIf="userLogin">
                   <ion-thumbnail class="thumb-nail" >
                       <ion-img src="assets/pic1.png"></ion-img>
                   </ion-thumbnail>
                   
                   <ion-card-header color="secondary">
-                      <ion-title>Name: Niranjan</ion-title>
-                      <ion-title>Designation: Science Teacher</ion-title>
+                      <ion-title>Name: {{username}}</ion-title>
+                      <ion-title>Email: {{email}}</ion-title>
                   </ion-card-header>
                   <!-- <ion-card-content>
                       <ion-fab slot="end">
@@ -53,14 +53,22 @@
                     </ion-menu-toggle>
                   </ion-list>
               </div>
-              <ion-item tappable routerLink="/login" routerDirection="root" color="primary">
-                <ion-icon name="log-out" slot="end"></ion-icon>
-                <ion-label>Logout</ion-label>
-              </ion-item>
+              <ng-container *ngIf="userLogin">
+                <ion-item tappable (click)="logout()" routerDirection="root" color="primary">
+                  <ion-icon name="log-out" slot="end"></ion-icon>
+                  <ion-label>Logout</ion-label>
+                </ion-item>
+              </ng-container> 
+              <ng-container *ngIf="!userLogin">
+                <ion-item tappable (click)="login()" routerDirection="root" color="primary">
+                  <ion-icon name="log-out" slot="end"></ion-icon>
+                  <ion-label>Login</ion-label>
+                </ion-item>
+              </ng-container> 
             </ion-card>
             </ion-list>
-            <ion-list color="primary">
-              <ion-card class="ion-no-padding profile" color="secondary">
+            <ion-list color="primary" *ngIf="role==1">
+              <ion-card class="ion-no-padding profile" color="primary">
               <div *ngFor="let p of admin" color="transparent">
                 <ion-menu-toggle auto-hide="false" color="transparent" >
                   <ion-item *ngIf="!p.children?.length > 0 && p.navigation" [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)" color="transparent"> 
@@ -76,8 +84,6 @@
                 <ion-list *ngIf="p.open">
                   <ion-menu-toggle auto-hide="false" color="transparent" >
                     <ng-container  *ngFor="let sub of p.children">
-
-                   
                       <ion-item *ngIf="sub.navigation"  class="sub-item" [routerLink]="sub.url" routerDirection="root"
                         routerLinkActive="active" >
                         <ion-icon [name]="sub.icon" slot="end"></ion-icon>
@@ -97,8 +103,8 @@
       
         <ion-router-outlet id="content" main>
             
-           <ion-header>
-            <ion-toolbar color="primary" expand="block">
+           <ion-header mode="md" >
+            <ion-toolbar color="dark" expand="block">
                 <ion-buttons slot="start"> 
                     <ion-menu-button></ion-menu-button>
                 </ion-buttons>
@@ -114,9 +120,9 @@
                                 </div> 
                                 <ion-tab-button tab="authors" > 
                                    
-                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">     
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="clear">     
                                       <!-- <ion-icon name="logo-buffer" slot="start" size="small"></ion-icon> -->
-                                      <ion-label mode="md" slot="end" size="small">Authors</ion-label>
+                                      <ion-label mode="md" slot="end" size="small" color="light">Authors</ion-label>
                                     </ion-button>
                                   </ion-tab-button>
                               
@@ -126,8 +132,8 @@
                                     <ion-icon name="business" slot="start"></ion-icon>
                                 </div> 
                                 <ion-tab-button tab="bookstore/books" >
-                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
-                                        <ion-label >Book Store</ion-label>
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="clear">
+                                        <ion-label color="light">Book Store</ion-label>
                                     </ion-button>
                                   </ion-tab-button>
                             </div>
@@ -136,8 +142,8 @@
                                     <ion-icon name="book" slot="start"></ion-icon>
                                 </div> 
                                 <ion-tab-button tab="bookstore/accesories" >
-                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
-                                        <ion-label >Book Accesories</ion-label>
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="clear">
+                                        <ion-label color="light">Book Accesories</ion-label>
                                     </ion-button>
                                   </ion-tab-button>
                             </div>
@@ -146,14 +152,14 @@
                                     <ion-icon name="car" slot="start"></ion-icon>
                                 </div> 
                                 <ion-tab-button tab="rent-service/service" > 
-                                  <ion-button color="light" size="small" shape="round" expand="block" fill="outline">   
-                                    <div class="label"><ion-label >Travel</ion-label></div> 
+                                  <ion-button color="light" size="small" shape="round" expand="block" fill="clear">   
+                                    <ion-label color="light">Travel</ion-label>
                                   </ion-button>
                                 </ion-tab-button>
                             </div>
                             <!-- <div class="ion-no-padding no-wrap">
                                 <ion-tab-button tab="rent-service/car-service" > 
-                                  <ion-button color="light" size="small" shape="round" expand="block" fill="outline">     
+                                  <ion-button color="light" size="small" shape="round" expand="block" fill="clear">     
                                     <ion-icon name="car" slot="start"></ion-icon>
                                     <ion-label >Travel</ion-label>
                                   </ion-button>
@@ -164,8 +170,8 @@
                                     <ion-icon name="cart" slot="start"></ion-icon>
                                 </div> 
                                 <ion-tab-button tab="cart">
-                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
-                                        <ion-label >Cart</ion-label>
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="clear">
+                                        <ion-label color="light">Cart</ion-label>
                                     </ion-button> 
                                   </ion-tab-button>
                             </div>
@@ -174,9 +180,9 @@
                                     <ion-icon name="person" slot="start"></ion-icon>
                                 </div> 
                                 <ion-tab-button>
-                                    <ion-button color="light" size="small" shape="round" expand="block" fill="outline">
+                                    <ion-button color="light" size="small" shape="round" expand="block" fill="clear">
                                        
-                                        <ion-label >User</ion-label>
+                                        <ion-label color="light">User</ion-label>
                                     </ion-button> 
                                   </ion-tab-button>
                             </div>

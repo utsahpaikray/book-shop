@@ -54,7 +54,7 @@ const routes: Routes = [
         loadChildren: '../school/my-school-list/my-school-list.module#MySchoolListPageModule'
       },
       {
-        path: 'my-school/details',
+        path: 'my-school/details/:id',
         loadChildren: '../school/my-school-details/my-school-details.module#MySchoolDetailsPageModule'
       },
       {
@@ -76,6 +76,10 @@ const routes: Routes = [
       {
         path: 'admin/orders',
         loadChildren: '../admin/orders/orders.module#OrdersPageModule'
+      },
+      {
+        path: 'admin/users',
+        loadChildren: '../admin/user/user.module#UserPageModule'
       },
       {
         path: 'rent-service/car-service',

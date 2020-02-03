@@ -12,7 +12,7 @@ export class ToasterService {
   //  console.log(color);
     const toast = await this.toastController.create({
       message: mesaage,
-    //  duration: 2000,
+      duration: 500,
       position: position,
       color:color,
       buttons: [

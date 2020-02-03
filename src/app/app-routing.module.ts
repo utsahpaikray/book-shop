@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'pdf-viewer', loadChildren: './shared-component/pdf-viewer/pdf-viewer.module#PdfViewerPageModule' },
   { path: 'video-viewer', loadChildren: './shared-component/video-viewer/video-viewer.module#VideoViewerPageModule' },
   { path: 'rent-categories', loadChildren: './pages/rent-services/car-services/rent-categories/rent-categories.module#RentCategoriesPageModule' },
+  { path: 'user', loadChildren: './pages/admin/user/user.module#UserPageModule' },
   // { path: 'first-with-tabs', loadChildren: './pages/first-with-tabs/first-with-tabs.module#FirstWithTabsPageModule' },
   // { path: 'second', loadChildren: './pages/second/second.module#SecondPageModule' },
  // { path: 'tab1', loadChildren: './pages/tab1/tab1.module#Tab1PageModule' },

@@ -1,9 +1,13 @@
+import { HelperService } from './../../services/helper-service/helper.service';
 import { Component, OnInit, Renderer, AfterViewInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { SettingService} from '../../services/setting.service'
-import { PopoverController, IonRouterOutlet } from '@ionic/angular';
+import { PopoverController, IonRouterOutlet, Platform, ModalController, NavController, AlertController } from '@ionic/angular';
 import {ProfileSettingComponent } from '../../shared-component/shared-component/header/profile-setting/profile-setting.component';
 import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { HttpClient } from '@angular/common/http';
+import { LoginPage } from '../login/login.page';
 
 @Component({
   selector: 'app-master',
@@ -192,16 +196,29 @@ export class MasterPage implements OnInit {
           navigation:true
         },
         {
-          title: 'Orders',
+          title: 'Request',
           url: '/master/admin/orders',
           icon: 'medkit',
+          navigation:true
+        },
+        {
+          title: 'Users',
+          url: '/master/admin/users',
+          icon: 'contacts',
           navigation:true
         },
       ]
     }
   ]
  public Title="";
-  constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet) {
+  public user;
+  username: any;
+  role: any;
+  userLogin: boolean = false;
+  email:any;
+  dataReturned: any;
+  constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet,private helperService:HelperService,public plt: Platform,public fAuth: AngularFireAuth,public modalController: ModalController, public navCtrl: NavController, private httpClient: HttpClient, private alertCtrl: AlertController) {
+
   }
 
 ionViewWillEnter() {
@@ -215,8 +232,19 @@ ionViewWillLeave() {
     this.renderer.setElementClass(document.body, 'dark', status?false:true);
   }
   ngOnInit() {
-    // this.toggleTheme(true);
-    // this.setTitle();
+    this.plt.ready().then(() => {
+      this.helperService.getSession().then(user=>{
+        if(user && user.length>0){
+          this.username = user[0].user.firstName;
+          this.role = user[0].user.role;
+          this.email = user[0].user.email;
+          this.userLogin = true;
+        }
+        else{
+          this.userLogin = false;
+        }
+      });
+    });
   }
   // ngAfterViewInit() {
   //  this.setTitle();
@@ -248,6 +276,35 @@ ionViewWillLeave() {
       translucent: true
     });
     return await popover.present();
+  }
+  public login(){
+     this.openModal();
+  }
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: LoginPage,
+      componentProps: {
+        "paramTitle": "Login",
+        from:'Nav'
+      }
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+      this.ngOnInit();
+      if (dataReturned !== null) {
+        this.dataReturned = dataReturned.data;
+      }
+    });
+ 
+    return await modal.present();
+
+}
+  public logout() {
+    this.fAuth.auth.signOut();
+    this.helperService.clearStorage();
+    this.ngOnInit();
+   // this.openModal();
+    //this.router.navigateByUrl('/login');
   }
 
 }

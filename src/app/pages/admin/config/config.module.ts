@@ -1,22 +1,42 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-import {MatTableModule} from '@angular/material/table';
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import {MatInputModule} from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  NgModule
+} from '@angular/core';
+import {
+  CommonModule
+} from '@angular/common';
+import {
+  Routes,
+  RouterModule
+} from '@angular/router';
+import {
+  MatTableModule
+} from '@angular/material/table';
+import {
+  MatBottomSheetModule
+} from '@angular/material/bottom-sheet';
+import {
+  MatInputModule
+} from '@angular/material/input';
+import {
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {
+  IonicModule
+} from '@ionic/angular';
 
-import { ConfigPage } from './config.page';
-import { AddUserComponent } from '../sharedComponents/add-user/add-user.component';
+import {
+  ConfigPage
+} from './config.page';
+import {
+  AddUserComponent
+} from '../sharedComponents/add-user/add-user.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: ConfigPage
-  }
-];
+const routes: Routes = [{
+  path: '',
+  component: ConfigPage
+}];
 
 @NgModule({
   imports: [
@@ -24,14 +44,15 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-     MatTableModule,
-     MatBottomSheetModule,
-     MatInputModule,
+    MatTableModule,
+    MatBottomSheetModule,
+    MatInputModule,
     RouterModule.forChild(routes)
   ],
   declarations: [
     ConfigPage,
-    AddUserComponent],
-    entryComponents:[AddUserComponent]
+    AddUserComponent
+  ],
+  entryComponents: [AddUserComponent]
 })
 export class ConfigPageModule {}

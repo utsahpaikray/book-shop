@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+    
   <ion-card class="ion-no-padding" color="medium">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
       <ng-container  matColumnDef="ProductName">
@@ -23,11 +24,21 @@
         <th mat-header-cell *matHeaderCellDef> Quantity </th>
         <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
       </ng-container>
+      <ng-container  matColumnDef="action"> 
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"> 
+          <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(element.id)">
+          <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+        </ion-button> </td>
+      </ng-container>
       <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      
       <ng-container matColumnDef="expandedDetail">
+
         <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+         
           <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-            
+            <ion-card class="inner-card">
                <div class="card-image">
                   <ion-img [src]="element.image"></ion-img>
                </div>
@@ -41,10 +52,11 @@
               </ul>
              
             </div>
+          </ion-card>
           </div>
+         
         </td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
       <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
         [class.example-expanded-row]="expandedElement === element"
@@ -53,4 +65,45 @@
       <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
     </table>
   </ion-card>
+  <ion-row>
+    <ion-col text-center>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-input placeholder="Enter Name" [(ngModel)]="ProductName"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-input placeholder="Enter Price" [(ngModel)]="Price"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-input placeholder="Enter ISBN" [(ngModel)]="ISBN"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-input placeholder="Enter Qty" [(ngModel)]="quantity"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-input placeholder="Enter Img" [(ngModel)]="img"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-center>
+            <ion-button (click)="CreateRecord()" [disabled]="!ProductName || !Price || !ISBN|| !quantity || !img">
+              <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+              &nbsp;Create Record
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+</ion-row> 
 </ion-content>

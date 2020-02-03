@@ -1,7 +1,4 @@
 
-
- 
-
 .parent-active {
     font-weight: 500;
 }
@@ -36,6 +33,7 @@ ion-toolbar{
     }
     ion-title{
         font-size: 0.8rem;
+        padding: 0;
     }
 }
 
@@ -43,29 +41,30 @@ ion-toolbar{
     display: flex;
     flex-wrap: nowrap;
     overflow: auto;
-    padding: 32px 0;
+    padding: 6px 0;
     padding-bottom: 0;
 }
 ion-tab-bar{
-    --background-focused:#333;
-    height: 4rem;
-    border-radius: 10px 10px 0 0;
+    --background-focused: #333;
+    height: 2.5rem;
+    background: #fff;
+    box-shadow: 1px 1px 11px -3px #9E9E9E;
     .no-wrap{
         padding: 4px 0;
         position: relative;
         .icon{
             position: absolute;
-            top: -18px;
+            top: 5px;
             left: 50%;
             background: #B2EBF2;
             border-radius: 50%;
             z-index: 2;
             display: flex;
             padding: 3px 4px;
-            margin-left: -0.9rem;
+            margin-left: -0.7rem;
             ion-icon{
                 color: #333;
-                font-size: 1.5rem;
+                font-size: 0.9rem;
                 font-weight: 500;
             }
         }
@@ -74,18 +73,17 @@ ion-tab-bar{
 ion-tab-button{
     --margin-left:0;
     --margin-right:0;
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --color-selected: var(--ion-color-dark-contrast);
     ion-label{
-        font-size: 0.8rem;
+        font-size: 0.5rem;
+        font-weight: 600;
+        color: #000000;
+        padding-top: 21px;
     }
 a{
     padding: 0;
     margin: 0;
 }
 }
-ion-tab-button {
-    --color-selected: var(--ion-color-dark-contrast);
-  }
-ion-tab-button {
-    --padding-start: 0px;
-    --padding-end: 0px;
-  }

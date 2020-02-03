@@ -12,9 +12,10 @@
         <ion-row>
           <ion-list>
             <ng-container *ngFor="let item of cartItems">
+              <ion-card >
                 <ion-item-sliding>
                     <ion-item-options side="start">
-                      <ion-item-option color="danger" expandable>
+                      <ion-item-option color="danger" expandable (click)="deletCartItem(item)">
                         Delete
                       </ion-item-option>
                     </ion-item-options>
@@ -27,15 +28,15 @@
                               </div>
                               </ion-col>
                             <ion-col size-xs="3" >
-                                <ion-button color="danger" class="remove-button remove">   
+                                <ion-button color="danger" class="remove-button remove" (click)="deccreaseQTY(item)">   
                                     <!-- <ion-label>Remove</ion-label> -->
                                     <ion-icon name="remove-circle"></ion-icon>
                                 </ion-button> 
                                 <ion-button color="secondary" class="remove-button quantity">   
-                                    <ion-label>1</ion-label>
+                                    <ion-label>{{item.quantity}}</ion-label>
                                     <!-- <ion-icon name="trash"></ion-icon> -->
                                 </ion-button> 
-                                <ion-button color="success" class="remove-button add">   
+                                <ion-button color="success" class="remove-button add" (click)="increaseQTY(item)">   
                                     <!-- <ion-label>Remove</ion-label> -->
                                   <ion-icon name="add-circle"></ion-icon>
                                 </ion-button> 
@@ -46,13 +47,13 @@
                                       <ion-label>Title: {{item.title}}</ion-label>
                                   </li> 
                                 <li text-right>
-                                    <ion-label>Price: {{item.price}}</ion-label>
+                                    <ion-label>Price: {{item.price*item.quantity| currency:"INR"}}</ion-label>
                                 </li>
                                 <li  text-right>
-                                    <ion-label>Discount: $10</ion-label>
+                                    <ion-label>Discount: {{0| currency:"INR"}}</ion-label>
                                 </li>
                                 <li  text-right>
-                                    <ion-label>Total: $100</ion-label>
+                                    <ion-label>Total: {{item.price*item.quantity| currency:"INR"}}</ion-label>
                                 </li>
                               </ul> 
                             </ion-col>
@@ -66,16 +67,123 @@
                   Details
                 </ion-item-option>
               </ion-item-options>
-            </ion-item-sliding>
-             
+                </ion-item-sliding>
+             </ion-card>
             </ng-container>
-              
-             
           </ion-list>
-         
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ul class="property">  
+              
+              <li text-right>
+                  <ion-label>Sub Total: {{cartTotal| currency:"INR"}}</ion-label>
+              </li>
+              <li  text-right>
+                  <ion-label>Discount: {{discount| currency:"INR"}}</ion-label>
+              </li>
+              <li  text-right>
+                  <ion-label>Total: {{cartTotal-discount| currency:"INR"}}</ion-label>
+              </li>
+              <li text-center>
+                <ion-button fill="outline" color="success" size="small">
+                  Proceed to Checkout
+                </ion-button>
+              </li>
+            </ul> 
+           
+          </ion-col>
         </ion-row>
     </ion-grid>
-    <ion-segment value="shared">
+
+
+
+    <!-- <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input placeholder="Enter Name" [(ngModel)]="studentName"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input placeholder="Enter Age" [(ngModel)]="studentAge"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input placeholder="Enter Address" [(ngModel)]="studentAddress"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <ion-button (click)="CreateRecord()" [disabled]="!studentName || !studentAge || !studentAddress">
+            <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+            &nbsp;Create Record
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+   
+   
+    <!-- <ion-card *ngFor="let item of students">
+      <span *ngIf="!item.isEdit; else elseBlock">
+        <ion-card-header>
+          <ion-card-title>{{item.Name}} of {{item.Age}} years</ion-card-title>
+          <ion-card-subtitle>From: {{item.Address}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+   
+          <ion-button shape="round" color="secondary" size="small" (click)="EditRecord(item)">
+            <ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+   
+          </ion-button>
+          <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+            <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+   
+          </ion-button>
+        </ion-card-content>
+      </span>
+      <ng-template #elseBlock>
+        <ion-card-header>
+          <ion-card-title>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  Edit
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="clear" color="medium" size="small" (click)="item.isEdit = false">
+                    Cancel
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="outline" color="success" size="small" (click)="UpdateRecord(item)">
+                    Update
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label><strong>Name</strong></ion-label>
+            <ion-input type="text" [(ngModel)]="item.EditName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Age</strong></ion-label>
+            <ion-input type="text" [(ngModel)]="item.EditAge"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label><strong>Address</strong></ion-label>
+            <ion-input type="text" [(ngModel)]="item.EditAddress"></ion-input>
+          </ion-item>
+        </ion-card-content>
+      </ng-template>
+    </ion-card> -->
+    <!-- <ion-segment value="shared">
         <ion-segment-button value="bookmarks">
           <ion-label>Bookmarks</ion-label>
         </ion-segment-button>
@@ -85,5 +193,5 @@
         <ion-segment-button value="shared">
           <ion-label>Shared Links</ion-label>
         </ion-segment-button>
-      </ion-segment>
+      </ion-segment> -->
 </ion-content>

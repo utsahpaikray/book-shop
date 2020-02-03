@@ -22,9 +22,16 @@
             </ion-row>
         </ion-grid> -->
         <ion-grid class="ion-no-padding padding-top back-gradient">
+            <!-- <ion-row>
+                <ion-col text-center>
+                  <ion-button (click)="CreateRecord()">
+                    <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+                    &nbsp;Create Record
+                  </ion-button>
+                </ion-col>
+              </ion-row> -->
          <div class=" title"><ion-title>Note Books</ion-title></div>
-            <ion-row class="ion-no-padding row">
-                    
+            <ion-row class="ion-no-padding row">     
                 <ion-col size-xs="6" size-sm="4" size-md="2" align-self-center *ngFor="let notebook of noteBooks" class="ion-no-padding align-self-end ">
                     
                     <ion-card class=" list card  ion-no-padding align-self-baseline">
@@ -44,7 +51,7 @@
                                     </rating>
                               </ion-card-header> 
                               <div class="card-header-top">
-                                  <ion-button color="primary" class="add-button" (click)="addToCart()">   
+                                  <ion-button color="primary" class="add-button" (click)="addToCart(notebook)">   
                                       <ion-label>Add To Cart</ion-label>
                                       <ion-icon name="cart"></ion-icon>
                                   </ion-button>  

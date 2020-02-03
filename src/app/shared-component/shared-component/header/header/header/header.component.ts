@@ -11,9 +11,10 @@ import {ProfileSettingComponent } from '../../../../../shared-component/shared-c
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
+EoniaImg ="https://firebasestorage.googleapis.com/v0/b/aonia-f2fe4.appspot.com/o/eonia.png?alt=media&token=c5823629-6536-44a7-bfcb-6bf0bebb407c"
   selectedPath = '';
-  pages = [
+  public projectName='Eonia';
+   pages = [
     {
       title: 'Home',
       url: '/',
@@ -151,9 +152,15 @@ export class HeaderComponent implements OnInit {
       navigation:false
     },
     {
-      title: 'Orders',
+      title: 'Request',
       url: '/master/admin/orders',
       icon: 'journal',
+      navigation:false
+    },
+    {
+      title: 'Users',
+      url: '/master/admin/users',
+      icon: 'contacts',
       navigation:false
     },
     {
@@ -208,9 +215,9 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe((event: RouterEvent) => {
       if (event && event.url) {
         let path = this.pages.filter(item=>{
-            return item.url== event.url;
+            return event.url.includes(item.url);
         });
-        this.Title = path[0].title;
+        this.Title = path[path.length-1].title;
         this.selectedPath = event.url;
         
       }

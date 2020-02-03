@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary" expand="block" >
+    <ion-buttons slot="start" (click)="closeModal()" *ngIf="back">
+      <ion-icon name="arrow-round-back"></ion-icon>
+  </ion-buttons>
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -115,11 +118,12 @@
                       <mat-step>
                         <ng-template matStepLabel>Done</ng-template>
                         <div>
-                          <ion-button expand="block" (click)="onLogin()">Login</ion-button>
+                          <ion-button expand="block" (click)="onLogin()"><ion-icon name="log-in"></ion-icon><ion-label>Login</ion-label></ion-button>
                         </div>
                       </mat-step>
                     </mat-vertical-stepper>
-                    <ion-label class="register" routerLink="/register">If you dont have any account Register Now</ion-label>
+                    <ion-button expand="block" slot="end" routerLink="/register"> <ion-icon name="person-add"></ion-icon><ion-label>Create One</ion-label></ion-button>
+                    <!-- <ion-label class="register" routerLink="/register">Create One</ion-label> -->
                   </ion-card-content>
                  </ion-card>
             </div>

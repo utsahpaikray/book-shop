@@ -63,13 +63,13 @@
               <ion-list color="primary">
                   <ion-card class="ion-no-padding profile" color="primary" >
                   <div *ngFor="let school of schoolList" color="transparent" >
-                    <ion-item button *ngIf="school.children?.length > 0" (click)="school.open = !school.open" [class.parent-active]="school.open" detail="false" color="transparent">
+                    <ion-item button *ngIf="school.schools?.length > 0" (click)="school.open = !school.open" [class.parent-active]="school.open" detail="false" color="transparent">
                       <ion-icon slot="end" name="arrow-forward" *ngIf="!school.open"></ion-icon>
                       <ion-icon slot="end" name="arrow-down" *ngIf="school.open"></ion-icon>
                       <ion-label>{{ school.area }}</ion-label>
                     </ion-item>
                     <ion-list *ngIf="school.open" cdkDropList (cdkDropListDropped)="drop($event)" >
-                          <ion-item *ngFor="let sub of school.children" class="sub-item" cdkDrag>
+                          <ion-item *ngFor="let sub of school.schools" class="sub-item" cdkDrag>
                             <ion-label (click)="schoolDetails(school.name)">
                               {{ sub.name }}
                               <img  *cdkDragPreview [src]="sub.poster">

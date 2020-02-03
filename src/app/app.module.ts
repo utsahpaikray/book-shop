@@ -1,3 +1,4 @@
+import { from } from 'rxjs';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -6,12 +7,18 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/material.module';
 import { MatStepperModule } from '@angular/material';
 import { AddToCartModalPageModule } from '../app/shared-component/shared-component/add-to-cart-modal/add-to-cart-modal.module';
+
 import { ProfilePageModule } from '../app/shared-component/shared-component/profile/profile.module'
 import { IonTabPageModule } from '../app/shared-component/ion-tab/ion-tab.module';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
@@ -22,7 +29,6 @@ import { File } from '@ionic-native/file/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 import { DetailComboPageModule } from './shared-component/detail-combo/detail-combo.module';
 import { PdfViewerPageModule } from './shared-component/pdf-viewer/pdf-viewer.module';
 import { VideoViewerPageModule } from './shared-component/video-viewer/video-viewer.module';
@@ -40,6 +46,7 @@ import { AuthenticationService } from './services/authentication-service/authent
 import { IonicStorageModule } from '@ionic/storage';
 //import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { LoginPageModule } from './pages/login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,6 +56,10 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     HttpClientModule,
     MaterialModule,
     MatStepperModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     IonicModule.forRoot(
       {swipeBackEnabled: false}
     ),
@@ -56,6 +67,7 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     IonicStorageModule.forRoot(),
     BrowserAnimationsModule,
     AddToCartModalPageModule,
+    LoginPageModule,
     DetailComboPageModule,
     ProfilePageModule,
     IonTabPageModule,
