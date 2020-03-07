@@ -4,19 +4,19 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-grid class="ion-no-padding padding-top back-gradient">
-           <ion-row class="ion-no-padding row">
+    <ion-grid class=" padding-top back-gradient">
+           <ion-row class=" row">
                    
-               <ion-col size-xs="6" size-sm="6" size-md="3" align-self-center *ngFor="let combo of birthdayCombos" class="ion-no-padding align-self-end ">  
-                   <ion-card class=" list  ion-no-padding align-self-baseline">
+               <ion-col size-xs="6" size-sm="6" size-md="3" align-self-center *ngFor="let combo of birthdayCombos" class=" align-self-end ">  
+                   <ion-card class=" list   align-self-baseline">
                                <div class="image-container">
-                                   <img src="{{combo.image}}" class="ion-no-padding"/>
+                                   <img src="{{combo.image}}" class=""/>
                                </div>
                    </ion-card>
              </ion-col>
             </ion-row>
        </ion-grid>
-        <ion-grid class="padding-top ion-no-padding">
+        <ion-grid class="padding-top ">
         <ion-row>
           <ion-col size-xs="12">
               <ion-list id="list">
@@ -32,15 +32,15 @@
                               </ng-container>
                               <ion-card-subtitle slot="end">{{combo.price| currency: 'INR'}} </ion-card-subtitle> 
                           </ion-item>
-                   <!-- <ion-row class="ion-no-padding align-self-baseline">
-                    <ion-col size-xs="12" size-sm="12" size-md="6" class="ion-no-padding align-self-baseline">
-                        <ion-card size-xs="12" size-md="6" size-lg="6" class="card ion-no-padding ion-no-margin align-self-baseline"  *ngIf="combo.open">
+                   <!-- <ion-row class=" align-self-baseline">
+                    <ion-col size-xs="12" size-sm="12" size-md="6" class=" align-self-baseline">
+                        <ion-card size-xs="12" size-md="6" size-lg="6" class="card  ion-no-margin align-self-baseline"  *ngIf="combo.open">
                             <img *ngIf="combo.comboImage" src="{{combo.comboImage}}"/>
                             <ion-card-header>
-                                <ion-row class="ion-no-padding row">            
-                                    <ion-col size-xs="4" size-sm="4" size-md="6" align-self-center *ngFor="let item of combo.items" class="ion-no-padding align-self-end "> 
+                                <ion-row class=" row">            
+                                    <ion-col size-xs="4" size-sm="4" size-md="6" align-self-center *ngFor="let item of combo.items" class=" align-self-end "> 
                                         <ng-container >
-                                            <ion-card class="ion-no-padding">
+                                            <ion-card class="">
                                                 <ng-container *ngFor="let cont of item.category">
                                                     <img src="{{cont.image}}" alt="">
                                                 </ng-container>
@@ -57,8 +57,8 @@
                               </ion-card-content>
                         </ion-card>
                       </ion-col>
-                      <ion-col  size-xs="12" size-sm="12" size-md="6" class="ion-no-padding align-self-baseline">
-                          <ion-card size-xs="12" size-md="6" size-lg="6" class="ion-no-padding align-self-baseline"  *ngIf="combo.open">
+                      <ion-col  size-xs="12" size-sm="12" size-md="6" class=" align-self-baseline">
+                          <ion-card size-xs="12" size-md="6" size-lg="6" class=" align-self-baseline"  *ngIf="combo.open">
                               <ion-card-header>
                                   <ion-list id="list"> 
                                         <ng-container *ngFor="let item of combo.items"> 

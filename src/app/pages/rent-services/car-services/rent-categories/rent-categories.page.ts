@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheet } from '@angular/material';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 import { ToasterService } from 'src/app/services/toaster/toaster.service';
 import { TravelSubCategoryComponent } from '../../shared-component/travel-sub-category/travel-sub-category.component';

@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Renderer2, ChangeDetectorRef } from '@angular/core';
 
 import { ProfilePage } from '../../profile/profile.page';
 import { NavController, ModalController, PopoverController } from '@ionic/angular';
@@ -15,7 +15,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 export class ProfileSettingComponent implements OnInit {
 public theme: boolean=false;
   dataReturned: any;
-  constructor(private renderer: Renderer, private cdr: ChangeDetectorRef, public modalController: ModalController, public navCtrl: NavController, private httpClient: HttpClient, private authors: DashboardService, private popoverController: PopoverController) {}
+  constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, public modalController: ModalController, public navCtrl: NavController, private httpClient: HttpClient, private authors: DashboardService, private popoverController: PopoverController) {}
 
   ngOnInit() {}
   ngAfterViewInit() {
@@ -24,7 +24,7 @@ public theme: boolean=false;
   }
   public toggleTheme() {
     this.theme=this.theme?true:false;
-    this.renderer.setElementClass(document.body, 'dark', this.theme?true:false);
+  //  this.renderer.setElementClass(document.body, 'dark', this.theme?true:false);
   }
   public async openProfile() {
     const modal = await this.modalController.create({

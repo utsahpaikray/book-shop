@@ -5,7 +5,7 @@ import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet'
 import { AddUserComponent } from '../sharedComponents/add-user/add-user.component';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 import { ToasterService } from 'src/app/services/toaster/toaster.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 export interface Roles {
   name: string;
   status: boolean;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ToasterService } from '../../services/toaster/toaster.service';
 import { Vibration } from '@ionic-native/vibration/ngx';
-import { IonicRatingModule } from 'ionic4-rating';
+//import { IonicRatingModule } from 'ionic4-rating';
 
 @Component({
   selector: 'app-tab2',

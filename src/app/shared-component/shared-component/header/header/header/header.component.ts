@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Renderer, AfterViewInit } from '@angular/core';
+import { Renderer2, AfterViewInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { SettingService} from '../../../../../services/setting.service'
 import { PopoverController, IonRouterOutlet } from '@ionic/angular';
@@ -202,10 +202,11 @@ EoniaImg ="https://firebasestorage.googleapis.com/v0/b/aonia-f2fe4.appspot.com/o
   ];
  
  public Title="";
-  constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet) {
+  constructor(private router: Router, private setting:SettingService,private renderer: Renderer2, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet) {
   }
   public toggleTheme(status) {
-    this.renderer.setElementClass(document.body, 'dark', status?false:true);
+   // this.renderer.setElementClass(document.body, 'dark', status?false:true);
+   // this.renderer.setAttribute(document.body, 'dark', status?false:true)
   }
   ngOnInit() {
      this.toggleTheme(true);

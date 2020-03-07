@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheetRef, MatBottomSheet } from '@angular/material';
+import { MatBottomSheetRef, MatBottomSheet } from '@angular/material/bottom-sheet';
 import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 import { ToasterService } from 'src/app/services/toaster/toaster.service';

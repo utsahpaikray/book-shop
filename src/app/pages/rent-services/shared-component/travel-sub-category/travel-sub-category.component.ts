@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatBottomSheetRef, MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { MatBottomSheetRef, MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 import { ToasterService } from 'src/app/services/toaster/toaster.service';
 import { NavController } from '@ionic/angular';

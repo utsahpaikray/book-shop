@@ -1,5 +1,5 @@
 import { HelperService } from './../../services/helper-service/helper.service';
-import { Component, OnInit, Renderer, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Renderer2, AfterViewInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { SettingService} from '../../services/setting.service'
 import { PopoverController, IonRouterOutlet, Platform, ModalController, NavController, AlertController } from '@ionic/angular';
@@ -217,7 +217,7 @@ export class MasterPage implements OnInit {
   userLogin: boolean = false;
   email:any;
   dataReturned: any;
-  constructor(private router: Router, private setting:SettingService,private renderer: Renderer, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet,private helperService:HelperService,public plt: Platform,public fAuth: AngularFireAuth,public modalController: ModalController, public navCtrl: NavController, private httpClient: HttpClient, private alertCtrl: AlertController) {
+  constructor(private router: Router, private setting:SettingService,private renderer: Renderer2, public popoverCtrl: PopoverController,private routerOutlet: IonRouterOutlet,private helperService:HelperService,public plt: Platform,public fAuth: AngularFireAuth,public modalController: ModalController, public navCtrl: NavController, private httpClient: HttpClient, private alertCtrl: AlertController) {
 
   }
 
@@ -229,7 +229,7 @@ ionViewWillLeave() {
     this.routerOutlet.swipeGesture = true;
 }
   public toggleTheme(status) {
-    this.renderer.setElementClass(document.body, 'dark', status?false:true);
+   // this.renderer.setElementClass(document.body, 'dark', status?false:true);
   }
   ngOnInit() {
     this.plt.ready().then(() => {
