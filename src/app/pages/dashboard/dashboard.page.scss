@@ -19,6 +19,10 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     will-change: scroll-position;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
   //  margin-left: calc(var(--page-margin) * -10);
   //  margin-right: calc(var(--page-margin) * -10);
 }
