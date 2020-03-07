@@ -1,8 +1,0 @@
-{
-  "name": "Aiona",
-  "integrations": {
-    "capacitor": {},
-    "cordova": {}
-  },
-  "type": "angular"
-}
