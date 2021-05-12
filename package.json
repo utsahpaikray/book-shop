@@ -48,7 +48,7 @@
     "@ionic/storage": "^2.2.0",
     "browserslist": "^4.9.1",
     "caniuse-lite": "^1.0.30001032",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "cordova-android-support-gradle-release": "^3.0.1",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-document-viewer": "^0.9.13",
